@@ -71,18 +71,20 @@ namespace OperatingSystem
             // 
             // cmbAlgorithm
             // 
+            this.cmbAlgorithm.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cmbAlgorithm.FormattingEnabled = true;
             this.cmbAlgorithm.Location = new System.Drawing.Point(6, 23);
             this.cmbAlgorithm.Name = "cmbAlgorithm";
-            this.cmbAlgorithm.Size = new System.Drawing.Size(144, 23);
+            this.cmbAlgorithm.Size = new System.Drawing.Size(144, 28);
             this.cmbAlgorithm.TabIndex = 1;
             // 
             // cmbProcessor
             // 
+            this.cmbProcessor.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cmbProcessor.FormattingEnabled = true;
             this.cmbProcessor.Location = new System.Drawing.Point(6, 73);
             this.cmbProcessor.Name = "cmbProcessor";
-            this.cmbProcessor.Size = new System.Drawing.Size(144, 23);
+            this.cmbProcessor.Size = new System.Drawing.Size(144, 28);
             this.cmbProcessor.TabIndex = 3;
             // 
             // LBLproceorNum
@@ -97,10 +99,11 @@ namespace OperatingSystem
             // 
             // cmbPcore
             // 
+            this.cmbPcore.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cmbPcore.FormattingEnabled = true;
             this.cmbPcore.Location = new System.Drawing.Point(6, 123);
             this.cmbPcore.Name = "cmbPcore";
-            this.cmbPcore.Size = new System.Drawing.Size(144, 23);
+            this.cmbPcore.Size = new System.Drawing.Size(144, 28);
             this.cmbPcore.TabIndex = 5;
             // 
             // LBLPcore
@@ -125,16 +128,18 @@ namespace OperatingSystem
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.textBox1.Location = new System.Drawing.Point(6, 173);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(144, 25);
+            this.textBox1.Size = new System.Drawing.Size(144, 27);
             this.textBox1.TabIndex = 7;
             // 
             // textBox2
             // 
+            this.textBox2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.textBox2.Location = new System.Drawing.Point(6, 225);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(144, 25);
+            this.textBox2.Size = new System.Drawing.Size(144, 27);
             this.textBox2.TabIndex = 9;
             // 
             // LBLArrival
@@ -149,9 +154,10 @@ namespace OperatingSystem
             // 
             // textBox3
             // 
+            this.textBox3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.textBox3.Location = new System.Drawing.Point(6, 277);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(144, 25);
+            this.textBox3.Size = new System.Drawing.Size(144, 27);
             this.textBox3.TabIndex = 11;
             // 
             // LBLBurst
@@ -166,9 +172,10 @@ namespace OperatingSystem
             // 
             // textBox4
             // 
+            this.textBox4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.textBox4.Location = new System.Drawing.Point(6, 329);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(144, 25);
+            this.textBox4.Size = new System.Drawing.Size(144, 27);
             this.textBox4.TabIndex = 13;
             // 
             // LBLTimequantum
