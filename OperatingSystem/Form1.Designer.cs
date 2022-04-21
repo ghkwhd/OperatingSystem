@@ -71,18 +71,20 @@ namespace OperatingSystem
             // 
             // cmbAlgorithm
             // 
+            this.cmbAlgorithm.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cmbAlgorithm.FormattingEnabled = true;
             this.cmbAlgorithm.Location = new System.Drawing.Point(7, 31);
             this.cmbAlgorithm.Name = "cmbAlgorithm";
-            this.cmbAlgorithm.Size = new System.Drawing.Size(144, 23);
+            this.cmbAlgorithm.Size = new System.Drawing.Size(144, 28);
             this.cmbAlgorithm.TabIndex = 1;
             // 
             // cmbProcessor
             // 
+            this.cmbProcessor.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cmbProcessor.FormattingEnabled = true;
             this.cmbProcessor.Location = new System.Drawing.Point(7, 81);
             this.cmbProcessor.Name = "cmbProcessor";
-            this.cmbProcessor.Size = new System.Drawing.Size(144, 23);
+            this.cmbProcessor.Size = new System.Drawing.Size(144, 28);
             this.cmbProcessor.TabIndex = 3;
             // 
             // LBLproceorNum
@@ -97,10 +99,11 @@ namespace OperatingSystem
             // 
             // cmbPcore
             // 
+            this.cmbPcore.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cmbPcore.FormattingEnabled = true;
             this.cmbPcore.Location = new System.Drawing.Point(7, 131);
             this.cmbPcore.Name = "cmbPcore";
-            this.cmbPcore.Size = new System.Drawing.Size(144, 23);
+            this.cmbPcore.Size = new System.Drawing.Size(144, 28);
             this.cmbPcore.TabIndex = 5;
             this.cmbPcore.SelectedIndexChanged += new System.EventHandler(this.cmbPcore_SelectedIndexChanged);
             // 
