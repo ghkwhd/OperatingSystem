@@ -12,6 +12,7 @@ namespace OperatingSystem
 {
     public partial class Form1 : Form
     {
+        private int time = 0;
         public Form1()
         {
             InitializeComponent();
@@ -163,6 +164,23 @@ namespace OperatingSystem
                 addListView(processName.Text, arrivalTime.Text, burstTime.Text);
                 processName.Focus();
             }
+        }
+
+        private void startTimer(object sender, EventArgs e)
+        {
+            time = 0;
+            timer.Start();
+        }
+
+        private void stopTimer(object sender, EventArgs e)
+        {
+            timer.Stop();
+        }
+
+        private void timerTick(object sender, EventArgs e)
+        {
+            ++time;
+            LBLTime.Text = time.ToString();
         }
     }
 }

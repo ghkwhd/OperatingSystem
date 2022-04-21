@@ -29,6 +29,7 @@ namespace OperatingSystem
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.LBLalgorithm = new System.Windows.Forms.Label();
             this.cmbAlgorithm = new System.Windows.Forms.ComboBox();
             this.cmbProcessor = new System.Windows.Forms.ComboBox();
@@ -57,6 +58,9 @@ namespace OperatingSystem
             this.LBLProcessor2 = new System.Windows.Forms.Label();
             this.LBLProcessor3 = new System.Windows.Forms.Label();
             this.LBLProcessor4 = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.btnStop = new System.Windows.Forms.Button();
+            this.LBLTime = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LBLalgorithm
@@ -82,7 +86,7 @@ namespace OperatingSystem
             // 
             this.cmbProcessor.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cmbProcessor.FormattingEnabled = true;
-            this.cmbProcessor.Location = new System.Drawing.Point(7, 81);
+            this.cmbProcessor.Location = new System.Drawing.Point(7, 84);
             this.cmbProcessor.Name = "cmbProcessor";
             this.cmbProcessor.Size = new System.Drawing.Size(144, 28);
             this.cmbProcessor.TabIndex = 3;
@@ -91,7 +95,7 @@ namespace OperatingSystem
             // 
             this.LBLproceorNum.AutoSize = true;
             this.LBLproceorNum.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLproceorNum.Location = new System.Drawing.Point(3, 57);
+            this.LBLproceorNum.Location = new System.Drawing.Point(3, 60);
             this.LBLproceorNum.Name = "LBLproceorNum";
             this.LBLproceorNum.Size = new System.Drawing.Size(141, 20);
             this.LBLproceorNum.TabIndex = 2;
@@ -101,7 +105,7 @@ namespace OperatingSystem
             // 
             this.cmbPcore.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cmbPcore.FormattingEnabled = true;
-            this.cmbPcore.Location = new System.Drawing.Point(7, 131);
+            this.cmbPcore.Location = new System.Drawing.Point(7, 137);
             this.cmbPcore.Name = "cmbPcore";
             this.cmbPcore.Size = new System.Drawing.Size(144, 28);
             this.cmbPcore.TabIndex = 5;
@@ -111,7 +115,7 @@ namespace OperatingSystem
             // 
             this.LBLPcore.AutoSize = true;
             this.LBLPcore.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLPcore.Location = new System.Drawing.Point(3, 107);
+            this.LBLPcore.Location = new System.Drawing.Point(3, 113);
             this.LBLPcore.Name = "LBLPcore";
             this.LBLPcore.Size = new System.Drawing.Size(105, 20);
             this.LBLPcore.TabIndex = 4;
@@ -121,7 +125,7 @@ namespace OperatingSystem
             // 
             this.LBLProcess.AutoSize = true;
             this.LBLProcess.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLProcess.Location = new System.Drawing.Point(3, 157);
+            this.LBLProcess.Location = new System.Drawing.Point(3, 166);
             this.LBLProcess.Name = "LBLProcess";
             this.LBLProcess.Size = new System.Drawing.Size(109, 20);
             this.LBLProcess.TabIndex = 6;
@@ -129,7 +133,7 @@ namespace OperatingSystem
             // 
             // processName
             // 
-            this.processName.Location = new System.Drawing.Point(7, 181);
+            this.processName.Location = new System.Drawing.Point(7, 190);
             this.processName.Name = "processName";
             this.processName.Size = new System.Drawing.Size(144, 25);
             this.processName.TabIndex = 7;
@@ -137,7 +141,7 @@ namespace OperatingSystem
             // 
             // arrivalTime
             // 
-            this.arrivalTime.Location = new System.Drawing.Point(7, 233);
+            this.arrivalTime.Location = new System.Drawing.Point(7, 242);
             this.arrivalTime.Name = "arrivalTime";
             this.arrivalTime.Size = new System.Drawing.Size(144, 25);
             this.arrivalTime.TabIndex = 9;
@@ -148,7 +152,7 @@ namespace OperatingSystem
             // 
             this.LBLArrival.AutoSize = true;
             this.LBLArrival.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLArrival.Location = new System.Drawing.Point(3, 209);
+            this.LBLArrival.Location = new System.Drawing.Point(3, 218);
             this.LBLArrival.Name = "LBLArrival";
             this.LBLArrival.Size = new System.Drawing.Size(96, 20);
             this.LBLArrival.TabIndex = 8;
@@ -156,7 +160,7 @@ namespace OperatingSystem
             // 
             // burstTime
             // 
-            this.burstTime.Location = new System.Drawing.Point(7, 285);
+            this.burstTime.Location = new System.Drawing.Point(7, 294);
             this.burstTime.Name = "burstTime";
             this.burstTime.Size = new System.Drawing.Size(144, 25);
             this.burstTime.TabIndex = 11;
@@ -167,7 +171,7 @@ namespace OperatingSystem
             // 
             this.LBLBurst.AutoSize = true;
             this.LBLBurst.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLBurst.Location = new System.Drawing.Point(3, 261);
+            this.LBLBurst.Location = new System.Drawing.Point(3, 270);
             this.LBLBurst.Name = "LBLBurst";
             this.LBLBurst.Size = new System.Drawing.Size(87, 20);
             this.LBLBurst.TabIndex = 10;
@@ -175,7 +179,7 @@ namespace OperatingSystem
             // 
             // timeQuantunm
             // 
-            this.timeQuantunm.Location = new System.Drawing.Point(7, 337);
+            this.timeQuantunm.Location = new System.Drawing.Point(7, 346);
             this.timeQuantunm.Name = "timeQuantunm";
             this.timeQuantunm.Size = new System.Drawing.Size(144, 25);
             this.timeQuantunm.TabIndex = 13;
@@ -186,7 +190,7 @@ namespace OperatingSystem
             // 
             this.LBLTimequantum.AutoSize = true;
             this.LBLTimequantum.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLTimequantum.Location = new System.Drawing.Point(3, 313);
+            this.LBLTimequantum.Location = new System.Drawing.Point(3, 322);
             this.LBLTimequantum.Name = "LBLTimequantum";
             this.LBLTimequantum.Size = new System.Drawing.Size(148, 20);
             this.LBLTimequantum.TabIndex = 12;
@@ -219,10 +223,11 @@ namespace OperatingSystem
             this.btnStart.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btnStart.Location = new System.Drawing.Point(7, 422);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(144, 34);
+            this.btnStart.Size = new System.Drawing.Size(68, 34);
             this.btnStart.TabIndex = 16;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.startTimer);
             // 
             // LBLTimeTable
             // 
@@ -328,11 +333,39 @@ namespace OperatingSystem
             this.LBLProcessor4.TabIndex = 24;
             this.LBLProcessor4.Text = "Processor4";
             // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timerTick);
+            // 
+            // btnStop
+            // 
+            this.btnStop.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnStop.Location = new System.Drawing.Point(83, 422);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(68, 34);
+            this.btnStop.TabIndex = 25;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.stopTimer);
+            // 
+            // LBLTime
+            // 
+            this.LBLTime.AutoSize = true;
+            this.LBLTime.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLTime.Location = new System.Drawing.Point(532, 8);
+            this.LBLTime.Name = "LBLTime";
+            this.LBLTime.Size = new System.Drawing.Size(44, 20);
+            this.LBLTime.TabIndex = 26;
+            this.LBLTime.Text = "Time";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1172, 477);
+            this.Controls.Add(this.LBLTime);
+            this.Controls.Add(this.btnStop);
             this.Controls.Add(this.LBLProcessor4);
             this.Controls.Add(this.LBLProcessor3);
             this.Controls.Add(this.LBLProcessor2);
@@ -396,6 +429,9 @@ namespace OperatingSystem
         private System.Windows.Forms.Label LBLProcessor3;
         private System.Windows.Forms.Label LBLProcessor4;
         private System.Windows.Forms.TextBox burstTime;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.Label LBLTime;
     }
 }
 
