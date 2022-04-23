@@ -200,6 +200,7 @@ namespace OperatingSystem
         {
             HRRN hrrn = new HRRN(pname, arrival, burst);
             SPN spn = new SPN(pname, arrival, burst);
+            FCFS fcfs = new FCFS(pname, arrival, burst);
 
             time = 0;
             timer.Start();
@@ -207,6 +208,8 @@ namespace OperatingSystem
                 hrrn.startHRRN();
             else if (cmbAlgorithm.SelectedItem.ToString() == "SPN")
                 spn.startSPN();
+            else if (cmbAlgorithm.SelectedItem.ToString() == "FCFS")
+                fcfs.startFCFS();
 
             pnum = pname.Count();
         }
