@@ -155,6 +155,9 @@ namespace OperatingSystem
         private void btnReset_Click(object sender, EventArgs e)
         {
             timeTable.Items.Clear();
+            pname.Clear();
+            arrivalTime.Clear();
+            burstTime.Clear();
         }
 
         private void timeTable_ColumnSizeAutoChange(ListView LV)
@@ -213,6 +216,19 @@ namespace OperatingSystem
                 fcfs.startFCFS();
             else if (cmbAlgorithm.SelectedItem.ToString() == "SRTN")
                 srtn.startSRTN();
+            else if ((cmbAlgorithm.SelectedItem.ToString() == "RR"))
+            {
+                if (timeQuantunm.Text == "" && Int32.Parse(timeQuantunm.Text) <= 0)
+                {
+                    MessageBox.Show("timeQuantunm값을 넣어주세요!");
+                }
+                else
+                {
+                    RR rr = new RR(pname, arrival, burst, Int32.Parse(timeQuantunm.Text));
+                    rr.startRR();
+                }
+            }
+
             pnum = pname.Count();
         }
 
