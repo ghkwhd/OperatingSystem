@@ -199,11 +199,14 @@ namespace OperatingSystem
         private void btnStart_Click(object sender, EventArgs e)
         {
             HRRN hrrn = new HRRN(pname, arrival, burst);
+            SPN spn = new SPN(pname, arrival, burst);
 
             time = 0;
             timer.Start();
             if (cmbAlgorithm.SelectedItem.ToString() == "HRRN")
                 hrrn.startHRRN();
+            else if (cmbAlgorithm.SelectedItem.ToString() == "SPN")
+                spn.startSPN();
 
             pnum = pname.Count();
         }
