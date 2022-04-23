@@ -12,10 +12,35 @@ namespace OperatingSystem
 {
     public partial class Form1 : Form
     {
-        private int time = 0;
+        public static Form1 form1 = new Form1();
+        public static string running;
+
+        static int pnum;
+        public static int time = 0;
+        static int LBLidx = 0;
+
+        private Label[] LBL = new Label[15];    // Label 배열
+
+        static List<string> pname = new List<string>();
+        static List<int> arrival = new List<int>();
+        static List<int> burst = new List<int>();
+
         public Form1()
         {
             InitializeComponent();
+
+            form1 = this;
+
+            for (int i = 0; i < 15; i++)
+            {
+                LBL[i] = new Label();
+                LBL[i].Location = new System.Drawing.Point(3 + 36*i, 3);
+                LBL[i].Size = new System.Drawing.Size(29, 43);
+                LBL[i].Name = "label" + i;
+                tableLayoutPanel1.Controls.Add(LBL[i]);
+            }
+
+            
         }
 
         //string p_name, bt, at;
@@ -45,6 +70,12 @@ namespace OperatingSystem
         private void addListView(string p_name,string at,string bt)
         {
             ListViewItem process = new ListViewItem(new string[] { p_name, at, bt });
+            
+            // 리스트에 추가하는 코드
+            pname.Add(p_name);
+            arrival.Add(int.Parse(at));
+            burst.Add(int.Parse(bt));
+
             timeTable.Items.Add(process);
             process.BackColor = bgColor[timeTable.Items.Count - 1];
             processName.Text = "";
@@ -165,22 +196,46 @@ namespace OperatingSystem
                 processName.Focus();
             }
         }
-
-        private void startTimer(object sender, EventArgs e)
+        private void btnStart_Click(object sender, EventArgs e)
         {
+            HRRN hrrn = new HRRN(pname, arrival, burst);
+
             time = 0;
             timer.Start();
+            if (cmbAlgorithm.SelectedItem.ToString() == "HRRN")
+                hrrn.startHRRN();
+
+            pnum = pname.Count();
         }
 
-        private void stopTimer(object sender, EventArgs e)
+        public void stopTimer(object sender, EventArgs e)
         {
             timer.Stop();
         }
 
         private void timerTick(object sender, EventArgs e)
         {
-            ++time;
+            label1.Text = running;
             LBLTime.Text = time.ToString();
+            
+            LBLidx = 0;
+
+            for (int i = 0; i < pnum; i++)
+                LBL[i].Text = "";
+
+            for (int i = 0; i < arrival.Count(); i++)
+            {
+                if(arrival[i] <= time)
+                {
+                    LBL[LBLidx].Text = pname[i];
+                    LBLidx++;
+                }
+            }
+
+            ++time;
+            if (arrival.Count == 0)
+                timer.Stop();
         }
+
     }
 }

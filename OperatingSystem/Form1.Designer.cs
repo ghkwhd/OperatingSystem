@@ -53,7 +53,6 @@ namespace OperatingSystem
             this.column_Arrival_Time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.column_Burst_Time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LBLQueue = new System.Windows.Forms.Label();
-            this.PBQueue = new System.Windows.Forms.ProgressBar();
             this.LBLProcessor1 = new System.Windows.Forms.Label();
             this.LBLProcessor2 = new System.Windows.Forms.Label();
             this.LBLProcessor3 = new System.Windows.Forms.Label();
@@ -61,6 +60,8 @@ namespace OperatingSystem
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.btnStop = new System.Windows.Forms.Button();
             this.LBLTime = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
             // LBLalgorithm
@@ -227,7 +228,7 @@ namespace OperatingSystem
             this.btnStart.TabIndex = 16;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.startTimer);
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // LBLTimeTable
             // 
@@ -285,13 +286,6 @@ namespace OperatingSystem
             this.LBLQueue.Size = new System.Drawing.Size(103, 20);
             this.LBLQueue.TabIndex = 19;
             this.LBLQueue.Text = "Ready Queue";
-            // 
-            // PBQueue
-            // 
-            this.PBQueue.Location = new System.Drawing.Point(603, 22);
-            this.PBQueue.Name = "PBQueue";
-            this.PBQueue.Size = new System.Drawing.Size(536, 62);
-            this.PBQueue.TabIndex = 20;
             // 
             // LBLProcessor1
             // 
@@ -359,18 +353,53 @@ namespace OperatingSystem
             this.LBLTime.TabIndex = 26;
             this.LBLTime.Text = "Time";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(639, 154);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 15);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "label1";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 15;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(618, 31);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(517, 49);
+            this.tableLayoutPanel1.TabIndex = 28;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1172, 477);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.LBLTime);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.LBLProcessor4);
             this.Controls.Add(this.LBLProcessor3);
             this.Controls.Add(this.LBLProcessor2);
             this.Controls.Add(this.LBLProcessor1);
-            this.Controls.Add(this.PBQueue);
             this.Controls.Add(this.LBLQueue);
             this.Controls.Add(this.timeTable);
             this.Controls.Add(this.LBLTimeTable);
@@ -423,15 +452,16 @@ namespace OperatingSystem
         private System.Windows.Forms.ColumnHeader column_Arrival_Time;
         private System.Windows.Forms.ColumnHeader column_Burst_Time;
         private System.Windows.Forms.Label LBLQueue;
-        private System.Windows.Forms.ProgressBar PBQueue;
         private System.Windows.Forms.Label LBLProcessor1;
         private System.Windows.Forms.Label LBLProcessor2;
         private System.Windows.Forms.Label LBLProcessor3;
         private System.Windows.Forms.Label LBLProcessor4;
         private System.Windows.Forms.TextBox burstTime;
-        private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Label LBLTime;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
 
