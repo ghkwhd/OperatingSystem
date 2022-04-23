@@ -201,6 +201,7 @@ namespace OperatingSystem
             HRRN hrrn = new HRRN(pname, arrival, burst);
             SPN spn = new SPN(pname, arrival, burst);
             FCFS fcfs = new FCFS(pname, arrival, burst);
+            SRTN srtn = new SRTN(pname, arrival, burst);
 
             time = 0;
             timer.Start();
@@ -210,7 +211,8 @@ namespace OperatingSystem
                 spn.startSPN();
             else if (cmbAlgorithm.SelectedItem.ToString() == "FCFS")
                 fcfs.startFCFS();
-
+            else if (cmbAlgorithm.SelectedItem.ToString() == "SRTN")
+                srtn.startSRTN();
             pnum = pname.Count();
         }
 
@@ -243,5 +245,14 @@ namespace OperatingSystem
                 timer.Stop();
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LBLProcessor3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
