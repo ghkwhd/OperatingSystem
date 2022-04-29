@@ -60,7 +60,6 @@ namespace OperatingSystem
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.btnStop = new System.Windows.Forms.Button();
             this.LBLTime = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.processor1 = new System.Windows.Forms.TableLayoutPanel();
             this.processor2 = new System.Windows.Forms.TableLayoutPanel();
@@ -203,7 +202,7 @@ namespace OperatingSystem
             this.LBLTimequantum.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.LBLTimequantum.Location = new System.Drawing.Point(10, 326);
             this.LBLTimequantum.Name = "LBLTimequantum";
-            this.LBLTimequantum.Size = new System.Drawing.Size(184, 25);
+            this.LBLTimequantum.Size = new System.Drawing.Size(147, 20);
             this.LBLTimequantum.TabIndex = 12;
             this.LBLTimequantum.Text = "RR Time quantunm";
             // 
@@ -371,15 +370,6 @@ namespace OperatingSystem
             this.LBLTime.TabIndex = 26;
             this.LBLTime.Text = "Time";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(619, 110);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 15);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "label1";
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
@@ -529,7 +519,6 @@ namespace OperatingSystem
             this.Controls.Add(this.processor2);
             this.Controls.Add(this.processor1);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.LBLTime);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.LBLProcessor4);
@@ -596,7 +585,6 @@ namespace OperatingSystem
         private System.Windows.Forms.TextBox burstTime;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Label LBLTime;
-        public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Timer timer;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel processor1;

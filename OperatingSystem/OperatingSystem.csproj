@@ -49,6 +49,7 @@
     <Compile Include="Processor.cs" />
     <Compile Include="SRTN2.cs" />
     <Compile Include="Process.cs" />
+    <Compile Include="Processor.cs" />
     <Compile Include="SRTN.cs" />
     <Compile Include="FCFS.cs" />
     <Compile Include="RR.cs" />

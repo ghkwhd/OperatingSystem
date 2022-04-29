@@ -12,42 +12,17 @@ namespace OperatingSystem
 {
     public partial class Form1 : Form
     {
-        public static Form1 form1 = new Form1();
-        public static string running;
-        public static bool check = false;
-
-        static int pnum;
         public static int time = 0;
-        static int LBLidx = 0;
-
-        List<Label> labels = new List<Label>();
-        private Label[] LBL = new Label[15];    // Label 배열
-        private List<TextBox> processorLBL = new List<TextBox>();
-
-        static List<string> pname = new List<string>();
-        static List<int> arrival = new List<int>();
-        static List<int> burst = new List<int>();
-
         static List<Process> processList = new List<Process>();
+        static Processor[] processorArray = new Processor[4];
+        static List<Process> ReadyQueue = new List<Process>();
 
         public Form1()
         {
             InitializeComponent();
 
-            form1 = this;
-
-            for (int i = 0; i < 15; i++)
-            {
-                LBL[i] = new Label();
-                LBL[i].Location = new System.Drawing.Point(3 + 36*i, 3);
-                LBL[i].Size = new System.Drawing.Size(29, 43);
-                LBL[i].Name = "label" + i;
-                tableLayoutPanel1.Controls.Add(LBL[i]);
-            }
-
         }
 
-        //string p_name, bt, at;
         Color[] bgColor = {Color.Red, Color.Orange,Color.Yellow,Color.Green,Color.Blue,Color.Gray,Color.Purple,
             Color.Pink,Color.Ivory,Color.Chocolate,Color.LemonChiffon,Color.Brown,Color.Violet,Color.HotPink,Color.Lime };
         private void Form1_Load(object sender, EventArgs e)
@@ -76,9 +51,6 @@ namespace OperatingSystem
             ListViewItem process = new ListViewItem(new string[] { p_name, at, bt });
             
             // 리스트에 추가하는 코드
-            pname.Add(p_name);
-            arrival.Add(int.Parse(at));
-            burst.Add(int.Parse(bt));
             processList.Add(new Process(p_name, int.Parse(at), int.Parse(bt)));
 
 
@@ -136,9 +108,7 @@ namespace OperatingSystem
         private void btnReset_Click(object sender, EventArgs e)
         {
             timeTable.Items.Clear();
-            pname.Clear();
-            arrivalTime.Clear();
-            burstTime.Clear();
+
         }
 
         private void timeTable_ColumnSizeAutoChange(ListView LV)
@@ -177,9 +147,7 @@ namespace OperatingSystem
         }
         private void btnStart_Click(object sender, EventArgs e)
         {
-
-
-            if (cmbProcessor.Text == "" || cmbPcore.Text == "")
+            if (cmbProcessor.SelectedItem.ToString() == null || cmbPcore.SelectedItem.ToString() == "")
             {
                 MessageBox.Show("입력하지 않은 값이 있습니다.");
             }
@@ -194,8 +162,13 @@ namespace OperatingSystem
             else {
                 TableLayoutPanel[] processors = { processor1, processor2, processor3, processor4 };
                 Label[] texts = { LBLProcessor1, LBLProcessor2, LBLProcessor3, LBLProcessor4 };
+                
                 int processorNum = int.Parse(cmbProcessor.SelectedItem.ToString());
                 int pCoreNum = int.Parse(cmbPcore.SelectedItem.ToString());
+                
+                processorArray = new Processor[processorNum];
+
+                
 
                 for (int i = 0; i < processorNum; i++)
                 {
@@ -203,53 +176,25 @@ namespace OperatingSystem
                     if (i < pCoreNum)
                     {
                         texts[i].Text = "p Processor" + (i+1);
+                        processorArray[i] = new Processor(texts[i].Text, true, "p");
                     }
                     else
                     {
                         texts[i].Text = "e Processor" + (i - pCoreNum + 1);
+                        processorArray[i] = new Processor(texts[i].Text, false, "e");
                     }
                     texts[i].Visible = true;
                 }
 
+                
 
-                HRRN hrrn = new HRRN(pname, arrival, burst);
-                SPN spn = new SPN(pname, arrival, burst);
-            
-                SRTN srtn = new SRTN(pname, arrival, burst);
-
-                time = 0;
-                timer.Start();
-
-                if (cmbAlgorithm.SelectedItem.ToString() == "HRRN")
-                    hrrn.startHRRN();
-
-                else if (cmbAlgorithm.SelectedItem.ToString() == "SPN")
-                    spn.startSPN();
-
-                else if (cmbAlgorithm.SelectedItem.ToString() == "FCFS")
+                if (cmbAlgorithm.SelectedItem.ToString() == "FCFS")
                 {
-                    FCFS fcfs = new FCFS(processList,labels);
+                    FCFS fcfs = new FCFS(processList, ReadyQueue, processorArray);
                     fcfs.startFCFS();
+                    time = 0;
+                    timer.Start();
                 }
-
-                else if (cmbAlgorithm.SelectedItem.ToString() == "SRTN")
-                    srtn.startSRTN();
-
-                else if ((cmbAlgorithm.SelectedItem.ToString() == "RR"))
-                {
-                    if (timeQuantunm.Text == "" && Int32.Parse(timeQuantunm.Text) <= 0)
-                    {
-                        MessageBox.Show("timeQuantunm값을 넣어주세요!");
-                    }
-
-                    else
-                    {
-                        RR rr = new RR(pname, arrival, burst, Int32.Parse(timeQuantunm.Text));
-                        rr.startRR();
-                    }
-                }
-
-                pnum = processList.Count();
             }
         }
 
@@ -260,34 +205,78 @@ namespace OperatingSystem
 
         private void timerTick(object sender, EventArgs e)
         {
-            label1.Text = running;
             LBLTime.Text = time.ToString();
-            LBLidx = 0;
 
-            for (int i = 0; i < pnum; i++)
-                LBL[i].Text = "";
-
-            for (int i = 0; i < processList.Count(); i++)
-            {
-                if(processList[i].At <= time)
-                {
-                    LBL[LBLidx].Text = processList[i].name;
-                    LBLidx++;
-                }
-            }
-
-            if (check)
-            {
-                processor1.Controls.Clear();
-                for (int i =0; i < labels.Count; i++)
-                {
-                    processor1.Controls.Add(labels[i]);
-                }
-            }
-            
-            ++time;
             if (processList.Count == 0)
                 timer.Stop();
+
+            else
+            {
+                tableLayoutPanel1.Controls.Clear();
+                for (int i = 0; i < ReadyQueue.Count; i++)
+                {
+                    Label ps = new Label();
+                    ps.Text = ReadyQueue[i].name;
+                    tableLayoutPanel1.Controls.Add(ps);
+                }
+
+                for (int i = 0; i < int.Parse(cmbProcessor.SelectedItem.ToString()); i++)
+                {
+                    if (i == 0)
+                    {
+                        processor1.Controls.Clear();
+                        List<Process> processes = processorArray[0].GetProcessList();
+                        for (int j = 0; j < processes.Count; j++)
+                        {
+                            Label ps = new Label();
+                            ps.Text = processes[j].name;
+                            processor1.Controls.Add(ps);
+                        }
+                    }
+
+                    else if (i == 1)
+                    {
+                        processor2.Controls.Clear();
+                        List<Process> processes = processorArray[1].GetProcessList();
+                        for (int j = 0; j < processes.Count; j++)
+                        {
+                            Label ps = new Label();
+                            ps.Text = processes[j].name;
+                            processor2.Controls.Add(ps);
+                        }
+                    }
+
+                    else if(i == 2)
+                    {
+                        processor3.Controls.Clear();
+                        List<Process> processes = processorArray[2].GetProcessList();
+                        for (int j = 0; j < processes.Count; j++)
+                        {
+                            Label ps = new Label();
+                            ps.Text = processes[j].name;
+                            processor3.Controls.Add(ps);
+                        }
+                    }
+
+                    else if(i == 3)
+                    {
+                        processor4.Controls.Clear();
+                        List<Process> processes = processorArray[3].GetProcessList();
+                        for (int j = 0; j < processes.Count; j++)
+                        {
+                            Label ps = new Label();
+                            ps.Text = processes[j].name;
+                            processor4.Controls.Add(ps);
+                        }
+                    }
+
+                    Console.WriteLine("Form Time =" + time);
+                }
+
+
+                ++time;
+            }
+            
         }
 
     }
