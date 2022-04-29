@@ -18,19 +18,7 @@ namespace OperatingSystem
         static List<string> name = new List<string>();
         static List<int> a_t = new List<int>(); // 도착시간들을 저장해놓을 리스트
         static List<int> b_t = new List<int>(); //  실행 시간들을 저장해놓을 리스트
-
-        public void startSRTN()
-        {
-
-            p_timer = new System.Timers.Timer(1000);
-            p_timer.Elapsed += running; //1초마다 check_next를 실행시켜라
-            p_timer.AutoReset = true; //timer에서 계속해서 반복시키게
-            p_timer.Start(); // 타이머 시작
-            check_next();
-            Form1.running = name[run_idx];
-
-        }
-
+        //static List<string> processor = new List<string>(); //프로세서 리스트
 
         public SRTN(List<string> pname, List<int> arrival_time, List<int> burst)
         {
@@ -60,7 +48,7 @@ namespace OperatingSystem
 
         }
 
-        public static void running(object source, ElapsedEventArgs e)
+        public static void timerEvent(object source, ElapsedEventArgs e)
         {
             check_next(); //다음에 돌꺼 정해줌
             Form1.running = name[run_idx];
@@ -78,6 +66,17 @@ namespace OperatingSystem
                 p_timer.Stop();
 
             p_time++;
+
+        }
+        public void startSRTN()
+        {
+
+            p_timer = new System.Timers.Timer(1000);
+            p_timer.Elapsed += timerEvent; //1초마다 check_next를 실행시켜라
+            p_timer.AutoReset = true; //timer에서 계속해서 반복시키게
+            p_timer.Start(); // 타이머 시작
+            check_next();
+            Form1.running = name[run_idx];
 
         }
 
