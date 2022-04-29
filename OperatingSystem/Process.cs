@@ -11,6 +11,7 @@ namespace OperatingSystem
         public string name;
         public int At;
         public int Bt;
+        public bool running_state = false;
         
         public Process(string psName, int psAt, int psBt)
         {
