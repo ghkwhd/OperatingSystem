@@ -29,6 +29,7 @@ namespace OperatingSystem
 
         Color[] bgColor = {Color.Red, Color.Orange,Color.Yellow,Color.Green,Color.Blue,Color.Gray,Color.Purple,
             Color.Pink,Color.Ivory,Color.Chocolate,Color.LemonChiffon,Color.Brown,Color.Violet,Color.HotPink,Color.Lime };
+
         private void Form1_Load(object sender, EventArgs e)
         {
             cmbAlgorithm.Items.Add("FCFS");
@@ -55,7 +56,8 @@ namespace OperatingSystem
             ListViewItem process = new ListViewItem(new string[] { p_name, at, bt });
 
             // 리스트에 추가하는 코드
-            processList.Add(new Process(p_name, int.Parse(at), int.Parse(bt)));
+            int idx = processList.Count;
+            processList.Add(new Process(p_name, int.Parse(at), int.Parse(bt), idx));
 
 
             timeTable.Items.Add(process);
@@ -200,8 +202,8 @@ namespace OperatingSystem
                     time = 0;
                     
                     FCFS fcfs = new FCFS(processList, ReadyQueue, processorArray);
-                    fcfs.startFCFS();
-                    timer.Start();
+                    timer2.Tick += new EventHandler(fcfs.Event);
+                    timer2.Start();
                 }
 
                 else if (cmbAlgorithm.SelectedItem.ToString() == "HRRN")
@@ -227,16 +229,16 @@ namespace OperatingSystem
                 timer.Stop();
                 timer2.Stop();
             }
-                
 
+            tableLayoutPanel1.Controls.Clear();
             for (int i = 0; i < ReadyQueue.Count; i++)
             {
                 Label ps = new Label();
                 ps.Text = ReadyQueue[i].name;
-                int idx = processList.IndexOf(ReadyQueue[i]);
+                int idx = ReadyQueue[i].index;
 
                 tableLayoutPanel1.Controls.Add(ps);
-                tableLayoutPanel1.Controls[i].BackColor = bgColor[idx];
+                tableLayoutPanel1.Controls[i].BackColor = bgColor[idx];  // 레디큐에 색깔 삽입
             }
 
             for (int i = 0; i < int.Parse(cmbProcessor.Text); i++)
@@ -248,32 +250,17 @@ namespace OperatingSystem
                 {
                     Label ps = new Label();
                     ps.Text = psList[j].name;
+                    int idx = psList[j].index;
+
                     tableLayouts[i].Controls.Add(ps);
+                    tableLayouts[i].Controls[j].BackColor = bgColor[idx];  // 간트차트에 색깔 삽입
                 }              
             }
 
-            if (processList.Count == 0)
-                timer.Stop();
-
-                    else if(i == 3)
-                    {
-                        processor4.Controls.Clear();
-                        List<Process> processes = processorArray[3].GetProcessList();
-                        for (int j = 0; j < processes.Count; j++)
-                        {
-                            Label ps = new Label();
-                            ps.Text = processes[j].name;
-                            processor4.Controls.Add(ps);
-                        }
-                    }
-            ++time;
-
             //Console.WriteLine("Form Time =" + time);
-                    Console.WriteLine("Form Time =" + time);
-                }
-                ++time;
-            }
-            
-        }
+            Console.WriteLine("Form Time =" + time);
+            ++time;
+        }    
     }
+            
 }

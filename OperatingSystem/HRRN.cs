@@ -13,7 +13,6 @@ namespace OperatingSystem
 
         static List<Process> indexList = new List<Process>();
         static int[] readyTime = { 0, 0, 0, 0 };
-        static int[] runningTime = { 0, 0, 0, 0 };
 
         static double responseratio;
 
@@ -58,7 +57,7 @@ namespace OperatingSystem
             Console.WriteLine("동작 시간");
 
             for (int i = 0; i < processorList.Length; i++)
-                Console.WriteLine(runningTime[i]);
+                Console.WriteLine(processorList[i].runningTime);
 
 
             // 레디큐 만들기
@@ -72,13 +71,13 @@ namespace OperatingSystem
             {
                 if (processorList[i].runningState())
                 {
-                    runningTime[i] += 1;    //  동작시간 증가
-                    processorList[i].GetProcessList().Last().Bt -= 1;
+                    processorList[i].runningTime += 1;    //  동작시간 증가
+                    processorList[i].getLastProcess().Bt -= 1;
 
-                    if (processorList[i].GetProcessList().Last().Bt == 0)
+                    if (processorList[i].getLastProcess().Bt == 0)
                     {
                         processorList[i].setRunning(false);
-                        int idx = processList.IndexOf(processorList[i].GetProcessList().Last());
+                        int idx = processList.IndexOf(processorList[i].getLastProcess());
                         processList.RemoveAt(idx);
 
                         if (readyQueue.Count != 0)
@@ -109,7 +108,7 @@ namespace OperatingSystem
                         processorList[i].addProcessor(indexList[0]);
                         readyQueue.Remove(indexList[0]);
                         indexList.RemoveAt(0);
-                        runningTime[i] += 1;
+                        processorList[i].runningTime += 1;
                         processorList[i].setRunning(true);
                     }
 
