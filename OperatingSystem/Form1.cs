@@ -16,10 +16,14 @@ namespace OperatingSystem
         static List<Process> processList = new List<Process>();
         static Processor[] processorArray = new Processor[4];
         static List<Process> ReadyQueue = new List<Process>();
+
+        static Timer timer2 = new Timer();  // 추가한 코드
+
         List<TableLayoutPanel> tableLayouts = new List<TableLayoutPanel>();
         public Form1()
         {
             InitializeComponent();
+            timer2.Interval = 1000; // 추가한 코드
 
         }
 
@@ -188,7 +192,8 @@ namespace OperatingSystem
                     texts[i].Visible = true;
                 }
 
-
+                time = 0;   // 위치 이동
+                timer.Start();  // 위치 이동
 
                 if (cmbAlgorithm.SelectedItem.ToString() == "FCFS")
                 {
@@ -197,6 +202,13 @@ namespace OperatingSystem
                     FCFS fcfs = new FCFS(processList, ReadyQueue, processorArray);
                     fcfs.startFCFS();
                     timer.Start();
+                }
+
+                else if (cmbAlgorithm.SelectedItem.ToString() == "HRRN")
+                {
+                    HRRN hrrn = new HRRN(processList, ReadyQueue, processorArray);
+                    timer2.Tick += new EventHandler(hrrn.Event);    // 추가한 코드
+                    timer2.Start(); // 추가한 코드
                 }
             }
         }
@@ -210,7 +222,12 @@ namespace OperatingSystem
         {
             LBLTime.Text = (time).ToString();
 
-            tableLayoutPanel1.Controls.Clear();
+            if (processList.Count == 0)
+            {
+                timer.Stop();
+                timer2.Stop();
+            }
+                
 
             for (int i = 0; i < ReadyQueue.Count; i++)
             {
@@ -238,9 +255,25 @@ namespace OperatingSystem
             if (processList.Count == 0)
                 timer.Stop();
 
+                    else if(i == 3)
+                    {
+                        processor4.Controls.Clear();
+                        List<Process> processes = processorArray[3].GetProcessList();
+                        for (int j = 0; j < processes.Count; j++)
+                        {
+                            Label ps = new Label();
+                            ps.Text = processes[j].name;
+                            processor4.Controls.Add(ps);
+                        }
+                    }
             ++time;
 
             //Console.WriteLine("Form Time =" + time);
+                    Console.WriteLine("Form Time =" + time);
+                }
+                ++time;
+            }
+            
         }
     }
 }

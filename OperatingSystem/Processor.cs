@@ -11,6 +11,7 @@ namespace OperatingSystem
         string name ="";
         bool type = false;
         string schedule ="";
+        bool running = false;   //   추가한 코드
         List<Process> processorList = new List<Process>();
         public int waiting = 0;
 
@@ -19,6 +20,16 @@ namespace OperatingSystem
             name = psName;
             psType = type;
             scheduler = schedule;
+        }
+
+        public bool runningState()  // 추가한 코드
+        {
+            return running;
+        }
+
+        public void setRunning(bool state)  // 추가한 코드
+        {
+            running = state;
         }
 
         public string getName()

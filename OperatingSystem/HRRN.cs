@@ -1,106 +1,125 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using System.Timers;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
-//namespace OperatingSystem
-//{
-//    class HRRN
-//    {
-//        static System.Timers.Timer timer;
+namespace OperatingSystem
+{
+    class HRRN
+    {
 
-//        static int time = 0;    // 현재 시간
-//        static int idx = 0;    // 실행해야 할 프로세스의 인덱스
+        static List<Process> processList = new List<Process>();
+        static List<Process> readyQueue = new List<Process>();
+        static Processor[] processorList = new Processor[4];
 
-//        static int waiting = 0; // 호출을 무시하기 위한 카운트 (프로세스의 bt만큼 무시)
+        static List<Process> indexList = new List<Process>();
+        static int[] readyTime = { 0, 0, 0, 0 };
+        static int[] runningTime = { 0, 0, 0, 0 };
 
-//        static List<string> name = new List<string>();
-//        static List<int> at = new List<int>();
-//        static List<int> bt = new List<int>();
-
-//        public HRRN(List<string> pname, List<int> arrival, List<int> burst)
-//        {
-//            name = pname;
-//            at = arrival;
-//            bt = burst;
-//        }
-
-//        public static int GetAT(int i)  // arrival time 반환
-//        {
-//            return at[i];
-//        }
-
-//        public static int GetBT(int i)  // burst time 반환
-//        {
-//            return bt[i];
-//        }
-
-//        public static void CalResponseRatio()   // Response Ratio 계산
-//        {
-//            double highest = 0;
-//            double calResult;
-//            //Console.WriteLine("\n");
-
-//            for (int i = 0; i < name.Count; i++)
-//            {
-//                if (at[i] <= time)   // 프로세스가 도착한 경우
-//                {
-//                    calResult = (double)(GetBT(i) + (time - GetAT(i))) / GetBT(i);
-//                    //Console.WriteLine(name[i] + "=(" + GetBT(i) + "+" + (time - GetAT(i) + ")/" + GetBT(i)) + "=" + calResult);
-
-//                    if (calResult > highest)
-//                    {
-//                        highest = calResult;
-//                        idx = i;
-//                    }
-//                }
-//            }
-//        }
-
-//        private static void timerEvent(object source, ElapsedEventArgs e)
-//        {
-//            if (waiting == bt[idx])   //  현재 수행 중인 프로세스의 실행시간만큼 시간이 지난 경우
-//            {
-//                waiting = 0;    // waiting 초기화
-//                name.RemoveAt(idx);
-//                at.RemoveAt(idx);
-//                bt.RemoveAt(idx);
-
-//                if (name.Count == 0)    // 더 이상 남아 있는 프로세스가 없다면 타이머 종료
-//                    timer.Stop();
-
-//                else // 남아 있는 프로세스가 있는 경우 다음 프로세스 탐색
-//                {
-//                    CalResponseRatio();
-//                    Form1.running = name[idx];
-//                    //Console.WriteLine("\n실행 시작 프로세스 = " + name[idx]);
-//                    waiting += 1;
-//                }
-//            }
-//            else
-//                waiting++;
-
-//            ++time;
-//        }
-
-//        public void startHRRN()
-//        {
-
-//            timer = new System.Timers.Timer(1000);  // 1초마다
-//            timer.Elapsed += timerEvent;
-//            timer.AutoReset = true; // 반복적으로 실행
-//            timer.Start();
-
-//            CalResponseRatio();
-//            Form1.running = name[idx];
-//            //Console.WriteLine("실행 시작 프로세스 = " + name[idx]);
-//            waiting += 1;
-
-//            Console.Read(); // 콘솔창 유지
-//        }
+        static double responseratio;
 
 
-//    }
-//}
+        public HRRN(List<Process> psList, List<Process> readyQ, Processor[] processors)
+        {
+            processList = psList;
+            readyQueue = readyQ;
+            processorList = processors;
+        }
+
+        public void calResponseRatio()
+        {
+            double temp;
+
+            responseratio = 0.0;
+            indexList.Clear();
+
+            for (int i = 0; i < readyQueue.Count; i++)
+            {
+                temp = ((Form1.time - readyQueue[i].At) + readyQueue[i].Bt) / readyQueue[i].Bt;
+
+                if (temp > responseratio)
+                {
+                    responseratio = temp;
+                    indexList.Clear();
+                    indexList.Add(readyQueue[i]);
+                }
+
+                else if (temp == responseratio)
+                    indexList.Add(readyQueue[i]);
+            }
+        }
+        public void Event(object sender, EventArgs e)
+        {
+
+            // 동작시간 출력용 (나중에 제거)
+            Console.WriteLine("대기 시간");
+            for (int i = 0; i < processorList.Length; i++)
+                Console.WriteLine(readyTime[i]);
+
+            Console.WriteLine("동작 시간");
+
+            for (int i = 0; i < processorList.Length; i++)
+                Console.WriteLine(runningTime[i]);
+
+
+            // 레디큐 만들기
+            for (int i = 0; i < processList.Count(); i++)
+            {
+                if (processList[i].At == Form1.time)
+                    readyQueue.Add(processList[i]);
+            }
+
+            for (int i = 0; i < processorList.Length; i++)
+            {
+                if (processorList[i].runningState())
+                {
+                    runningTime[i] += 1;    //  동작시간 증가
+                    processorList[i].GetProcessList().Last().Bt -= 1;
+
+                    if (processorList[i].GetProcessList().Last().Bt == 0)
+                    {
+                        processorList[i].setRunning(false);
+                        int idx = processList.IndexOf(processorList[i].GetProcessList().Last());
+                        processList.RemoveAt(idx);
+
+                        if (readyQueue.Count != 0)
+                        {
+                            calResponseRatio();
+                            processorList[i].addProcessor(indexList[0]);
+                            readyQueue.Remove(indexList[0]);
+                            indexList.RemoveAt(0);
+                            processorList[i].setRunning(true);
+                        }
+
+                        else
+                        {
+                            readyTime[i] += 1;
+                            processorList[i].setRunning(false);
+                        }
+
+                    }
+
+                }
+
+                else  // 프로세서가 비어있는 경우
+                {
+
+                    if (readyQueue.Count != 0)
+                    {
+                        calResponseRatio();
+                        processorList[i].addProcessor(indexList[0]);
+                        readyQueue.Remove(indexList[0]);
+                        indexList.RemoveAt(0);
+                        runningTime[i] += 1;
+                        processorList[i].setRunning(true);
+                    }
+
+                    else
+                    {
+                        readyTime[i] += 1;
+                        processorList[i].setRunning(false);
+                    }
+                }
+            }
+        }
+    }
+}
