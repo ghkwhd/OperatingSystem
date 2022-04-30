@@ -17,9 +17,12 @@ namespace OperatingSystem
         static Processor[] processorArray = new Processor[4];
         static List<Process> ReadyQueue = new List<Process>();
 
+        static Timer timer2 = new Timer();  // 추가한 코드
+
         public Form1()
         {
             InitializeComponent();
+            timer2.Interval = 1000; // 추가한 코드
 
         }
 
@@ -186,7 +189,8 @@ namespace OperatingSystem
                     texts[i].Visible = true;
                 }
 
-                
+                time = 0;   // 위치 이동
+                timer.Start();  // 위치 이동
 
                 if (cmbAlgorithm.SelectedItem.ToString() == "FCFS")
                 {
@@ -194,6 +198,13 @@ namespace OperatingSystem
                     fcfs.startFCFS();
                     time = 0;
                     timer.Start();
+                }
+
+                else if (cmbAlgorithm.SelectedItem.ToString() == "HRRN")
+                {
+                    HRRN hrrn = new HRRN(processList, ReadyQueue, processorArray);
+                    timer2.Tick += new EventHandler(hrrn.Event);    // 추가한 코드
+                    timer2.Start(); // 추가한 코드
                 }
             }
         }
@@ -208,7 +219,11 @@ namespace OperatingSystem
             LBLTime.Text = time.ToString();
 
             if (processList.Count == 0)
+            {
                 timer.Stop();
+                timer2.Stop();
+            }
+                
 
             else
             {
@@ -272,8 +287,6 @@ namespace OperatingSystem
 
                     Console.WriteLine("Form Time =" + time);
                 }
-
-
                 ++time;
             }
             
