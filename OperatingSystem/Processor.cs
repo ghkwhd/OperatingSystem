@@ -12,6 +12,7 @@ namespace OperatingSystem
         bool type = false;
         string schedule ="";
         List<Process> processorList = new List<Process>();
+        public int waiting = 0;
 
         public Processor(string psName, bool psType, string scheduler)
         {
@@ -40,10 +41,17 @@ namespace OperatingSystem
             processorList.Add(ps);
         }
 
-        public List<Process> GetProcessList()
+        public List<Process> getProcessList()
         {
             return processorList;
         }
 
+        public Process getLastProcess()
+        {
+            if (processorList.Count > 0)
+                return processorList.Last();
+            else
+                return null;
+        }
     }
 }
