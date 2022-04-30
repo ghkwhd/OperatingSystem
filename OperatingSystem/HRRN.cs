@@ -6,13 +6,11 @@ namespace OperatingSystem
 {
     class HRRN
     {
-
         static List<Process> processList = new List<Process>();
         static List<Process> readyQueue = new List<Process>();
         static Processor[] processorList = new Processor[4];
 
         static List<Process> indexList = new List<Process>();
-        static int[] readyTime = { 0, 0, 0, 0 };
 
         static double responseratio;
 
@@ -35,32 +33,20 @@ namespace OperatingSystem
             {
                 temp = ((Form1.time - readyQueue[i].At) + readyQueue[i].Bt) / readyQueue[i].Bt;
 
-                if (temp > responseratio)
+                if (temp > responseratio) // response ratio 값이 최대
                 {
                     responseratio = temp;
-                    indexList.Clear();
-                    indexList.Add(readyQueue[i]);
+                    indexList.Clear(); // indexList 초기화
+                    indexList.Add(readyQueue[i]); // indexList에 추가
                 }
 
-                else if (temp == responseratio)
-                    indexList.Add(readyQueue[i]);
+                else if (temp == responseratio) // 현재 response ratio 최댓값과 같은 경우
+                    indexList.Add(readyQueue[i]); // indexList에 추가
             }
         }
         public void Event(object sender, EventArgs e)
         {
-
-            // 동작시간 출력용 (나중에 제거)
-            Console.WriteLine("대기 시간");
-            for (int i = 0; i < processorList.Length; i++)
-                Console.WriteLine(readyTime[i]);
-
-            Console.WriteLine("동작 시간");
-
-            for (int i = 0; i < processorList.Length; i++)
-                Console.WriteLine(processorList[i].runningTime);
-
-
-            // 레디큐 만들기
+            // 도착한 프로세스 레디큐에 추가
             for (int i = 0; i < processList.Count(); i++)
             {
                 if (processList[i].At == Form1.time)
@@ -69,34 +55,29 @@ namespace OperatingSystem
 
             for (int i = 0; i < processorList.Length; i++)
             {
-                if (processorList[i].runningState())
+                if (processorList[i].runningState()) // 프로세서가 동작 중
                 {
                     processorList[i].runningTime += 1;    //  동작시간 증가
-                    processorList[i].getLastProcess().Bt -= 1;
+                    processorList[i].getLastProcess().Bt -= 1; // 현재 수행 중인 프로세스 bt 감소
 
-                    if (processorList[i].getLastProcess().Bt == 0)
+                    if (processorList[i].getLastProcess().Bt == 0) // 현재 수행 중인 프로세스의 bt가 0 인 경우
                     {
-                        processorList[i].setRunning(false);
+                        processorList[i].setRunning(false); // 프로세서 상태 변화
                         int idx = processList.IndexOf(processorList[i].getLastProcess());
-                        processList.RemoveAt(idx);
+                        processList.RemoveAt(idx);  // 프로세스 리스트에서 제거
 
-                        if (readyQueue.Count != 0)
+                        if (readyQueue.Count != 0)  // 레디큐에 다른 프로세스가 있는 경우
                         {
-                            calResponseRatio();
-                            processorList[i].addProcessor(indexList[0]);
-                            readyQueue.Remove(indexList[0]);
-                            indexList.RemoveAt(0);
-                            processorList[i].setRunning(true);
+                            calResponseRatio(); // response ratio 계산
+                            processorList[i].addProcessor(indexList[0]); // indexList의 0번째 항목 동작시킴
+                            readyQueue.Remove(indexList[0]);    // 레디큐에서 제거
+                            indexList.RemoveAt(0);  // indexLIst에서 제거
+                            processorList[i].setRunning(true);  // 프로세서 동작 중
                         }
 
-                        else
-                        {
-                            readyTime[i] += 1;
+                        else // 레디큐에 대기 중인 프로세스가 없는 경우
                             processorList[i].setRunning(false);
-                        }
-
                     }
-
                 }
 
                 else  // 프로세서가 비어있는 경우
@@ -113,10 +94,7 @@ namespace OperatingSystem
                     }
 
                     else
-                    {
-                        readyTime[i] += 1;
                         processorList[i].setRunning(false);
-                    }
                 }
             }
         }
