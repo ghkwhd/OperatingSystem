@@ -10,7 +10,7 @@ namespace OperatingSystem
 
         static List<Process> processList = new List<Process>();
         static List<Process> readyQueue = new List<Process>();
-        static Processor[] processorList = new Processor[4];     
+        static Processor[] processorList = new Processor[4];
 
 
         public FCFS(List<Process> psList, List<Process> readyQ, Processor[] processors)
@@ -46,7 +46,7 @@ namespace OperatingSystem
 
                         if (readyQueue.Count != 0)  // 레디큐에 프로세스가 존재할 경우
                         {
-                            processorList[i].addProcessor(readyQueue[0]);  // FCFS 특성으로 인해 레디큐 맨 앞의 프로세스 추가
+                            processorList[i].addProcess(readyQueue[0]);  // FCFS 특성으로 인해 레디큐 맨 앞의 프로세스 추가
                             readyQueue.RemoveAt(0);  // 레디큐에서 삭제
                             processorList[i].setRunning(true);  // 프로세서 동작 설정
                         }
@@ -65,7 +65,7 @@ namespace OperatingSystem
                 {
                     if (readyQueue.Count != 0) // 레디큐에 프로세스가 존재할 경우
                     {
-                        processorList[i].addProcessor(readyQueue[0]);  // FCFS 특성으로 인해 레디큐 맨 앞의 프로세스 추가 
+                        processorList[i].addProcess(readyQueue[0]);  // FCFS 특성으로 인해 레디큐 맨 앞의 프로세스 추가 
                         readyQueue.RemoveAt(0);   // 레디큐에서 삭제
                         processorList[i].runningTime += 1;  // 동작시간 증가
                         processorList[i].setRunning(true);  // 프로세서 동작 설정

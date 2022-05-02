@@ -91,7 +91,7 @@ namespace OperatingSystem
                     if (readyQueue.Count != 0)
                     {
                         calResponseRatio();
-                        processorList[i].addProcessor(indexList[0]);
+                        processorList[i].addProcess(indexList[0]);
                         readyQueue.Remove(indexList[0]);
                         indexList.RemoveAt(0);
                         processorList[i].runningTime += 1;
