@@ -212,6 +212,13 @@ namespace OperatingSystem
                     timer2.Tick += new EventHandler(hrrn.Event);    // 추가한 코드
                     timer2.Start(); // 추가한 코드
                 }
+
+                else if (cmbAlgorithm.SelectedItem.ToString() == "SPN")
+                {
+                    HRRN hrrn = new HRRN(processList, ReadyQueue, processorArray);
+                    timer2.Tick += new EventHandler(hrrn.Event);    // 추가한 코드
+                    timer2.Start(); // 추가한 코드
+                }
             }
         }
 
@@ -243,7 +250,7 @@ namespace OperatingSystem
 
             for (int i = 0; i < int.Parse(cmbProcessor.Text); i++)
             {
-                List<Process> psList = processorArray[i].getProcessList();
+                List<Process> psList = processorArray[i].getRunningProcess();
                 
                 tableLayouts[i].Controls.Clear();
                 for (int j = 0; j < psList.Count; j++)
