@@ -1,87 +1,122 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Timers;
 
 namespace OperatingSystem
 {
     class SRTN
     {
-        static System.Timers.Timer p_timer;
+        static List<Process> processList = new List<Process>();
+        static List<Process> readyQueue = new List<Process>();
+        static Processor[] processorList = new Processor[4];
 
-        static int p_time = 0;
-        static int run_idx = 0;
-        static int min = 100;
+        static List<Process> indexList = new List<Process>();
+        static int remainBurst = int.MaxValue;  // 남은 수행 시간
+        static bool bchanged = false;   // 프로세스 변경해야하는지 엽주
 
-        static List<string> name = new List<string>();
-        static List<int> a_t = new List<int>(); // 도착시간들을 저장해놓을 리스트
-        static List<int> b_t = new List<int>(); //  실행 시간들을 저장해놓을 리스트
-        //static List<string> processor = new List<string>(); //프로세서 리스트
 
-        public SRTN(List<string> pname, List<int> arrival_time, List<int> burst)
+        public SRTN(List<Process> psList, List<Process> readyQ, Processor[] processors)
         {
-            name = pname;
-            a_t = arrival_time;
-            b_t = burst;
-        }
-        public static int Get_AT(int i)
-        {
-            return a_t[i];
-        }
-        public static int Get_BT(int i)
-        {
-            return b_t[i];
+            processList = psList;
+            readyQueue = readyQ;
+            processorList = processors;
         }
 
-        public static void check_next() //다음 프로세스를 결정할 함수
+        public void calRemainBurst()
         {
-            for (int i = 0; i < b_t.Count; i++) //b_t에 있는 값들을 모두 비교함
+            bchanged = false;
+
+            for (int i = 0; i < readyQueue.Count; i++)
             {
-                if (a_t[i] <= p_time && min > b_t[i]) // 도착 시간이 지나 들어온 것들 중 지금의 프로세스보다 min값이 작으면
+                if (readyQueue[i].Bt < remainBurst)
                 {
-                    min = b_t[i]; //min값을 바꿔주고
-                    run_idx = i; //돌고 있는 걸 바꿔줌
+                    indexList.Clear();  //  인덱스 리스트 초기화
+                    indexList.Add(readyQueue[i]);   // 인덱스 리스트에 추가
+                    remainBurst = readyQueue[i].Bt; // 남은 수행시간의 최소를 저장
+                    bchanged = true;    // 다음 수행할 프로세스에 변화가 있다면 true
+                }
+
+                else if (readyQueue[i].Bt == remainBurst)
+                {
+                    indexList.Add(readyQueue[i]);   // 인덱스 리스트에 추가
+                    bchanged = true;    // 다음 수행할 프로세스에 변화가 있다면 true
                 }
             }
-
         }
-
-        public static void timerEvent(object source, ElapsedEventArgs e)
+        public void Event(object sender, EventArgs e)
         {
-            check_next(); //다음에 돌꺼 정해줌
-            Form1.running = name[run_idx];
-            b_t[run_idx] -= 1; //실행이 한번 되었으니 b_t를-1해줌
-
-            if (b_t[run_idx] == 0) //현재 프로세스의 b_t가 0이 되어 다 끝났을때
+            // 도착한 프로세스 레디큐에 추가
+            for (int i = 0; i < processList.Count(); i++)
             {
-                name.RemoveAt(run_idx);//정보를 지워줌
-                a_t.RemoveAt(run_idx);
-                b_t.RemoveAt(run_idx);
-                min = 100; // 다른 애가 들어올 수 있게
+                if (processList[i].At == Form1.time)
+                    readyQueue.Add(processList[i]);
             }
 
-            if (b_t.Count == 0)
-                p_timer.Stop();
+            for (int i = 0; i < processorList.Length; i++)
+            {
+                if (processorList[i].runningState()) // 프로세서가 동작 중
+                {
+                    processorList[i].runningTime += 1;    //  프로세서 동작시간 증가
+                    processorList[i].getLastProcess().Bt -= 1; // 현재 수행 중인 프로세스 bt 감소
 
-            p_time++;
+                    if (processorList[i].getLastProcess().Bt == 0) // 현재 수행 중인 프로세스의 bt가 0 인 경우
+                    {
+                        processorList[i].setRunning(false); // 프로세서 상태 변화
+                        int idx = processList.IndexOf(processorList[i].getLastProcess());
+                        processList.RemoveAt(idx);  // 프로세스 리스트에서 제거
+                        remainBurst = int.MaxValue; // 남은 수행시간은 정수의 최댓값으로 설정
 
+                        if (readyQueue.Count != 0)  // 레디큐에 다른 프로세스가 있는 경우
+                        {
+                            calRemainBurst();   // 다음 수행될 프로세스 결정
+
+                            processorList[i].addProcess(indexList[0]);
+                            readyQueue.Remove(indexList[0]);
+                            indexList.RemoveAt(0);
+                            processorList[i].setRunning(true);  // 프로세서 동작 중
+
+                        }
+
+                        else // 레디큐에 대기 중인 프로세스가 없는 경우
+                            processorList[i].setRunning(false);
+                    }
+
+                    else    // 현재 수행 중인 프로세스의 bt가 0이 아닌 경우
+                    {
+                        if (readyQueue.Count != 0)  // 레디큐에 다른 프로세스가 있는 경우
+                        {
+                            remainBurst = processorList[i].getLastProcess().Bt; // 현재 프로세스의 남은 수행시간 저장
+                            calRemainBurst();   // 다음 프로세스 결정
+
+                            if (bchanged)   // 현재 실행 중인 프로세스보다 다른 프로세스의 남은 수행시간이 더 적은 경우
+                            {
+                                readyQueue.Add(processorList[i].getLastProcess());  // 현재 프로세스를 레디큐에 저장
+                                processorList[i].addProcess(indexList[0]);
+                                readyQueue.Remove(indexList[0]);
+                                indexList.RemoveAt(0);
+                                processorList[i].setRunning(true);  // 프로세서 동작 중
+                            }
+                        }
+                    }
+                }
+
+                else  // 프로세서가 비어있는 경우
+                {
+                    if (readyQueue.Count != 0)  // 레디큐에 다른 프로세스가 있는 경우
+                    {
+                        remainBurst = int.MaxValue; // 남은 수행 시간을 최대로 설정
+                        calRemainBurst();   // 다음 수행 프로세스 계산
+
+                        processorList[i].addProcess(indexList[0]);
+                        readyQueue.Remove(indexList[0]);
+                        indexList.RemoveAt(0);
+                        processorList[i].setRunning(true);  // 프로세서 동작 중
+                    }
+
+                    else
+                        processorList[i].setRunning(false);
+                }
+            }
         }
-        public void startSRTN()
-        {
-
-            p_timer = new System.Timers.Timer(1000);
-            p_timer.Elapsed += timerEvent; //1초마다 check_next를 실행시켜라
-            p_timer.AutoReset = true; //timer에서 계속해서 반복시키게
-            p_timer.Start(); // 타이머 시작
-            check_next();
-            Form1.running = name[run_idx];
-
-        }
-
-
     }
-
-}
 }

@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Processor.cs" />
     <Compile Include="SRTN2.cs" />
     <Compile Include="Process.cs" />
     <Compile Include="Processor.cs" />
@@ -64,7 +63,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SRTN_sort_ver.cs" />
-    <Compile Include="test.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

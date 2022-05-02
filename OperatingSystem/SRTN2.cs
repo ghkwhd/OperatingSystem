@@ -26,14 +26,14 @@ namespace OperatingSystem
             processList = psList;
         }
 
-        public static void check_min()
+        public static void check_min() //제일 작은 레디큐 안 제일 작은 bt값을 가지는 레디큐안의 인덱스(인덱스의 값은 프로세스)찾음
         {
             for (int i = 0; i < readyQueue.Count; i++)
             {
                 if (min > readyQueue[i].Bt)
                 {
                     min = readyQueue[i].Bt;
-                    idx = i;
+                    idx = i; //readuQueue[i]는 프로세스임.
                 }
             }
         }
@@ -49,7 +49,7 @@ namespace OperatingSystem
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    if (processorList[i].running_process_idx == null) // 레디큐에도 있고 프로세서 자리 있어
+                    if (processoList[i].running_process_idx == null) // 레디큐에도 있고 프로세서 자리 있어
                     {
                         check_min(); //readyqueue에서 찾ㅇ,ㅁ
                         processorList[i].running_process_idx = idx; //idx정보 넣어주기
@@ -66,7 +66,7 @@ namespace OperatingSystem
                         readyQueue[idx].Bt -= 1; //들어있는거 bt 줄여
                         if (readyQueue[idx].Bt == 0)//근데 bt가 0이면
                         {
-                           processList.RemoveAt(idx); // 프로세스 리스트에서 지워
+                            processList.RemoveAt(idx); // 프로세스 리스트에서 지워
                         }
                     }
                 }
@@ -74,11 +74,12 @@ namespace OperatingSystem
             }
             else //레대큐에 없어
             {
-                for (int i =0; i < 4; i++) {
+                for (int i = 0; i < 4; i++)
+                {
                     if (processorList[i].running_process_idx == null) // 프로세서 돌아가는거 없으면
                     {
                         confirm += 1; //프로세서가 다 비었는지 확인할거
-                        if(confirm == 4) //프로세서 다 비었으면
+                        if (confirm == 4) //프로세서 다 비었으면
                             p_timer.Stop(); //타이머 끝내!
 
                     }
