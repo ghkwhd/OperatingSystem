@@ -12,7 +12,7 @@ namespace OperatingSystem
 
         static List<Process> indexList = new List<Process>();
         static int remainBurst = int.MaxValue;  // 남은 수행 시간
-        static bool bchanged = false;   // 프로세스 변경해야하는지 엽주
+        static bool bchanged = false;   // 프로세스 변경해야하는지 여부
 
 
         public SRTN(List<Process> psList, List<Process> readyQ, Processor[] processors)
