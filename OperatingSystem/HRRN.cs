@@ -74,7 +74,7 @@ namespace OperatingSystem
                         if (readyQueue.Count != 0)  // 레디큐에 다른 프로세스가 있는 경우
                         {
                             calResponseRatio(); // response ratio 계산
-                            processorList[i].addProcessor(indexList[0]); // indexList의 0번째 항목 동작시킴
+                            processorList[i].addProcess(indexList[0]); // indexList의 0번째 항목 동작시킴
                             readyQueue.Remove(indexList[0]);    // 레디큐에서 제거
                             indexList.RemoveAt(0);  // indexLIst에서 제거
                             processorList[i].setRunning(true);  // 프로세서 동작 중
