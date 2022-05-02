@@ -213,8 +213,8 @@ namespace OperatingSystem
 
                 else if (cmbAlgorithm.SelectedItem.ToString() == "SPN")
                 {
-                    HRRN hrrn = new HRRN(processList, ReadyQueue, processorArray);
-                    timer2.Tick += new EventHandler(hrrn.Event);    // 추가한 코드
+                    SPN spn = new SPN(processList, ReadyQueue, processorArray);
+                    timer2.Tick += new EventHandler(spn.Event);    // 추가한 코드
                     timer2.Start(); // 추가한 코드
                 }
                 else if ((cmbAlgorithm.SelectedItem.ToString() == "RR"))
