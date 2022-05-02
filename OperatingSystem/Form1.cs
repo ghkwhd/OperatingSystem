@@ -217,6 +217,12 @@ namespace OperatingSystem
                     timer2.Tick += new EventHandler(spn.Event);    // 추가한 코드
                     timer2.Start(); // 추가한 코드
                 }
+                else if (cmbAlgorithm.SelectedItem.ToString() == "SRTN")
+                {
+                    SRTN srtn = new SRTN(processList, ReadyQueue, processorArray);
+                    timer2.Tick += new EventHandler(srtn.Event);    // 추가한 코드
+                    timer2.Start(); // 추가한 코드
+                }
                 else if ((cmbAlgorithm.SelectedItem.ToString() == "RR"))
                 {
                     if (timeQuantunm.Text == "" || Int32.Parse(timeQuantunm.Text) <= 0)
@@ -278,7 +284,12 @@ namespace OperatingSystem
             //Console.WriteLine("Form Time =" + time);
             //Console.WriteLine("Form Time =" + time);
             ++time;
-        }    
+        }
+
+        private void timeTable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
             
 }
