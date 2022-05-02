@@ -8,7 +8,7 @@ namespace OperatingSystem
 {
     class Processor
     {
-        int idx = 0;
+        int idx = -1;
         string name = "";
         bool type = false;
         string schedule = "";
