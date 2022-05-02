@@ -52,7 +52,7 @@ namespace OperatingSystem
 
                         if (readyQueue.Count != 0)          // 레디큐에 프로세스 존재
                         {
-                            processorList[i].addProcess(readyQueue[0]);     // BT순으로 오름차순 정렬된 레디큐의 맨 앞 프로세스 할당
+                            processorList[i].addProcess(readyQueueSort[0]);     // BT순으로 오름차순 정렬된 레디큐의 맨 앞 프로세스 할당
                             int idx = processList.IndexOf(readyQueueSort[0]);
                             readyQueue.RemoveAt(readyQueue.IndexOf(readyQueueSort[0]));
                             readyQueueSort.RemoveAt(0);         // 레디큐에서 제외

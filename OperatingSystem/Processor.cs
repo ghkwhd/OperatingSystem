@@ -8,23 +8,17 @@ namespace OperatingSystem
 {
     class Processor
     {
-        int idx = -1;
         string name = "";
-        bool type = false;
-        string schedule = "";
+        string type = "";
         bool running = false;   //   추가한 코드
         List<Process> runningProcess = new List<Process>();     // 크기가 1인 processList
         public int runningTime = 0;  // running Time 계산
+        public int watt = 0;
 
-        public Processor(string psName, bool psType, string scheduler)
+        public Processor(string psName, string coreType)
         {
             name = psName;
-            psType = type;
-            scheduler = schedule;
-        }
-        public int running_process_idx() //해진 추가
-        {
-            return idx;
+            type = coreType;
         }
 
         public bool runningState()  // 추가한 코드
@@ -42,14 +36,9 @@ namespace OperatingSystem
             return name;
         }
 
-        public bool getType()
+        public string getType()
         {
             return type;
-        }
-
-        public string getSchedule()
-        {
-            return schedule;
         }
 
         public void addProcess(Process ps)

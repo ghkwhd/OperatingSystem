@@ -24,7 +24,6 @@ namespace OperatingSystem
         {
             InitializeComponent();
             timer2.Interval = 1000; // 추가한 코드
-
         }
 
         Color[] bgColor = {Color.Red, Color.Orange,Color.Yellow,Color.Green,Color.Blue,Color.Gray,Color.Purple,
@@ -58,7 +57,6 @@ namespace OperatingSystem
             // 리스트에 추가하는 코드
             int idx = processList.Count;
             processList.Add(new Process(p_name, int.Parse(at), int.Parse(bt), idx));
-
 
             timeTable.Items.Add(process);
             process.BackColor = bgColor[timeTable.Items.Count - 1];
@@ -99,16 +97,13 @@ namespace OperatingSystem
                     addListView(processName.Text, arrivalTime.Text, burstTime.Text);
                     processName.Focus();
                 }
-
             }
         }
 
         private void timeTable_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
-
             e.NewWidth = timeTable.Columns[e.ColumnIndex].Width;
             e.Cancel = true;
-
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -141,10 +136,12 @@ namespace OperatingSystem
             {
                 MessageBox.Show("입력하지 않은 값이 있습니다.");
             }
+
             else if (timeTable.Items.Count >= 15)
             {
                 MessageBox.Show("최대 프로세스 개수를 초과했습니다.");
             }
+
             else
             {
                 addListView(processName.Text, arrivalTime.Text, burstTime.Text);
@@ -158,12 +155,10 @@ namespace OperatingSystem
                 MessageBox.Show("입력하지 않은 값이 있습니다.");
             }
 
-
             else if (int.Parse(cmbProcessor.Text) < int.Parse(cmbPcore.Text))
             {
                 MessageBox.Show("유효하지 않은 P Core 값입니다.");
             }
-
 
             else
             {
@@ -176,20 +171,20 @@ namespace OperatingSystem
                 processorArray = new Processor[processorNum];
 
 
-                for (int i = 0; i < processorNum; i++)
+                for (int i = processorNum-1; i >= 0; i--)
                 {
-                    tableLayouts.Add(processors[i]);
+                    tableLayouts.Add(processors[processorNum - i - 1]);
 
-                    tableLayouts[i].Visible = true;
-                    if (i < pCoreNum)
+                    tableLayouts[processorNum - i - 1].Visible = true;
+                    if (i >= pCoreNum)
                     {
-                        texts[i].Text = "p Processor" + (i + 1);
-                        processorArray[i] = new Processor(texts[i].Text, true, "p");
+                        texts[processorNum - i -1].Text = "e Processor" + (processorNum - i);
+                        processorArray[processorNum - i -1] = new Processor(texts[processorNum - i - 1].Text, "e");
                     }
                     else
                     {
-                        texts[i].Text = "e Processor" + (i - pCoreNum + 1);
-                        processorArray[i] = new Processor(texts[i].Text, false, "e");
+                        texts[processorNum - i - 1].Text = "p Processor" + (processorNum - i);
+                        processorArray[processorNum - i - 1] = new Processor(texts[processorNum - i - 1].Text, "p");
                     }
                     texts[i].Visible = true;
                 }
@@ -281,14 +276,7 @@ namespace OperatingSystem
                 }              
             }
 
-            //Console.WriteLine("Form Time =" + time);
-            //Console.WriteLine("Form Time =" + time);
             ++time;
-        }
-
-        private void timeTable_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
             

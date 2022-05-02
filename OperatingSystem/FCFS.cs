@@ -56,9 +56,7 @@ namespace OperatingSystem
                             //readyTime[i] += 1;
                             processorList[i].setRunning(false);  // 대기 상태 설정
                         }
-
                     }
-
                 }
 
                 else  // 프로세서가 비어있는 경우
