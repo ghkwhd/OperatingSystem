@@ -14,7 +14,6 @@ namespace OperatingSystem
         bool running = false;   //   추가한 코드
         List<Process> processorList = new List<Process>();
         public int runningTime = 0;  // running Time 계산
-        
 
         public Processor(string psName, bool psType, string scheduler)
         {

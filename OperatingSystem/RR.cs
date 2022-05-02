@@ -38,7 +38,7 @@ namespace OperatingSystem
             {
                 if (processorList[i].runningState()) // processor 동작 중이면
                 {
-                    RRtime[i]++;
+                    RRtime[i]++;  // 실행시간 증가
                     processorList[i].runningTime += 1;  // 동작시간 증가
                     Process ps = processorList[i].getLastProcess();  // 실행 중인 프로세스
                     ps.Bt -= 1;  // 1초 실행
@@ -49,7 +49,7 @@ namespace OperatingSystem
                         processorList[i].setRunning(false);  // 실행 끝 알림
                         int idx = processList.IndexOf(ps);  //프로세스 리스트에서 위치 검색 
                         processList.RemoveAt(idx);  // 프로세스 리스트에서 삭제
-                        RRtime[i] = 1;
+                        RRtime[i] = 1; // 실행시간 초기화
 
                         if (readyQueue.Count != 0)  // 레디큐에 프로세스가 존재할 경우
                         {
@@ -67,11 +67,11 @@ namespace OperatingSystem
 
                     else  if (timeQuantum+1 == RRtime[i])  // 실행시간이 남았을 때
                     {
-                        int idx = processList.IndexOf(ps);
-                        ps.At += timeQuantum;
-                        RRtime[i] = 1;
-                        processList.RemoveAt(idx);
-                        processList.Add(ps);
+                        int idx = processList.IndexOf(ps);  // 프로세스 위치 찾기
+                        ps.At += timeQuantum;  // 프로세스 timeQuantum만큼 AT 증가
+                        RRtime[i] = 1; // 실행시간 증가
+                        processList.RemoveAt(idx);  // 프로세스 리스트 삭제
+                        processList.Add(ps);  // 새롭게 프로세스 추가
                         // Console.WriteLine(processList.Last().name + " ps AT = " + processList.Last().At + " ps BT = " + processList.Last().Bt);
 
                         if (readyQueue.Count != 0)  // 레디큐에 프로세스가 존재할 경우
@@ -99,7 +99,7 @@ namespace OperatingSystem
                         processorList[i].addProcessor(readyQueue[0]);  // FCFS 특성으로 인해 레디큐 맨 앞의 프로세스 추가 
                         readyQueue.RemoveAt(0);   // 레디큐에서 삭제
                         processorList[i].runningTime += 1;  // 동작시간 증가
-                        RRtime[i] += 1;
+                        RRtime[i] += 1; // 실행시간 증가
                         processorList[i].setRunning(true);  // 프로세서 동작 설정
                     }
 
