@@ -25,7 +25,9 @@ namespace OperatingSystem
             for (int i = 0; i < processList.Count(); i++)
             {
                 if (processList[i].At == Form1.time)
-                    readyQueue.Add(processList[i]);  // 레디큐 설정
+                {
+                    readyQueue.Add(processList[i]);  // 레디큐 설정                    
+                }
             }
 
             for (int i = 0; i < processorList.Length; i++)

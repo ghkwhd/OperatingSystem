@@ -49,8 +49,13 @@ namespace OperatingSystem
             // 도착한 프로세스 레디큐에 추가
             for (int i = 0; i < processList.Count(); i++)
             {
+
                 if (processList[i].At == Form1.time)
+                {
                     readyQueue.Add(processList[i]);
+                    
+                }
+                    
             }
 
             for (int i = 0; i < processorList.Length; i++)

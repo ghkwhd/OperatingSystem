@@ -199,8 +199,6 @@ namespace OperatingSystem
 
                 if (cmbAlgorithm.SelectedItem.ToString() == "FCFS")
                 {
-                    time = 0;
-                    
                     FCFS fcfs = new FCFS(processList, ReadyQueue, processorArray);
                     timer2.Tick += new EventHandler(fcfs.Event);
                     timer2.Start();
@@ -211,6 +209,20 @@ namespace OperatingSystem
                     HRRN hrrn = new HRRN(processList, ReadyQueue, processorArray);
                     timer2.Tick += new EventHandler(hrrn.Event);    // 추가한 코드
                     timer2.Start(); // 추가한 코드
+                }
+
+                else if ((cmbAlgorithm.SelectedItem.ToString() == "RR"))
+                {
+                    if (timeQuantunm.Text == "" || Int32.Parse(timeQuantunm.Text) <= 0)
+                    {
+                        MessageBox.Show("timeQuantunm값을 넣어주세요!");
+                    }
+                    else
+                    {
+                        RR rr = new RR(processList, ReadyQueue, processorArray, Int32.Parse(timeQuantunm.Text));
+                        timer2.Tick += new EventHandler(rr.Event);
+                        timer2.Start();
+                    }
                 }
             }
         }
@@ -258,7 +270,7 @@ namespace OperatingSystem
             }
 
             //Console.WriteLine("Form Time =" + time);
-            Console.WriteLine("Form Time =" + time);
+            //Console.WriteLine("Form Time =" + time);
             ++time;
         }    
     }
