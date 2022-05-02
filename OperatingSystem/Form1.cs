@@ -216,6 +216,7 @@ namespace OperatingSystem
                     HRRN hrrn = new HRRN(processList, ReadyQueue, processorArray);
                     timer2.Tick += new EventHandler(hrrn.Event);    // 추가한 코드
                     timer2.Start(); // 추가한 코드
+                }
                 else if ((cmbAlgorithm.SelectedItem.ToString() == "RR"))
                 {
                     if (timeQuantunm.Text == "" || Int32.Parse(timeQuantunm.Text) <= 0)
