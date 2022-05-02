@@ -7,12 +7,10 @@ namespace OperatingSystem
 {
     class FCFS
     {
-        static System.Timers.Timer timer;
 
         static List<Process> processList = new List<Process>();
         static List<Process> readyQueue = new List<Process>();
         static Processor[] processorList = new Processor[4];
-        static int time = 0;    // 현재 시간
 
 
         public FCFS(List<Process> psList, List<Process> readyQ, Processor[] processors)
@@ -22,110 +20,64 @@ namespace OperatingSystem
             processorList = processors;
         }
 
-        public static void FirstCome()
+        public void Event(object sender, EventArgs e)
         {
-            for (int i = 0; i < processList.Count; i++)
+            for (int i = 0; i < processList.Count(); i++)
             {
-                int min = i;
-                for (int j = i + 1; j < processList.Count; j++)
+                if (processList[i].At == Form1.time)
                 {
-                    if (processList[min].At >= processList[j].At)
-                        min = j;
+                    readyQueue.Add(processList[i]);  // 레디큐 설정                    
                 }
-                Process tmp = processList[min];
-                processList[min] = processList[i];
-                processList[i] = tmp;
-
-            }
-        }
-
-        private static void timerEvent(object source, ElapsedEventArgs e)
-        {
-            for (int i = 0; i < processList.Count; i++)
-            {
-                if (processList[i].At == time)
-                    readyQueue.Add(processList[i]);
-                else if (processList[i].At > time)
-                    break;
-
             }
 
             for (int i = 0; i < processorList.Length; i++)
             {
-                if (processorList[i].GetProcessList().Count == 0)
+                if (processorList[i].runningState()) // processor 동작 중이면
                 {
-                    if (readyQueue[0].At <= time)
+                    processorList[i].runningTime += 1;  // 동작시간 증가
+                    Process ps = processorList[i].getLastProcess();  // 실행 중인 프로세스
+                    ps.Bt -= 1;  // 1초 실행
+
+                    if (ps.Bt == 0)  // 실행이 끝났을 때
                     {
-                        processorList[i].addProcessor(readyQueue[0]);
-                        processorList[i].GetProcessList().Last().Bt -= 1;
-                        readyQueue.RemoveAt(0);
-                    }
+                        processorList[i].setRunning(false);  // 실행 끝 알림
+                        int idx = processList.IndexOf(ps);  //프로세스 리스트에서 위치 검색 
+                        processList.RemoveAt(idx);  // 프로세스 리스트에서 삭제
 
-                    continue;
-                }
-
-                Process ps = processorList[i].GetProcessList().Last();
-
-
-                if (ps.Bt == 0)    //  현재 수행 중인 프로세스의 실행시간만큼 시간이 지난 경우
-                {
-                    Console.WriteLine("Finish: " + ps.name + " Time = " + time);
-                    int idx = processList.IndexOf(ps);
-                    processList.RemoveAt(idx);
-
-
-                    if (processList.Count == 0)// 더 이상 남아 있는 프로세스가 없다면 타이머 종료
-                    {
-                        timer.Stop();
-                    }
-
-                    else if (readyQueue.Count > 0) // 남아 있는 프로세스가 있는 경우 다음 프로세스 탐색
-                    {
-                        if (readyQueue.Count != 0 && readyQueue[0].At <= time)
+                        if (readyQueue.Count != 0)  // 레디큐에 프로세스가 존재할 경우
                         {
-                            processorList[i].addProcessor(readyQueue[0]);
-                            Console.WriteLine("Add to Core: " + readyQueue[0].name + " time = " + time);
-                            ps = processorList[i].GetProcessList().Last();
-                            readyQueue.RemoveAt(0);
-                            ps.Bt -= 1;
+                            processorList[i].addProcess(readyQueue[0]);  // FCFS 특성으로 인해 레디큐 맨 앞의 프로세스 추가
+                            readyQueue.RemoveAt(0);  // 레디큐에서 삭제
+                            processorList[i].setRunning(true);  // 프로세서 동작 설정
                         }
 
-                        continue;
-                    }
+                        else  // 레디큐에 프로세스가 없으면
+                        {
+                            //readyTime[i] += 1;
+                            processorList[i].setRunning(false);  // 대기 상태 설정
+                        }
 
-                    if (processorList[i].getType())
-                    {
-                        ps = processorList[i].GetProcessList().Last();
-                        ps.Bt -= 1;
-                    }
-
-                    else
-                    {
-                        ps = processorList[i].GetProcessList().Last();
-                        ps.Bt -= 1;
                     }
 
                 }
 
-                else
+                else  // 프로세서가 비어있는 경우
                 {
-                    ps.Bt -= 1;
+                    if (readyQueue.Count != 0) // 레디큐에 프로세스가 존재할 경우
+                    {
+                        processorList[i].addProcess(readyQueue[0]);  // FCFS 특성으로 인해 레디큐 맨 앞의 프로세스 추가 
+                        readyQueue.RemoveAt(0);   // 레디큐에서 삭제
+                        processorList[i].runningTime += 1;  // 동작시간 증가
+                        processorList[i].setRunning(true);  // 프로세서 동작 설정
+                    }
+
+                    else  // 레디큐에 프로세스가 없으면
+                    {
+                        //readyTime[i] += 1;
+                        processorList[i].setRunning(false);  // 대기 상태 설정
+                    }
                 }
             }
-
-            ++time;
-        }
-
-
-        public void startFCFS()
-        {
-            timer = new System.Timers.Timer(1000);  // 1초마다
-            timer.Elapsed += timerEvent;
-            timer.AutoReset = true; // 반복적으로 실행
-            FirstCome();
-            timer.Start();
-
-            Console.Read(); // 콘솔창 유지
         }
     }
 }

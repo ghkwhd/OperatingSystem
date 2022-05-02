@@ -11,13 +11,25 @@ namespace OperatingSystem
         string name ="";
         bool type = false;
         string schedule ="";
-        List<Process> processorList = new List<Process>();
+        bool running = false;   //   추가한 코드
+        List<Process> runningProcess = new List<Process>();     // 크기가 1인 processList
+        public int runningTime = 0;  // running Time 계산
 
         public Processor(string psName, bool psType, string scheduler)
         {
             name = psName;
             psType = type;
             scheduler = schedule;
+        }
+
+        public bool runningState()  // 추가한 코드
+        {
+            return running;
+        }
+
+        public void setRunning(bool state)  // 추가한 코드
+        {
+            running = state;
         }
 
         public string getName()
@@ -35,15 +47,22 @@ namespace OperatingSystem
             return schedule;
         }
 
-        public void addProcessor(Process ps)
+        public void addProcess(Process ps)
         {
-            processorList.Add(ps);
+            runningProcess.Add(ps);
         }
 
-        public List<Process> GetProcessList()
+        public List<Process> getRunningProcess()
         {
-            return processorList;
+            return runningProcess;
         }
 
+        public Process getLastProcess()
+        {
+            if (runningProcess.Count > 0)
+                return runningProcess.Last();
+            else
+                return null;
+        }
     }
 }

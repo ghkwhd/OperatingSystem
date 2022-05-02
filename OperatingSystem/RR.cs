@@ -1,129 +1,117 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using System.Timers;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Timers;
 
-//namespace OperatingSystem
-//{
-//    class RR
-//    {
-//        static System.Timers.Timer timer;
+namespace OperatingSystem
+{
+    class RR
+    {
 
-//        static List<string> psNameList = new List<string>();
-//        static List<int> psATList = new List<int>();
-//        static List<int> psBTList = new List<int>();
-//        static int tq = 0;
+        static List<Process> processList = new List<Process>();
+        static List<Process> readyQueue = new List<Process>();
+        static Processor[] processorList = new Processor[4];
+        static int timeQuantum = 0;
+        int[] RRtime = { 0, 0, 0, 0 };  // 프로세스 실행 시간 계산
 
-//        static int time = 0;    // 현재 시간
-//        static int idx = 0;    // 실행해야 할 프로세스의 인덱스
-//        static int waiting = 0; // 호출을 무시하기 위한 카운트 (프로세스의 bt만큼 무시)
-//        public RR(List<string> name, List<int> at, List<int> bt,int timequantum)
-//        {
-//            psNameList = name;
-//            psATList = at;
-//            psBTList = bt;
-//            tq = timequantum;
-//        }
+        public RR(List<Process> psList, List<Process> readyQ, Processor[] processors, int tq)
+        {
+            processList = psList;
+            readyQueue = readyQ;
+            processorList = processors;
+            timeQuantum = tq;
+        }
 
-//        public static void FirstCome()
-//        {
-//            int min = psATList.Min();
-//            for (int i = 0; i < psNameList.Count; i++)
-//            {
-//                if (min <= time)
-//                {
-//                    if (min == psATList[i])
-//                    {
-//                        idx = i;
-//                        Console.WriteLine("min: " + min + " index: " + idx);
-//                    }
-//                }
-//            }
-//        }
+        public void Event(object sender, EventArgs e)
+        {
+            for (int i = 0; i < processList.Count(); i++)
+            {
+                if (processList[i].At == Form1.time)
+                {
+                    readyQueue.Add(processList[i]);  // 레디큐 설정
+                }
+            }
 
-//        private static void timerEvent(object source, ElapsedEventArgs e)
-//        {
-//            if (waiting == tq)   //  현재 수행 중인 프로세스의 실행시간만큼 시간이 지난 경우
-//            {
-//                waiting = 0;    // waiting 초기화
-//                psATList[idx] = time;
-//                psBTList[idx] -= tq;
+            for (int i = 0; i < processorList.Length; i++)
+            {
+                if (processorList[i].runningState()) // processor 동작 중이면
+                {
+                    RRtime[i]++;  // 실행시간 증가
+                    processorList[i].runningTime += 1;  // 동작시간 증가
+                    Process ps = processorList[i].getLastProcess();  // 실행 중인 프로세스
+                    ps.Bt -= 1;  // 1초 실행
 
-//                if (psBTList[idx] == 0)
-//                {
-//                    psNameList.RemoveAt(idx);
-//                    psATList.RemoveAt(idx);
-//                    psBTList.RemoveAt(idx);
-//                }
+                    
+                    if (ps.Bt == 0)  // 실행이 끝났을 때
+                    {
+                        processorList[i].setRunning(false);  // 실행 끝 알림
+                        int idx = processList.IndexOf(ps);  //프로세스 리스트에서 위치 검색 
+                        processList.RemoveAt(idx);  // 프로세스 리스트에서 삭제
+                        RRtime[i] = 1; // 실행시간 초기화
 
+                        if (readyQueue.Count != 0)  // 레디큐에 프로세스가 존재할 경우
+                        {
+                            processorList[i].addProcess(readyQueue[0]);  // FCFS 특성으로 인해 레디큐 맨 앞의 프로세스 추가
+                            readyQueue.RemoveAt(0);  // 레디큐에서 삭제
+                            processorList[i].setRunning(true);  // 프로세서 동작 설정
+                        }
 
-//                if (psNameList.Count == 0)// 더 이상 남아 있는 프로세스가 없다면 타이머 종료
-//                {
-//                    Console.WriteLine("종료");
-//                    timer.Stop();
-//                }
+                        else  // 레디큐에 프로세스가 없으면
+                        {   
+                            //readyTime[i] += 1;
+                            processorList[i].setRunning(false);  // 대기 상태 설정
+                        }
+                    }
 
-//                else // 남아 있는 프로세스가 있는 경우 다음 프로세스 탐색
-//                {
-//                    FirstCome();
-//                    Form1.running = psNameList[idx];
-//                    Console.WriteLine("\n실행 시작 프로세스 = " + psNameList[idx]);
-//                    waiting += 1;
-//                }
-//            }
+                    else  if (timeQuantum+1 == RRtime[i])  // 실행시간이 남았을 때
+                    {
+                        int idx = processList.IndexOf(ps);  // 프로세스 위치 찾기
+                        ps.At += timeQuantum;  // 프로세스 timeQuantum만큼 AT 증가
+                        RRtime[i] = 1; // 실행시간 증가
+                        processList.RemoveAt(idx);  // 프로세스 리스트 삭제
+                        processList.Add(ps);  // 새롭게 프로세스 추가
+                        // Console.WriteLine(processList.Last().name + " ps AT = " + processList.Last().At + " ps BT = " + processList.Last().Bt);
 
-//            else
-//            {
-//                if (psBTList[idx]-waiting == 0)
-//                {
-//                    waiting = 0;
-//                    psNameList.RemoveAt(idx);
-//                    psATList.RemoveAt(idx);
-//                    psBTList.RemoveAt(idx);
+                        if (readyQueue.Count != 0)  // 레디큐에 프로세스가 존재할 경우
+                        {
+                            processorList[i].addProcess(readyQueue[0]);  // FCFS 특성으로 인해 레디큐 맨 앞의 프로세스 추가
+                            readyQueue.RemoveAt(0);  // 레디큐에서 삭제
+                            readyQueue.Add(ps);
+                            processorList[i].setRunning(true);  // 프로세서 동작 설정
+                        }
 
-//                    if (psNameList.Count == 0)// 더 이상 남아 있는 프로세스가 없다면 타이머 종료
-//                    {
-//                        Console.WriteLine("종료");
-//                        timer.Stop();
-//                    }
+                        else  // 레디큐에 프로세스가 없으면
+                        {
+                            //readyTime[i] += 1;
+                            readyQueue.Add(ps);
+                            processorList[i].setRunning(false);  // 대기 상태 설정
+                        }
+                    }
 
-//                    else
-//                    {
-//                        FirstCome();
-//                        Form1.running = psNameList[idx];
-//                        Console.WriteLine("\n실행 시작 프로세스 = " + psNameList[idx]);
-//                        waiting += 1;
-//                    }
-//                }
-//                else
-//                {
-//                    waiting++;
-//                }
-                
-//            }
+                }
 
-//            ++time;
-//        }
+                else  // 프로세서가 비어있는 경우
+                {
+                    if (readyQueue.Count != 0) // 레디큐에 프로세스가 존재할 경우
+                    {
+                        processorList[i].addProcess(readyQueue[0]);  // FCFS 특성으로 인해 레디큐 맨 앞의 프로세스 추가 
+                        readyQueue.RemoveAt(0);   // 레디큐에서 삭제
+                        processorList[i].runningTime += 1;  // 동작시간 증가
+                        RRtime[i] += 1; // 실행시간 증가
+                        processorList[i].setRunning(true);  // 프로세서 동작 설정
+                    }
 
-//        public void startRR()
-//        {
+                    else  // 레디큐에 프로세스가 없으면
+                    {
+                        //readyTime[i] += 1;
+                        processorList[i].setRunning(false);  // 대기 상태 설정
+                    }
+                }
+            }
 
-//            timer = new System.Timers.Timer(1000);  // 1초마다
-//            timer.Elapsed += timerEvent;
-//            timer.AutoReset = true; // 반복적으로 실행
-//            timer.Start();
-
-//            FirstCome();
-//            Form1.running = psNameList[idx];
-//            Console.WriteLine("실행 시작 프로세스 = " + psNameList[idx]);
-//            waiting += 1;
-
-//            Console.Read(); // 콘솔창 유지
-//        }
-
-
-//    }
-//}
+        }
+    }
+}
 

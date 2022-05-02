@@ -12,12 +12,14 @@ namespace OperatingSystem
         public int At;
         public int Bt;
         public bool running_state = false;
+        public int index = 0;  // GUI 색깔 번호 유지 위해서
         
-        public Process(string psName, int psAt, int psBt)
+        public Process(string psName, int psAt, int psBt, int idx)
         {
             name = psName;
             At = psAt;
             Bt = psBt;
+            index = idx;
         }
     }
 }
