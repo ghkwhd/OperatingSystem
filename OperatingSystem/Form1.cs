@@ -102,8 +102,7 @@ namespace OperatingSystem
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            timeTable.Items.Clear();
-
+            Application.Restart();
         }
 
         private void timeTable_ColumnSizeAutoChange(ListView LV)
