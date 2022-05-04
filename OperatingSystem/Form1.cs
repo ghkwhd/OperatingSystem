@@ -12,6 +12,7 @@ namespace OperatingSystem
 {
     public partial class Form1 : Form
     {
+        DataSet watt_dataset = new DataSet(); //소비전력 데이터 테이블을 위한 데이터셋
         public static int time = 0;
         static List<Process> processList = new List<Process>();
         static Processor[] processorArray = new Processor[4];
@@ -109,6 +110,7 @@ namespace OperatingSystem
         private void btnReset_Click(object sender, EventArgs e)
         {
             timeTable.Items.Clear();
+            processList.Clear();
 
         }
 
@@ -147,6 +149,7 @@ namespace OperatingSystem
                 addListView(processName.Text, arrivalTime.Text, burstTime.Text);
                 processName.Focus();
             }
+
         }
         private void btnStart_Click(object sender, EventArgs e)
         {
@@ -247,6 +250,39 @@ namespace OperatingSystem
             {
                 timer.Stop();
                 timer2.Stop();
+
+                //소비 전력 구하는 부분
+                int processorNum1 = int.Parse(cmbProcessor.Text);
+                int pCoreNum1 = int.Parse(cmbPcore.Text);
+
+
+                DataTable watt_table = new DataTable();
+               
+
+                watt_table.Columns.Add(new DataColumn("Processor Name", typeof(string)));
+                watt_table.Columns.Add(new DataColumn("Core Type", typeof(string)));
+                watt_table.Columns.Add(new DataColumn("Using Watt", typeof(double)));
+                
+
+                for (int i = 0; i < processorArray.Length; i++)
+                {
+                    Console.WriteLine(processorArray[i].runningTime);
+                    DataRow row = watt_table.NewRow();
+                    row["Processor Name"] = processorArray[i].getName();
+                    row["Core Type"] = processorArray[i].getType();
+                    
+                    if (i < pCoreNum1)
+                    {
+                        row["Using Watt"] = ((processorArray[i].runningTime) * 3) + ((time - (processorArray[i].runningTime)) * 0.1);
+                       
+                    }
+                    else
+                    {
+                        row["Using Watt"] = ((processorArray[i].runningTime) * 1) + ((time - (processorArray[i].runningTime)) * 0.1);
+                    }
+                    watt_table.Rows.Add(row);
+                }
+                watt_dataGridView.DataSource = watt_table;
             }
 
             tableLayoutPanel1.Controls.Clear();
@@ -294,6 +330,31 @@ namespace OperatingSystem
             }
 
             ++time;
+        }
+
+        private void timeTable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void processor1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
             

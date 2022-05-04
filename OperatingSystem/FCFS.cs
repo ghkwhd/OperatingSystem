@@ -67,6 +67,7 @@ namespace OperatingSystem
                         else  // 레디큐에 프로세스가 없으면
                         {
                             //readyTime[i] += 1;
+                            processorList[i].runningTime -= 1;
                             processorList[i].setRunning(false);  // 대기 상태 설정
                         }
                     }
