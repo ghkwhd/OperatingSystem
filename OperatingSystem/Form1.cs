@@ -260,20 +260,37 @@ namespace OperatingSystem
                 tableLayoutPanel1.Controls[i].BackColor = bgColor[idx];  // 레디큐에 색깔 삽입
             }
 
+
             for (int i = 0; i < int.Parse(cmbProcessor.Text); i++)
             {
-                List<Process> psList = processorArray[i].getRunningProcess();
-                
-                tableLayouts[i].Controls.Clear();
-                for (int j = 0; j < psList.Count; j++)
+                if (processorArray[i].runningState())
                 {
                     Label ps = new Label();
-                    ps.Text = psList[j].name;
-                    int idx = psList[j].index;
+                    ps.Text = processorArray[i].getLastProcess().name;                    
+                    int idx = processorArray[i].getLastProcess().index;
+                    ps.BackColor = bgColor[idx];  // 간트차트에 색깔 삽입
 
                     tableLayouts[i].Controls.Add(ps);
-                    tableLayouts[i].Controls[j].BackColor = bgColor[idx];  // 간트차트에 색깔 삽입
-                }              
+                }
+
+                else
+                {
+                    Label ps = new Label();
+                    tableLayouts[i].Controls.Add(ps);
+                }
+
+                //List<Process> psList = processorArray[i].getRunningProcess();
+                
+                //tableLayouts[i].Controls.Clear();
+                //for (int j = 0; j < psList.Count; j++)
+                //{
+                //    Label ps = new Label();
+                //    ps.Text = psList[j].name;
+                //    int idx = psList[j].index;
+
+                //    tableLayouts[i].Controls.Add(ps);
+                //    tableLayouts[i].Controls[j].BackColor = bgColor[idx];  // 간트차트에 색깔 삽입
+                //}              
             }
 
             ++time;
