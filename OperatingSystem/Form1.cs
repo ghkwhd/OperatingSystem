@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OperatingSystem
@@ -19,7 +14,6 @@ namespace OperatingSystem
 
         static Timer timer2 = new Timer();  // 추가한 코드
 
-        List<TableLayoutPanel> tableLayouts = new List<TableLayoutPanel>();
         public Form1()
         {
             InitializeComponent();
@@ -162,7 +156,6 @@ namespace OperatingSystem
 
             else
             {
-                TableLayoutPanel[] processors = { processor1, processor2, processor3, processor4 };
                 Label[] texts = { LBLProcessor1, LBLProcessor2, LBLProcessor3, LBLProcessor4 };
 
                 int processorNum = int.Parse(cmbProcessor.Text);
@@ -173,9 +166,6 @@ namespace OperatingSystem
 
                 for (int i = processorNum-1; i >= 0; i--)
                 {
-                    tableLayouts.Add(processors[processorNum - i - 1]);
-
-                    tableLayouts[processorNum - i - 1].Visible = true;
                     if (i >= pCoreNum)
                     {
                         texts[processorNum - i -1].Text = "e Processor" + (processorNum - i);
@@ -253,8 +243,14 @@ namespace OperatingSystem
             for (int i = 0; i < ReadyQueue.Count; i++)
             {
                 Label ps = new Label();
+                ps.Width = 34;
+                ps.Height = 49;
                 ps.Text = ReadyQueue[i].name;
                 int idx = ReadyQueue[i].index;
+
+                Font ft = new Font("맑은 고딕", 10, FontStyle.Bold);
+                ps.Font = ft;
+                ps.TextAlign = ContentAlignment.MiddleCenter;
 
                 tableLayoutPanel1.Controls.Add(ps);
                 tableLayoutPanel1.Controls[i].BackColor = bgColor[idx];  // 레디큐에 색깔 삽입
@@ -266,31 +262,19 @@ namespace OperatingSystem
                 if (processorArray[i].runningState())
                 {
                     Label ps = new Label();
-                    ps.Text = processorArray[i].getLastProcess().name;                    
+                    ps.Width = 32;
+                    ps.Height = 40;
+                    ps.Location = new System.Drawing.Point(550 + (32 * time), 100 + (70 * i));
+                    ps.Text = processorArray[i].getLastProcess().name;
+
+                    Font ft = new Font("맑은 고딕", 10, FontStyle.Bold);
+                    ps.Font = ft;
+
                     int idx = processorArray[i].getLastProcess().index;
                     ps.BackColor = bgColor[idx];  // 간트차트에 색깔 삽입
-
-                    tableLayouts[i].Controls.Add(ps);
-                }
-
-                else
-                {
-                    Label ps = new Label();
-                    tableLayouts[i].Controls.Add(ps);
-                }
-
-                //List<Process> psList = processorArray[i].getRunningProcess();
-                
-                //tableLayouts[i].Controls.Clear();
-                //for (int j = 0; j < psList.Count; j++)
-                //{
-                //    Label ps = new Label();
-                //    ps.Text = psList[j].name;
-                //    int idx = psList[j].index;
-
-                //    tableLayouts[i].Controls.Add(ps);
-                //    tableLayouts[i].Controls[j].BackColor = bgColor[idx];  // 간트차트에 색깔 삽입
-                //}              
+                    ps.TextAlign = ContentAlignment.MiddleCenter;
+                    this.Controls.Add(ps);
+                }           
             }
 
             ++time;
