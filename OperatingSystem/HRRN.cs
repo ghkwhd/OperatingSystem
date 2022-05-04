@@ -48,55 +48,61 @@ namespace OperatingSystem
         {
             // 도착한 프로세스 레디큐에 추가
             for (int i = 0; i < processList.Count(); i++)
-            {
                 if (processList[i].At == Form1.time)
-                {
                     readyQueue.Add(processList[i]);
-                }       
-            }
 
             for (int i = 0; i < processorList.Length; i++)
             {
-                if (processorList[i].runningState()) // 프로세서가 동작 중
+                if (processorList[i].runningState()) // 프로세서가 동작 중인 경우 실행
                 {
                     processorList[i].runningTime += 1;    //  동작시간 증가
-                    processorList[i].getLastProcess().Bt -= 1; // 현재 수행 중인 프로세스 bt 감소
 
-                    if (processorList[i].getLastProcess().Bt == 0) // 현재 수행 중인 프로세스의 bt가 0 인 경우
+                    // 코어에 따른 bt값 변경
+                    if (processorList[i].getType().Equals("p"))
+                        processorList[i].getLastProcess().Bt -= 2;// p코어라면 2 감소
+                    else
+                        processorList[i].getLastProcess().Bt -= 1; // e코어라면 bt 1 감소
+
+
+                    if (processorList[i].getLastProcess().Bt <= 0) // 프로세스 수행 종료
                     {
                         processorList[i].setRunning(false); // 프로세서 상태 변화
                         int idx = processList.IndexOf(processorList[i].getLastProcess());
                         processList.RemoveAt(idx);  // 프로세스 리스트에서 제거
 
-                        if (readyQueue.Count != 0)  // 레디큐에 다른 프로세스가 있는 경우
+                        if (readyQueue.Count != 0)  // 대기 중인 프로세스가 있는 경우
                         {
                             calResponseRatio(); // response ratio 계산
-                            processorList[i].addProcess(indexList[0]); // indexList의 0번째 항목 동작시킴
+                            processorList[i].addProcess(indexList[0]); // indexList의 0번째 항목을 할당
                             readyQueue.Remove(indexList[0]);    // 레디큐에서 제거
                             indexList.RemoveAt(0);  // indexLIst에서 제거
-                            processorList[i].setRunning(true);  // 프로세서 동작 중
+                            processorList[i].setRunning(true);  // 프로세서 상태 변경
                         }
-
-                        else // 레디큐에 대기 중인 프로세스가 없는 경우
-                            processorList[i].setRunning(false);
                     }
+
+                    // 프로세스 수행이 끝나지 않은 경우
+                    else
+                        processorList[i].addProcess(processorList[i].getLastProcess());
                 }
 
                 else  // 프로세서가 비어있는 경우
                 {
-
                     if (readyQueue.Count != 0)
                     {
                         calResponseRatio();
                         processorList[i].addProcess(indexList[0]);
                         readyQueue.Remove(indexList[0]);
                         indexList.RemoveAt(0);
-                        processorList[i].runningTime += 1;
                         processorList[i].setRunning(true);
+                        processorList[i].runningTime += 1;
                     }
 
+                    // 프로세서가 수행 중이 아닌데 대기 중인 프로세스도 없는 경우
                     else
-                        processorList[i].setRunning(false);
+                    {
+                        //processorList[i].addProcess(); 
+                    }
+
                 }
             }
         }

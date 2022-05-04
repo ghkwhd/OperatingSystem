@@ -53,18 +53,18 @@ namespace OperatingSystem
             this.column_Arrival_Time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.column_Burst_Time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LBLQueue = new System.Windows.Forms.Label();
-            this.LBLProcessor1 = new System.Windows.Forms.Label();
-            this.LBLProcessor2 = new System.Windows.Forms.Label();
-            this.LBLProcessor3 = new System.Windows.Forms.Label();
-            this.LBLProcessor4 = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.btnStop = new System.Windows.Forms.Button();
             this.LBLTime = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.processor1 = new System.Windows.Forms.TableLayoutPanel();
-            this.processor2 = new System.Windows.Forms.TableLayoutPanel();
-            this.processor3 = new System.Windows.Forms.TableLayoutPanel();
             this.processor4 = new System.Windows.Forms.TableLayoutPanel();
+            this.processor3 = new System.Windows.Forms.TableLayoutPanel();
+            this.processor2 = new System.Windows.Forms.TableLayoutPanel();
+            this.processor1 = new System.Windows.Forms.TableLayoutPanel();
+            this.LBLProcessor4 = new System.Windows.Forms.Label();
+            this.LBLProcessor3 = new System.Windows.Forms.Label();
+            this.LBLProcessor2 = new System.Windows.Forms.Label();
+            this.LBLProcessor1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LBLalgorithm
@@ -299,50 +299,6 @@ namespace OperatingSystem
             this.LBLQueue.TabIndex = 19;
             this.LBLQueue.Text = "Ready Queue";
             // 
-            // LBLProcessor1
-            // 
-            this.LBLProcessor1.AutoSize = true;
-            this.LBLProcessor1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLProcessor1.Location = new System.Drawing.Point(618, 134);
-            this.LBLProcessor1.Name = "LBLProcessor1";
-            this.LBLProcessor1.Size = new System.Drawing.Size(86, 20);
-            this.LBLProcessor1.TabIndex = 21;
-            this.LBLProcessor1.Text = "Processor1";
-            this.LBLProcessor1.Visible = false;
-            // 
-            // LBLProcessor2
-            // 
-            this.LBLProcessor2.AutoSize = true;
-            this.LBLProcessor2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLProcessor2.Location = new System.Drawing.Point(618, 215);
-            this.LBLProcessor2.Name = "LBLProcessor2";
-            this.LBLProcessor2.Size = new System.Drawing.Size(86, 20);
-            this.LBLProcessor2.TabIndex = 22;
-            this.LBLProcessor2.Text = "Processor2";
-            this.LBLProcessor2.Visible = false;
-            // 
-            // LBLProcessor3
-            // 
-            this.LBLProcessor3.AutoSize = true;
-            this.LBLProcessor3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLProcessor3.Location = new System.Drawing.Point(618, 304);
-            this.LBLProcessor3.Name = "LBLProcessor3";
-            this.LBLProcessor3.Size = new System.Drawing.Size(86, 20);
-            this.LBLProcessor3.TabIndex = 23;
-            this.LBLProcessor3.Text = "Processor3";
-            this.LBLProcessor3.Visible = false;
-            // 
-            // LBLProcessor4
-            // 
-            this.LBLProcessor4.AutoSize = true;
-            this.LBLProcessor4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLProcessor4.Location = new System.Drawing.Point(618, 388);
-            this.LBLProcessor4.Name = "LBLProcessor4";
-            this.LBLProcessor4.Size = new System.Drawing.Size(86, 20);
-            this.LBLProcessor4.TabIndex = 24;
-            this.LBLProcessor4.Text = "Processor4";
-            this.LBLProcessor4.Visible = false;
-            // 
             // timer
             // 
             this.timer.Interval = 1000;
@@ -389,6 +345,12 @@ namespace OperatingSystem
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(622, 42);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -397,93 +359,6 @@ namespace OperatingSystem
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(517, 49);
             this.tableLayoutPanel1.TabIndex = 28;
-            // 
-            // processor1
-            // 
-            this.processor1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.processor1.ColumnCount = 15;
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
-            this.processor1.Location = new System.Drawing.Point(622, 159);
-            this.processor1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.processor1.Name = "processor1";
-            this.processor1.RowCount = 1;
-            this.processor1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.processor1.Size = new System.Drawing.Size(517, 42);
-            this.processor1.TabIndex = 29;
-            this.processor1.Visible = false;
-            // 
-            // processor2
-            // 
-            this.processor2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.processor2.ColumnCount = 15;
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
-            this.processor2.Location = new System.Drawing.Point(622, 238);
-            this.processor2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.processor2.Name = "processor2";
-            this.processor2.RowCount = 1;
-            this.processor2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.processor2.Size = new System.Drawing.Size(517, 42);
-            this.processor2.TabIndex = 30;
-            this.processor2.Visible = false;
-            // 
-            // processor3
-            // 
-            this.processor3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.processor3.ColumnCount = 15;
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
-            this.processor3.Location = new System.Drawing.Point(622, 328);
-            this.processor3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.processor3.Name = "processor3";
-            this.processor3.RowCount = 1;
-            this.processor3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.processor3.Size = new System.Drawing.Size(517, 45);
-            this.processor3.TabIndex = 31;
-            this.processor3.Visible = false;
             // 
             // processor4
             // 
@@ -505,14 +380,145 @@ namespace OperatingSystem
             this.processor4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
             this.processor4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
             this.processor4.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
-            this.processor4.Location = new System.Drawing.Point(622, 410);
+            this.processor4.Location = new System.Drawing.Point(622, 409);
             this.processor4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.processor4.Name = "processor4";
             this.processor4.RowCount = 1;
             this.processor4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.processor4.Size = new System.Drawing.Size(517, 42);
-            this.processor4.TabIndex = 32;
+            this.processor4.TabIndex = 40;
             this.processor4.Visible = false;
+            // 
+            // processor3
+            // 
+            this.processor3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.processor3.ColumnCount = 15;
+            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor3.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
+            this.processor3.Location = new System.Drawing.Point(622, 327);
+            this.processor3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.processor3.Name = "processor3";
+            this.processor3.RowCount = 1;
+            this.processor3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.processor3.Size = new System.Drawing.Size(517, 45);
+            this.processor3.TabIndex = 39;
+            this.processor3.Visible = false;
+            // 
+            // processor2
+            // 
+            this.processor2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.processor2.ColumnCount = 15;
+            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor2.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
+            this.processor2.Location = new System.Drawing.Point(622, 237);
+            this.processor2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.processor2.Name = "processor2";
+            this.processor2.RowCount = 1;
+            this.processor2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.processor2.Size = new System.Drawing.Size(517, 42);
+            this.processor2.TabIndex = 38;
+            this.processor2.Visible = false;
+            // 
+            // processor1
+            // 
+            this.processor1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.processor1.ColumnCount = 15;
+            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.processor1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
+            this.processor1.Location = new System.Drawing.Point(622, 133);
+            this.processor1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.processor1.Name = "processor1";
+            this.processor1.RowCount = 1;
+            this.processor1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.processor1.Size = new System.Drawing.Size(517, 48);
+            this.processor1.TabIndex = 37;
+            this.processor1.Visible = false;
+            // 
+            // LBLProcessor4
+            // 
+            this.LBLProcessor4.AutoSize = true;
+            this.LBLProcessor4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLProcessor4.Location = new System.Drawing.Point(618, 387);
+            this.LBLProcessor4.Name = "LBLProcessor4";
+            this.LBLProcessor4.Size = new System.Drawing.Size(86, 20);
+            this.LBLProcessor4.TabIndex = 36;
+            this.LBLProcessor4.Text = "Processor4";
+            this.LBLProcessor4.Visible = false;
+            // 
+            // LBLProcessor3
+            // 
+            this.LBLProcessor3.AutoSize = true;
+            this.LBLProcessor3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLProcessor3.Location = new System.Drawing.Point(618, 303);
+            this.LBLProcessor3.Name = "LBLProcessor3";
+            this.LBLProcessor3.Size = new System.Drawing.Size(86, 20);
+            this.LBLProcessor3.TabIndex = 35;
+            this.LBLProcessor3.Text = "Processor3";
+            this.LBLProcessor3.Visible = false;
+            // 
+            // LBLProcessor2
+            // 
+            this.LBLProcessor2.AutoSize = true;
+            this.LBLProcessor2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLProcessor2.Location = new System.Drawing.Point(618, 214);
+            this.LBLProcessor2.Name = "LBLProcessor2";
+            this.LBLProcessor2.Size = new System.Drawing.Size(86, 20);
+            this.LBLProcessor2.TabIndex = 34;
+            this.LBLProcessor2.Text = "Processor2";
+            this.LBLProcessor2.Visible = false;
+            // 
+            // LBLProcessor1
+            // 
+            this.LBLProcessor1.AutoSize = true;
+            this.LBLProcessor1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLProcessor1.Location = new System.Drawing.Point(618, 108);
+            this.LBLProcessor1.Name = "LBLProcessor1";
+            this.LBLProcessor1.Size = new System.Drawing.Size(86, 20);
+            this.LBLProcessor1.TabIndex = 33;
+            this.LBLProcessor1.Text = "Processor1";
+            this.LBLProcessor1.Visible = false;
             // 
             // Form1
             // 
@@ -523,13 +529,13 @@ namespace OperatingSystem
             this.Controls.Add(this.processor3);
             this.Controls.Add(this.processor2);
             this.Controls.Add(this.processor1);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.LBLTime);
-            this.Controls.Add(this.btnStop);
             this.Controls.Add(this.LBLProcessor4);
             this.Controls.Add(this.LBLProcessor3);
             this.Controls.Add(this.LBLProcessor2);
             this.Controls.Add(this.LBLProcessor1);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.LBLTime);
+            this.Controls.Add(this.btnStop);
             this.Controls.Add(this.LBLQueue);
             this.Controls.Add(this.timeTable);
             this.Controls.Add(this.LBLTimeTable);
@@ -583,19 +589,19 @@ namespace OperatingSystem
         private System.Windows.Forms.ColumnHeader column_Arrival_Time;
         private System.Windows.Forms.ColumnHeader column_Burst_Time;
         private System.Windows.Forms.Label LBLQueue;
-        private System.Windows.Forms.Label LBLProcessor1;
-        private System.Windows.Forms.Label LBLProcessor2;
-        private System.Windows.Forms.Label LBLProcessor3;
-        private System.Windows.Forms.Label LBLProcessor4;
         private System.Windows.Forms.TextBox burstTime;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Label LBLTime;
         public System.Windows.Forms.Timer timer;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel processor1;
-        private System.Windows.Forms.TableLayoutPanel processor2;
-        private System.Windows.Forms.TableLayoutPanel processor3;
         private System.Windows.Forms.TableLayoutPanel processor4;
+        private System.Windows.Forms.TableLayoutPanel processor3;
+        private System.Windows.Forms.TableLayoutPanel processor2;
+        private System.Windows.Forms.TableLayoutPanel processor1;
+        private System.Windows.Forms.Label LBLProcessor4;
+        private System.Windows.Forms.Label LBLProcessor3;
+        private System.Windows.Forms.Label LBLProcessor2;
+        private System.Windows.Forms.Label LBLProcessor1;
     }
 }
 
