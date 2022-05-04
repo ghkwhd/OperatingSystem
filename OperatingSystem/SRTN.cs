@@ -57,7 +57,20 @@ namespace OperatingSystem
                 if (processorList[i].runningState()) // 프로세서가 동작 중
                 {
                     processorList[i].runningTime += 1;    //  프로세서 동작시간 증가
-                    processorList[i].getLastProcess().Bt -= 1; // 현재 수행 중인 프로세스 bt 감소
+                    //processorList[i].getLastProcess().Bt -= 1; // 현재 수행 중인 프로세스 bt 감소
+                    Process ps = processorList[i].getLastProcess();  // 실행 중인 프로세스
+                    if (processorList[i].getType() == "e")
+                    {
+                        ps.Bt -= 1;  // 1초 실행
+                    }
+
+                    else
+                    {
+                        if (ps.Bt > 0 && ps.Bt < 2)
+                            ps.Bt = 0;
+                        else
+                            ps.Bt -= 2; // 2배 실행
+                    }
 
                     if (processorList[i].getLastProcess().Bt == 0) // 현재 수행 중인 프로세스의 bt가 0 인 경우
                     {
