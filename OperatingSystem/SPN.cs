@@ -8,13 +8,16 @@ namespace OperatingSystem
     {
         // 1. 필드
         static List<Process> processList = new List<Process>();
+        static List<Process> processCopyList = new List<Process>();
         static List<Process> readyQueue = new List<Process>();
         static Processor[] processorList = new Processor[4];
 
+
         // 2. 생성자
-        public SPN(List<Process> psList, List<Process> readyQ, Processor[] processors)
+        public SPN(List<Process> psList, List<Process> psCopyList, List<Process> readyQ, Processor[] processors)
         {
             processList = psList;
+            processCopyList = psCopyList;
             readyQueue = readyQ;
             processorList = processors;
         }
@@ -58,6 +61,7 @@ namespace OperatingSystem
                     /* 프로세스 실행시간이 끝나면 */
                     if (ps.Bt == 0)
                     {
+                        processCopyList[ps.index].Tt = Form1.time - ps.At;
                         processorList[i].setRunning(false);     // 프로세스 실행 끝 
                         processList.RemoveAt(processList.IndexOf(ps));  // 실행이 끝난 프로세스를 프로세스 리스트에서 찾아서 삭제
 
@@ -84,7 +88,7 @@ namespace OperatingSystem
                         processorList[i].addProcess(readyQueueSort[0]);
                         readyQueue.RemoveAt(readyQueue.IndexOf(readyQueueSort[0]));
                         readyQueueSort.RemoveAt(0);
-                        processorList[i].runningTime += 1;
+                        // processorList[i].runningTime += 1;
                         processorList[i].setRunning(true);
                     }
 

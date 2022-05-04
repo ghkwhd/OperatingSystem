@@ -12,8 +12,11 @@ namespace OperatingSystem
 {
     public partial class Form1 : Form
     {
+        DataSet process_DS = new DataSet(); // process들에 대한 정보를 가지고 있을 Dataset
+        DataSet processor_DS = new DataSet(); // processor들에 대한 정보를 가지고 있을 Dataset
         public static int time = 0;
         static List<Process> processList = new List<Process>();
+        static List<Process> processCopyList = new List<Process>();
         static Processor[] processorArray = new Processor[4];
         static List<Process> ReadyQueue = new List<Process>();
 
@@ -109,7 +112,7 @@ namespace OperatingSystem
         private void btnReset_Click(object sender, EventArgs e)
         {
             timeTable.Items.Clear();
-
+            processList.Clear();
         }
 
         private void timeTable_ColumnSizeAutoChange(ListView LV)
@@ -150,6 +153,9 @@ namespace OperatingSystem
         }
         private void btnStart_Click(object sender, EventArgs e)
         {
+            // 프로세스 리스트의 깊은 복사
+            processCopyList = processList.ConvertAll(p => new Process(p.name, p.At, p.Bt, p.index));
+
             if (cmbProcessor.Text == "" || cmbPcore.Text == "")
             {
                 MessageBox.Show("입력하지 않은 값이 있습니다.");
@@ -208,7 +214,7 @@ namespace OperatingSystem
 
                 else if (cmbAlgorithm.SelectedItem.ToString() == "SPN")
                 {
-                    SPN spn = new SPN(processList, ReadyQueue, processorArray);
+                    SPN spn = new SPN(processList, processCopyList, ReadyQueue, processorArray);
                     timer2.Tick += new EventHandler(spn.Event);    // 추가한 코드
                     timer2.Start(); // 추가한 코드
                 }
@@ -247,6 +253,71 @@ namespace OperatingSystem
             {
                 timer.Stop();
                 timer2.Stop();
+
+                for (int i = 0; i < processCopyList.Count; i++)
+                {
+                    bool isTable = false;
+
+                    if (process_DS.Tables.Contains("Process_ResultTable"))
+                    {
+                        isTable = true;
+                    }
+
+                    DataTable dt = null;
+
+                    if (!isTable)
+                    {
+                        dt = new DataTable("Process_ResultTable");
+
+                        DataColumn colProcessName = new DataColumn("Process Name", typeof(string));
+                        DataColumn colAT = new DataColumn("Arrival Time(AT)", typeof(int));
+                        DataColumn colBT = new DataColumn("Burst Time(BT)", typeof(int));
+                        DataColumn colWT = new DataColumn("Wating Time(WT)", typeof(int));
+                        DataColumn colTT = new DataColumn("Turnaround Time(TT)", typeof(int));
+                        DataColumn colNTT = new DataColumn("Normalized TT(NTT)", typeof(float));
+
+                        dt.Columns.Add(colProcessName);
+                        dt.Columns.Add(colAT);
+                        dt.Columns.Add(colBT);
+                        dt.Columns.Add(colWT);
+                        dt.Columns.Add(colTT);
+                        dt.Columns.Add(colNTT);
+                    }
+
+                    else
+                    {
+                        dt = process_DS.Tables["Process_ResultTable"];
+                    }
+
+                    // Row 자료를 등록
+                    DataRow row = dt.NewRow();
+
+                    row["Process Name"] = processCopyList[i].name;
+                    row["Arrival Time(AT)"] = processCopyList[i].At;
+                    row["Burst Time(BT)"] = processCopyList[i].Bt;
+                    row["Wating Time(WT)"] = processCopyList[i].Tt - processCopyList[i].Bt;
+                    row["Turnaround Time(TT)"] = processCopyList[i].Tt;
+                    row["Normalized TT(NTT)"] = processCopyList[i].Tt / processCopyList[i].Bt;
+
+                    // 생성된 row를 데이터 테이블 dt에 삽입
+                    if (isTable) { process_DS.Tables["Process_ResultTable"].Rows.Add(row); } // 이미 테이블이 있다면 교체
+                    else
+                    {
+                        dt.Rows.Add(row);
+                        process_DS.Tables.Add(dt);
+                    }
+
+                }
+
+                processResultTable.DataSource = process_DS.Tables["Process_ResultTable"];
+
+                foreach (DataGridViewRow oRow in processResultTable.Rows)
+                {
+                    oRow.HeaderCell.Value = oRow.Index.ToString();
+                }
+                processResultTable.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
+
+
             }
 
             tableLayoutPanel1.Controls.Clear();
@@ -294,6 +365,36 @@ namespace OperatingSystem
             }
 
             ++time;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cmbPcore_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void processResultTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void processName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
             

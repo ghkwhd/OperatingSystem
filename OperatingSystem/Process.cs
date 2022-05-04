@@ -11,6 +11,7 @@ namespace OperatingSystem
         public string name;
         public int At;
         public int Bt;
+        public float Tt;
         public bool running_state = false;
         public int index = 0;  // GUI 색깔 번호 유지 위해서
         
