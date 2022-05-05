@@ -112,8 +112,7 @@ namespace OperatingSystem
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            timeTable.Items.Clear();
-            processList.Clear();
+            Application.Restart();
         }
 
         private void timeTable_ColumnSizeAutoChange(ListView LV)
@@ -170,7 +169,6 @@ namespace OperatingSystem
 
             else
             {
-                TableLayoutPanel[] processors = { processor1, processor2, processor3, processor4 };
                 Label[] texts = { LBLProcessor1, LBLProcessor2, LBLProcessor3, LBLProcessor4 };
 
                 int processorNum = int.Parse(cmbProcessor.Text);
@@ -181,9 +179,6 @@ namespace OperatingSystem
 
                 for (int i = processorNum-1; i >= 0; i--)
                 {
-                    tableLayouts.Add(processors[processorNum - i - 1]);
-
-                    tableLayouts[processorNum - i - 1].Visible = true;
                     if (i >= pCoreNum)
                     {
                         texts[processorNum - i -1].Text = "e Processor" + (processorNum - i);
@@ -197,12 +192,11 @@ namespace OperatingSystem
                     texts[i].Visible = true;
                 }
 
-                time = 0;   // 위치 이동
-                timer.Start();  // 위치 이동
-
                 if (cmbAlgorithm.SelectedItem.ToString() == "FCFS")
                 {
                     FCFS fcfs = new FCFS(processList, ReadyQueue, processorArray);
+                    time = 0;   // 위치 이동
+                    timer.Start();  // 위치 이동
                     timer2.Tick += new EventHandler(fcfs.Event);
                     timer2.Start();
                 }
@@ -210,6 +204,8 @@ namespace OperatingSystem
                 else if (cmbAlgorithm.SelectedItem.ToString() == "HRRN")
                 {
                     HRRN hrrn = new HRRN(processList, ReadyQueue, processorArray);
+                    time = 0;   // 위치 이동
+                    timer.Start();  // 위치 이동
                     timer2.Tick += new EventHandler(hrrn.Event);    // 추가한 코드
                     timer2.Start(); // 추가한 코드
                 }
@@ -217,12 +213,16 @@ namespace OperatingSystem
                 else if (cmbAlgorithm.SelectedItem.ToString() == "SPN")
                 {
                     SPN spn = new SPN(processList, processCopyList, ReadyQueue, processorArray);
+                    time = 0;   // 위치 이동
+                    timer.Start();  // 위치 이동
                     timer2.Tick += new EventHandler(spn.Event);    // 추가한 코드
                     timer2.Start(); // 추가한 코드
                 }
                 else if (cmbAlgorithm.SelectedItem.ToString() == "SRTN")
                 {
                     SRTN srtn = new SRTN(processList, ReadyQueue, processorArray);
+                    time = 0;   // 위치 이동
+                    timer.Start();  // 위치 이동
                     timer2.Tick += new EventHandler(srtn.Event);    // 추가한 코드
                     timer2.Start(); // 추가한 코드
                 }
@@ -235,6 +235,8 @@ namespace OperatingSystem
                     else
                     {
                         RR rr = new RR(processList, ReadyQueue, processorArray, Int32.Parse(timeQuantunm.Text));
+                        time = 0;   // 위치 이동
+                        timer.Start();  // 위치 이동
                         timer2.Tick += new EventHandler(rr.Event);
                         timer2.Start();
                     }

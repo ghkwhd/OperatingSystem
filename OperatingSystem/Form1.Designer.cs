@@ -30,507 +30,54 @@ namespace OperatingSystem
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.LBLalgorithm = new System.Windows.Forms.Label();
-            this.cmbAlgorithm = new System.Windows.Forms.ComboBox();
-            this.cmbProcessor = new System.Windows.Forms.ComboBox();
-            this.LBLproceorNum = new System.Windows.Forms.Label();
-            this.cmbPcore = new System.Windows.Forms.ComboBox();
-            this.LBLPcore = new System.Windows.Forms.Label();
-            this.LBLProcess = new System.Windows.Forms.Label();
-            this.processName = new System.Windows.Forms.TextBox();
-            this.arrivalTime = new System.Windows.Forms.TextBox();
-            this.LBLArrival = new System.Windows.Forms.Label();
-            this.burstTime = new System.Windows.Forms.TextBox();
-            this.LBLBurst = new System.Windows.Forms.Label();
-            this.timeQuantunm = new System.Windows.Forms.TextBox();
-            this.LBLTimequantum = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnStart = new System.Windows.Forms.Button();
-            this.LBLTimeTable = new System.Windows.Forms.Label();
-            this.timeTable = new System.Windows.Forms.ListView();
-            this.column_Process_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.column_Arrival_Time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.column_Burst_Time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.LBLQueue = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.btnStop = new System.Windows.Forms.Button();
-            this.LBLTime = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.processor4 = new System.Windows.Forms.TableLayoutPanel();
-            this.processor3 = new System.Windows.Forms.TableLayoutPanel();
-            this.processor2 = new System.Windows.Forms.TableLayoutPanel();
-            this.processor1 = new System.Windows.Forms.TableLayoutPanel();
-            this.LBLProcessor4 = new System.Windows.Forms.Label();
-            this.LBLProcessor3 = new System.Windows.Forms.Label();
-            this.LBLProcessor2 = new System.Windows.Forms.Label();
-            this.LBLProcessor1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.processResultTable = new System.Windows.Forms.DataGridView();
             this.watt_dataGridView = new System.Windows.Forms.DataGridView();
+            this.LBLProcessor4 = new System.Windows.Forms.Label();
+            this.LBLProcessor3 = new System.Windows.Forms.Label();
+            this.LBLProcessor2 = new System.Windows.Forms.Label();
+            this.LBLProcessor1 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.LBLTime = new System.Windows.Forms.Label();
+            this.btnStop = new System.Windows.Forms.Button();
+            this.LBLQueue = new System.Windows.Forms.Label();
+            this.timeTable = new System.Windows.Forms.ListView();
+            this.column_Process_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.column_Arrival_Time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.column_Burst_Time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LBLTimeTable = new System.Windows.Forms.Label();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.timeQuantunm = new System.Windows.Forms.TextBox();
+            this.LBLTimequantum = new System.Windows.Forms.Label();
+            this.burstTime = new System.Windows.Forms.TextBox();
+            this.LBLBurst = new System.Windows.Forms.Label();
+            this.arrivalTime = new System.Windows.Forms.TextBox();
+            this.LBLArrival = new System.Windows.Forms.Label();
+            this.processName = new System.Windows.Forms.TextBox();
+            this.LBLProcess = new System.Windows.Forms.Label();
+            this.cmbPcore = new System.Windows.Forms.ComboBox();
+            this.LBLPcore = new System.Windows.Forms.Label();
+            this.cmbProcessor = new System.Windows.Forms.ComboBox();
+            this.LBLproceorNum = new System.Windows.Forms.Label();
+            this.cmbAlgorithm = new System.Windows.Forms.ComboBox();
+            this.LBLalgorithm = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.processResultTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.watt_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // LBLalgorithm
-            // 
-            this.LBLalgorithm.AutoSize = true;
-            this.LBLalgorithm.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLalgorithm.Location = new System.Drawing.Point(11, 9);
-            this.LBLalgorithm.Name = "LBLalgorithm";
-            this.LBLalgorithm.Size = new System.Drawing.Size(111, 20);
-            this.LBLalgorithm.TabIndex = 0;
-            this.LBLalgorithm.Text = "Algorithm List";
-            // 
-            // cmbAlgorithm
-            // 
-            this.cmbAlgorithm.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cmbAlgorithm.FormattingEnabled = true;
-            this.cmbAlgorithm.Location = new System.Drawing.Point(14, 38);
-            this.cmbAlgorithm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbAlgorithm.Name = "cmbAlgorithm";
-            this.cmbAlgorithm.Size = new System.Drawing.Size(143, 28);
-            this.cmbAlgorithm.TabIndex = 1;
-            // 
-            // cmbProcessor
-            // 
-            this.cmbProcessor.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cmbProcessor.FormattingEnabled = true;
-            this.cmbProcessor.Location = new System.Drawing.Point(14, 90);
-            this.cmbProcessor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbProcessor.Name = "cmbProcessor";
-            this.cmbProcessor.Size = new System.Drawing.Size(143, 28);
-            this.cmbProcessor.TabIndex = 3;
-            // 
-            // LBLproceorNum
-            // 
-            this.LBLproceorNum.AutoSize = true;
-            this.LBLproceorNum.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLproceorNum.Location = new System.Drawing.Point(17, 68);
-            this.LBLproceorNum.Name = "LBLproceorNum";
-            this.LBLproceorNum.Size = new System.Drawing.Size(141, 20);
-            this.LBLproceorNum.TabIndex = 2;
-            this.LBLproceorNum.Text = "num of Processors";
-            // 
-            // cmbPcore
-            // 
-            this.cmbPcore.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.cmbPcore.FormattingEnabled = true;
-            this.cmbPcore.Location = new System.Drawing.Point(14, 142);
-            this.cmbPcore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbPcore.Name = "cmbPcore";
-            this.cmbPcore.Size = new System.Drawing.Size(143, 28);
-            this.cmbPcore.TabIndex = 5;
-            // 
-            // LBLPcore
-            // 
-            this.LBLPcore.AutoSize = true;
-            this.LBLPcore.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLPcore.Location = new System.Drawing.Point(10, 120);
-            this.LBLPcore.Name = "LBLPcore";
-            this.LBLPcore.Size = new System.Drawing.Size(105, 20);
-            this.LBLPcore.TabIndex = 4;
-            this.LBLPcore.Text = "num of Pcore";
-            // 
-            // LBLProcess
-            // 
-            this.LBLProcess.AutoSize = true;
-            this.LBLProcess.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLProcess.Location = new System.Drawing.Point(10, 172);
-            this.LBLProcess.Name = "LBLProcess";
-            this.LBLProcess.Size = new System.Drawing.Size(109, 20);
-            this.LBLProcess.TabIndex = 6;
-            this.LBLProcess.Text = "Process Name";
-            // 
-            // processName
-            // 
-            this.processName.Location = new System.Drawing.Point(14, 195);
-            this.processName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.processName.Name = "processName";
-            this.processName.Size = new System.Drawing.Size(143, 25);
-            this.processName.TabIndex = 7;
-            this.processName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // arrivalTime
-            // 
-            this.arrivalTime.Location = new System.Drawing.Point(14, 248);
-            this.arrivalTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.arrivalTime.Name = "arrivalTime";
-            this.arrivalTime.Size = new System.Drawing.Size(143, 25);
-            this.arrivalTime.TabIndex = 9;
-            this.arrivalTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.arrivalTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
-            // 
-            // LBLArrival
-            // 
-            this.LBLArrival.AutoSize = true;
-            this.LBLArrival.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLArrival.Location = new System.Drawing.Point(10, 222);
-            this.LBLArrival.Name = "LBLArrival";
-            this.LBLArrival.Size = new System.Drawing.Size(96, 20);
-            this.LBLArrival.TabIndex = 8;
-            this.LBLArrival.Text = "Arrival Time";
-            // 
-            // burstTime
-            // 
-            this.burstTime.Location = new System.Drawing.Point(14, 299);
-            this.burstTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.burstTime.Name = "burstTime";
-            this.burstTime.Size = new System.Drawing.Size(143, 25);
-            this.burstTime.TabIndex = 11;
-            this.burstTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.burstTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
-            // 
-            // LBLBurst
-            // 
-            this.LBLBurst.AutoSize = true;
-            this.LBLBurst.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLBurst.Location = new System.Drawing.Point(10, 278);
-            this.LBLBurst.Name = "LBLBurst";
-            this.LBLBurst.Size = new System.Drawing.Size(87, 20);
-            this.LBLBurst.TabIndex = 10;
-            this.LBLBurst.Text = "Burst Time";
-            // 
-            // timeQuantunm
-            // 
-            this.timeQuantunm.Location = new System.Drawing.Point(14, 352);
-            this.timeQuantunm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.timeQuantunm.Name = "timeQuantunm";
-            this.timeQuantunm.Size = new System.Drawing.Size(143, 25);
-            this.timeQuantunm.TabIndex = 13;
-            this.timeQuantunm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.timeQuantunm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
-            // 
-            // LBLTimequantum
-            // 
-            this.LBLTimequantum.AutoSize = true;
-            this.LBLTimequantum.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLTimequantum.Location = new System.Drawing.Point(10, 326);
-            this.LBLTimequantum.Name = "LBLTimequantum";
-            this.LBLTimequantum.Size = new System.Drawing.Size(147, 20);
-            this.LBLTimequantum.TabIndex = 12;
-            this.LBLTimequantum.Text = "RR Time quantunm";
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnAdd.Location = new System.Drawing.Point(14, 388);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(69, 32);
-            this.btnAdd.TabIndex = 14;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnReset
-            // 
-            this.btnReset.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnReset.Location = new System.Drawing.Point(88, 388);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(69, 32);
-            this.btnReset.TabIndex = 15;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // btnStart
-            // 
-            this.btnStart.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnStart.Location = new System.Drawing.Point(14, 430);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(69, 34);
-            this.btnStart.TabIndex = 16;
-            this.btnStart.Text = "Start";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // LBLTimeTable
-            // 
-            this.LBLTimeTable.AutoSize = true;
-            this.LBLTimeTable.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLTimeTable.Location = new System.Drawing.Point(166, 9);
-            this.LBLTimeTable.Name = "LBLTimeTable";
-            this.LBLTimeTable.Size = new System.Drawing.Size(87, 20);
-            this.LBLTimeTable.TabIndex = 17;
-            this.LBLTimeTable.Text = "Time Tabel";
-            // 
-            // timeTable
-            // 
-            this.timeTable.BackColor = System.Drawing.Color.White;
-            this.timeTable.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.column_Process_Name,
-            this.column_Arrival_Time,
-            this.column_Burst_Time});
-            this.timeTable.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.timeTable.GridLines = true;
-            this.timeTable.HideSelection = false;
-            this.timeTable.Location = new System.Drawing.Point(170, 42);
-            this.timeTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.timeTable.Name = "timeTable";
-            this.timeTable.Size = new System.Drawing.Size(442, 410);
-            this.timeTable.TabIndex = 18;
-            this.timeTable.UseCompatibleStateImageBehavior = false;
-            this.timeTable.View = System.Windows.Forms.View.Details;
-            this.timeTable.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.timeTable_ColumnWidthChanging);
-            
-            this.timeTable.Resize += new System.EventHandler(this.timeTable_Resize);
-            // 
-            // column_Process_Name
-            // 
-            this.column_Process_Name.Text = "Process Name";
-            this.column_Process_Name.Width = 155;
-            // 
-            // column_Arrival_Time
-            // 
-            this.column_Arrival_Time.Text = "Arrival Time";
-            this.column_Arrival_Time.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.column_Arrival_Time.Width = 107;
-            // 
-            // column_Burst_Time
-            // 
-            this.column_Burst_Time.Text = "Burst Time";
-            this.column_Burst_Time.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.column_Burst_Time.Width = 173;
-            // 
-            // LBLQueue
-            // 
-            this.LBLQueue.AutoSize = true;
-            this.LBLQueue.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLQueue.Location = new System.Drawing.Point(618, 9);
-            this.LBLQueue.Name = "LBLQueue";
-            this.LBLQueue.Size = new System.Drawing.Size(103, 20);
-            this.LBLQueue.TabIndex = 19;
-            this.LBLQueue.Text = "Ready Queue";
-            // 
             // timer
             // 
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timerTick);
-            // 
-            // btnStop
-            // 
-            this.btnStop.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnStop.Location = new System.Drawing.Point(88, 430);
-            this.btnStop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(69, 34);
-            this.btnStop.TabIndex = 25;
-            this.btnStop.Text = "Stop";
-            this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Click += new System.EventHandler(this.stopTimer);
-            // 
-            // LBLTime
-            // 
-            this.LBLTime.AutoSize = true;
-            this.LBLTime.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLTime.Location = new System.Drawing.Point(534, 9);
-            this.LBLTime.Name = "LBLTime";
-            this.LBLTime.Size = new System.Drawing.Size(44, 20);
-            this.LBLTime.TabIndex = 26;
-            this.LBLTime.Text = "Time";
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel1.ColumnCount = 15;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(622, 42);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(517, 49);
-            this.tableLayoutPanel1.TabIndex = 28;
-            // 
-            // processor4
-            // 
-            this.processor4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.processor4.ColumnCount = 15;
-            this.processor4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor4.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
-            this.processor4.Location = new System.Drawing.Point(622, 409);
-            this.processor4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.processor4.Name = "processor4";
-            this.processor4.RowCount = 1;
-            this.processor4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.processor4.Size = new System.Drawing.Size(517, 42);
-            this.processor4.TabIndex = 40;
-            this.processor4.Visible = false;
-            // 
-            // processor3
-            // 
-            this.processor3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.processor3.ColumnCount = 15;
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor3.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
-            this.processor3.Location = new System.Drawing.Point(622, 328);
-            this.processor3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.processor3.Name = "processor3";
-            this.processor3.RowCount = 1;
-            this.processor3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.processor3.Size = new System.Drawing.Size(517, 45);
-            this.processor3.TabIndex = 39;
-            this.processor3.Visible = false;
-            // 
-            // processor2
-            // 
-            this.processor2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.processor2.ColumnCount = 15;
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor2.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
-            this.processor2.Location = new System.Drawing.Point(622, 238);
-            this.processor2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.processor2.Name = "processor2";
-            this.processor2.RowCount = 1;
-            this.processor2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.processor2.Size = new System.Drawing.Size(517, 42);
-            this.processor2.TabIndex = 38;
-            this.processor2.Visible = false;
-            // 
-            // processor1
-            // 
-            this.processor1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.processor1.ColumnCount = 15;
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.processor1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
-            this.processor1.Location = new System.Drawing.Point(622, 132);
-            this.processor1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.processor1.Name = "processor1";
-            this.processor1.RowCount = 1;
-            this.processor1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.processor1.Size = new System.Drawing.Size(517, 48);
-            this.processor1.TabIndex = 37;
-            this.processor1.Visible = false;
-            // 
-            // LBLProcessor4
-            // 
-            this.LBLProcessor4.AutoSize = true;
-            this.LBLProcessor4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLProcessor4.Location = new System.Drawing.Point(618, 388);
-            this.LBLProcessor4.Name = "LBLProcessor4";
-            this.LBLProcessor4.Size = new System.Drawing.Size(86, 20);
-            this.LBLProcessor4.TabIndex = 36;
-            this.LBLProcessor4.Text = "Processor4";
-            this.LBLProcessor4.Visible = false;
-            // 
-            // LBLProcessor3
-            // 
-            this.LBLProcessor3.AutoSize = true;
-            this.LBLProcessor3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLProcessor3.Location = new System.Drawing.Point(618, 302);
-            this.LBLProcessor3.Name = "LBLProcessor3";
-            this.LBLProcessor3.Size = new System.Drawing.Size(86, 20);
-            this.LBLProcessor3.TabIndex = 35;
-            this.LBLProcessor3.Text = "Processor3";
-            this.LBLProcessor3.Visible = false;
-            // 
-            // LBLProcessor2
-            // 
-            this.LBLProcessor2.AutoSize = true;
-            this.LBLProcessor2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLProcessor2.Location = new System.Drawing.Point(618, 214);
-            this.LBLProcessor2.Name = "LBLProcessor2";
-            this.LBLProcessor2.Size = new System.Drawing.Size(86, 20);
-            this.LBLProcessor2.TabIndex = 34;
-            this.LBLProcessor2.Text = "Processor2";
-            this.LBLProcessor2.Visible = false;
-            // 
-            // LBLProcessor1
-            // 
-            this.LBLProcessor1.AutoSize = true;
-            this.LBLProcessor1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLProcessor1.Location = new System.Drawing.Point(618, 108);
-            this.LBLProcessor1.Name = "LBLProcessor1";
-            this.LBLProcessor1.Size = new System.Drawing.Size(86, 20);
-            this.LBLProcessor1.TabIndex = 33;
-            this.LBLProcessor1.Text = "Processor1";
-            this.LBLProcessor1.Visible = false;
             // 
             // groupBox1
             // 
@@ -542,7 +89,7 @@ namespace OperatingSystem
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Size = new System.Drawing.Size(1200, 364);
-            this.groupBox1.TabIndex = 41;
+            this.groupBox1.TabIndex = 69;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ResultTable";
             // 
@@ -570,31 +117,31 @@ namespace OperatingSystem
             this.processResultTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.processResultTable.BackgroundColor = System.Drawing.SystemColors.Control;
             this.processResultTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.processResultTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.processResultTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.processResultTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.processResultTable.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.processResultTable.DefaultCellStyle = dataGridViewCellStyle14;
             this.processResultTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.processResultTable.GridColor = System.Drawing.SystemColors.Control;
             this.processResultTable.Location = new System.Drawing.Point(3, 4);
             this.processResultTable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.processResultTable.Name = "processResultTable";
             this.processResultTable.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.processResultTable.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.processResultTable.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.processResultTable.RowTemplate.Height = 23;
             this.processResultTable.Size = new System.Drawing.Size(857, 338);
             this.processResultTable.TabIndex = 0;
@@ -611,16 +158,345 @@ namespace OperatingSystem
             this.watt_dataGridView.Size = new System.Drawing.Size(325, 338);
             this.watt_dataGridView.TabIndex = 42;
             // 
+            // LBLProcessor4
+            // 
+            this.LBLProcessor4.AutoSize = true;
+            this.LBLProcessor4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLProcessor4.Location = new System.Drawing.Point(618, 361);
+            this.LBLProcessor4.Name = "LBLProcessor4";
+            this.LBLProcessor4.Size = new System.Drawing.Size(86, 20);
+            this.LBLProcessor4.TabIndex = 68;
+            this.LBLProcessor4.Text = "Processor4";
+            this.LBLProcessor4.Visible = false;
+            // 
+            // LBLProcessor3
+            // 
+            this.LBLProcessor3.AutoSize = true;
+            this.LBLProcessor3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLProcessor3.Location = new System.Drawing.Point(618, 274);
+            this.LBLProcessor3.Name = "LBLProcessor3";
+            this.LBLProcessor3.Size = new System.Drawing.Size(86, 20);
+            this.LBLProcessor3.TabIndex = 67;
+            this.LBLProcessor3.Text = "Processor3";
+            this.LBLProcessor3.Visible = false;
+            // 
+            // LBLProcessor2
+            // 
+            this.LBLProcessor2.AutoSize = true;
+            this.LBLProcessor2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLProcessor2.Location = new System.Drawing.Point(618, 185);
+            this.LBLProcessor2.Name = "LBLProcessor2";
+            this.LBLProcessor2.Size = new System.Drawing.Size(86, 20);
+            this.LBLProcessor2.TabIndex = 66;
+            this.LBLProcessor2.Text = "Processor2";
+            this.LBLProcessor2.Visible = false;
+            // 
+            // LBLProcessor1
+            // 
+            this.LBLProcessor1.AutoSize = true;
+            this.LBLProcessor1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLProcessor1.Location = new System.Drawing.Point(618, 104);
+            this.LBLProcessor1.Name = "LBLProcessor1";
+            this.LBLProcessor1.Size = new System.Drawing.Size(86, 20);
+            this.LBLProcessor1.TabIndex = 65;
+            this.LBLProcessor1.Text = "Processor1";
+            this.LBLProcessor1.Visible = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel1.ColumnCount = 15;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(622, 38);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(517, 49);
+            this.tableLayoutPanel1.TabIndex = 64;
+            // 
+            // LBLTime
+            // 
+            this.LBLTime.AutoSize = true;
+            this.LBLTime.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLTime.Location = new System.Drawing.Point(534, 5);
+            this.LBLTime.Name = "LBLTime";
+            this.LBLTime.Size = new System.Drawing.Size(44, 20);
+            this.LBLTime.TabIndex = 63;
+            this.LBLTime.Text = "Time";
+            // 
+            // btnStop
+            // 
+            this.btnStop.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnStop.Location = new System.Drawing.Point(88, 426);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(69, 34);
+            this.btnStop.TabIndex = 62;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.stopTimer);
+            // 
+            // LBLQueue
+            // 
+            this.LBLQueue.AutoSize = true;
+            this.LBLQueue.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLQueue.Location = new System.Drawing.Point(618, 5);
+            this.LBLQueue.Name = "LBLQueue";
+            this.LBLQueue.Size = new System.Drawing.Size(103, 20);
+            this.LBLQueue.TabIndex = 61;
+            this.LBLQueue.Text = "Ready Queue";
+            // 
+            // timeTable
+            // 
+            this.timeTable.BackColor = System.Drawing.Color.White;
+            this.timeTable.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.column_Process_Name,
+            this.column_Arrival_Time,
+            this.column_Burst_Time});
+            this.timeTable.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.timeTable.GridLines = true;
+            this.timeTable.HideSelection = false;
+            this.timeTable.Location = new System.Drawing.Point(170, 38);
+            this.timeTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.timeTable.Name = "timeTable";
+            this.timeTable.Size = new System.Drawing.Size(442, 410);
+            this.timeTable.TabIndex = 60;
+            this.timeTable.UseCompatibleStateImageBehavior = false;
+            this.timeTable.View = System.Windows.Forms.View.Details;
+            this.timeTable.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.timeTable_ColumnWidthChanging);
+            this.timeTable.Resize += new System.EventHandler(this.timeTable_Resize);
+            // 
+            // column_Process_Name
+            // 
+            this.column_Process_Name.Text = "Process Name";
+            this.column_Process_Name.Width = 155;
+            // 
+            // column_Arrival_Time
+            // 
+            this.column_Arrival_Time.Text = "Arrival Time";
+            this.column_Arrival_Time.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.column_Arrival_Time.Width = 107;
+            // 
+            // column_Burst_Time
+            // 
+            this.column_Burst_Time.Text = "Burst Time";
+            this.column_Burst_Time.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.column_Burst_Time.Width = 173;
+            // 
+            // LBLTimeTable
+            // 
+            this.LBLTimeTable.AutoSize = true;
+            this.LBLTimeTable.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLTimeTable.Location = new System.Drawing.Point(166, 5);
+            this.LBLTimeTable.Name = "LBLTimeTable";
+            this.LBLTimeTable.Size = new System.Drawing.Size(87, 20);
+            this.LBLTimeTable.TabIndex = 59;
+            this.LBLTimeTable.Text = "Time Tabel";
+            // 
+            // btnStart
+            // 
+            this.btnStart.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnStart.Location = new System.Drawing.Point(14, 426);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(69, 34);
+            this.btnStart.TabIndex = 58;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnReset.Location = new System.Drawing.Point(88, 384);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(69, 32);
+            this.btnReset.TabIndex = 57;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnAdd.Location = new System.Drawing.Point(14, 384);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(69, 32);
+            this.btnAdd.TabIndex = 56;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // timeQuantunm
+            // 
+            this.timeQuantunm.Location = new System.Drawing.Point(14, 348);
+            this.timeQuantunm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.timeQuantunm.Name = "timeQuantunm";
+            this.timeQuantunm.Size = new System.Drawing.Size(143, 25);
+            this.timeQuantunm.TabIndex = 55;
+            this.timeQuantunm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.timeQuantunm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
+            // 
+            // LBLTimequantum
+            // 
+            this.LBLTimequantum.AutoSize = true;
+            this.LBLTimequantum.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLTimequantum.Location = new System.Drawing.Point(10, 322);
+            this.LBLTimequantum.Name = "LBLTimequantum";
+            this.LBLTimequantum.Size = new System.Drawing.Size(147, 20);
+            this.LBLTimequantum.TabIndex = 54;
+            this.LBLTimequantum.Text = "RR Time quantunm";
+            // 
+            // burstTime
+            // 
+            this.burstTime.Location = new System.Drawing.Point(14, 295);
+            this.burstTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.burstTime.Name = "burstTime";
+            this.burstTime.Size = new System.Drawing.Size(143, 25);
+            this.burstTime.TabIndex = 53;
+            this.burstTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.burstTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
+            // 
+            // LBLBurst
+            // 
+            this.LBLBurst.AutoSize = true;
+            this.LBLBurst.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLBurst.Location = new System.Drawing.Point(10, 274);
+            this.LBLBurst.Name = "LBLBurst";
+            this.LBLBurst.Size = new System.Drawing.Size(87, 20);
+            this.LBLBurst.TabIndex = 52;
+            this.LBLBurst.Text = "Burst Time";
+            // 
+            // arrivalTime
+            // 
+            this.arrivalTime.Location = new System.Drawing.Point(14, 244);
+            this.arrivalTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.arrivalTime.Name = "arrivalTime";
+            this.arrivalTime.Size = new System.Drawing.Size(143, 25);
+            this.arrivalTime.TabIndex = 51;
+            this.arrivalTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.arrivalTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            // 
+            // LBLArrival
+            // 
+            this.LBLArrival.AutoSize = true;
+            this.LBLArrival.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLArrival.Location = new System.Drawing.Point(10, 218);
+            this.LBLArrival.Name = "LBLArrival";
+            this.LBLArrival.Size = new System.Drawing.Size(96, 20);
+            this.LBLArrival.TabIndex = 50;
+            this.LBLArrival.Text = "Arrival Time";
+            // 
+            // processName
+            // 
+            this.processName.Location = new System.Drawing.Point(14, 191);
+            this.processName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.processName.Name = "processName";
+            this.processName.Size = new System.Drawing.Size(143, 25);
+            this.processName.TabIndex = 49;
+            this.processName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // LBLProcess
+            // 
+            this.LBLProcess.AutoSize = true;
+            this.LBLProcess.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLProcess.Location = new System.Drawing.Point(10, 168);
+            this.LBLProcess.Name = "LBLProcess";
+            this.LBLProcess.Size = new System.Drawing.Size(109, 20);
+            this.LBLProcess.TabIndex = 48;
+            this.LBLProcess.Text = "Process Name";
+            // 
+            // cmbPcore
+            // 
+            this.cmbPcore.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cmbPcore.FormattingEnabled = true;
+            this.cmbPcore.Location = new System.Drawing.Point(14, 138);
+            this.cmbPcore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbPcore.Name = "cmbPcore";
+            this.cmbPcore.Size = new System.Drawing.Size(143, 28);
+            this.cmbPcore.TabIndex = 47;
+            // 
+            // LBLPcore
+            // 
+            this.LBLPcore.AutoSize = true;
+            this.LBLPcore.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLPcore.Location = new System.Drawing.Point(10, 116);
+            this.LBLPcore.Name = "LBLPcore";
+            this.LBLPcore.Size = new System.Drawing.Size(105, 20);
+            this.LBLPcore.TabIndex = 46;
+            this.LBLPcore.Text = "num of Pcore";
+            // 
+            // cmbProcessor
+            // 
+            this.cmbProcessor.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cmbProcessor.FormattingEnabled = true;
+            this.cmbProcessor.Location = new System.Drawing.Point(14, 86);
+            this.cmbProcessor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbProcessor.Name = "cmbProcessor";
+            this.cmbProcessor.Size = new System.Drawing.Size(143, 28);
+            this.cmbProcessor.TabIndex = 45;
+            // 
+            // LBLproceorNum
+            // 
+            this.LBLproceorNum.AutoSize = true;
+            this.LBLproceorNum.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLproceorNum.Location = new System.Drawing.Point(17, 64);
+            this.LBLproceorNum.Name = "LBLproceorNum";
+            this.LBLproceorNum.Size = new System.Drawing.Size(141, 20);
+            this.LBLproceorNum.TabIndex = 44;
+            this.LBLproceorNum.Text = "num of Processors";
+            // 
+            // cmbAlgorithm
+            // 
+            this.cmbAlgorithm.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cmbAlgorithm.FormattingEnabled = true;
+            this.cmbAlgorithm.Location = new System.Drawing.Point(14, 34);
+            this.cmbAlgorithm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbAlgorithm.Name = "cmbAlgorithm";
+            this.cmbAlgorithm.Size = new System.Drawing.Size(143, 28);
+            this.cmbAlgorithm.TabIndex = 43;
+            // 
+            // LBLalgorithm
+            // 
+            this.LBLalgorithm.AutoSize = true;
+            this.LBLalgorithm.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLalgorithm.Location = new System.Drawing.Point(11, 5);
+            this.LBLalgorithm.Name = "LBLalgorithm";
+            this.LBLalgorithm.Size = new System.Drawing.Size(111, 20);
+            this.LBLalgorithm.TabIndex = 42;
+            this.LBLalgorithm.Text = "Algorithm List";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1200, 902);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.processor4);
-            this.Controls.Add(this.processor3);
-            this.Controls.Add(this.processor2);
-            this.Controls.Add(this.processor1);
             this.Controls.Add(this.LBLProcessor4);
             this.Controls.Add(this.LBLProcessor3);
             this.Controls.Add(this.LBLProcessor2);
@@ -651,6 +527,7 @@ namespace OperatingSystem
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Process Scheduling Simulator";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -662,46 +539,41 @@ namespace OperatingSystem
         }
 
         #endregion
-
-        private System.Windows.Forms.Label LBLalgorithm;
-        private System.Windows.Forms.ComboBox cmbAlgorithm;
-        private System.Windows.Forms.ComboBox cmbProcessor;
-        private System.Windows.Forms.Label LBLproceorNum;
-        private System.Windows.Forms.ComboBox cmbPcore;
-        private System.Windows.Forms.Label LBLPcore;
-        private System.Windows.Forms.Label LBLProcess;
-        private System.Windows.Forms.TextBox processName;
-        private System.Windows.Forms.TextBox arrivalTime;
-        private System.Windows.Forms.Label LBLArrival;
-        private System.Windows.Forms.Label LBLBurst;
-        private System.Windows.Forms.TextBox timeQuantunm;
-        private System.Windows.Forms.Label LBLTimequantum;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Label LBLTimeTable;
-        private System.Windows.Forms.ListView timeTable;
-        private System.Windows.Forms.ColumnHeader column_Process_Name;
-        private System.Windows.Forms.ColumnHeader column_Arrival_Time;
-        private System.Windows.Forms.ColumnHeader column_Burst_Time;
-        private System.Windows.Forms.Label LBLQueue;
-        private System.Windows.Forms.TextBox burstTime;
-        private System.Windows.Forms.Button btnStop;
-        private System.Windows.Forms.Label LBLTime;
         public System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel processor4;
-        private System.Windows.Forms.TableLayoutPanel processor3;
-        private System.Windows.Forms.TableLayoutPanel processor2;
-        private System.Windows.Forms.TableLayoutPanel processor1;
-        private System.Windows.Forms.Label LBLProcessor4;
-        private System.Windows.Forms.Label LBLProcessor3;
-        private System.Windows.Forms.Label LBLProcessor2;
-        private System.Windows.Forms.Label LBLProcessor1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView processResultTable;
         private System.Windows.Forms.DataGridView watt_dataGridView;
+        private System.Windows.Forms.Label LBLProcessor4;
+        private System.Windows.Forms.Label LBLProcessor3;
+        private System.Windows.Forms.Label LBLProcessor2;
+        private System.Windows.Forms.Label LBLProcessor1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label LBLTime;
+        private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.Label LBLQueue;
+        private System.Windows.Forms.ListView timeTable;
+        private System.Windows.Forms.ColumnHeader column_Process_Name;
+        private System.Windows.Forms.ColumnHeader column_Arrival_Time;
+        private System.Windows.Forms.ColumnHeader column_Burst_Time;
+        private System.Windows.Forms.Label LBLTimeTable;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TextBox timeQuantunm;
+        private System.Windows.Forms.Label LBLTimequantum;
+        private System.Windows.Forms.TextBox burstTime;
+        private System.Windows.Forms.Label LBLBurst;
+        private System.Windows.Forms.TextBox arrivalTime;
+        private System.Windows.Forms.Label LBLArrival;
+        private System.Windows.Forms.TextBox processName;
+        private System.Windows.Forms.Label LBLProcess;
+        private System.Windows.Forms.ComboBox cmbPcore;
+        private System.Windows.Forms.Label LBLPcore;
+        private System.Windows.Forms.ComboBox cmbProcessor;
+        private System.Windows.Forms.Label LBLproceorNum;
+        private System.Windows.Forms.ComboBox cmbAlgorithm;
+        private System.Windows.Forms.Label LBLalgorithm;
     }
 }
 
