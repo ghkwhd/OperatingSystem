@@ -96,13 +96,6 @@ namespace OperatingSystem
                         processorList[i].setRunning(true);
                         //processorList[i].runningTime += 1;
                     }
-
-                    // 프로세서가 수행 중이 아닌데 대기 중인 프로세스도 없는 경우
-                    else
-                    {
-                        //processorList[i].addProcess(); 
-                    }
-
                 }
             }
         }
