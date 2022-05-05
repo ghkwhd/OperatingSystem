@@ -77,6 +77,9 @@ namespace OperatingSystem
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.processResultTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.processorResultTable)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.watt_dataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.watt_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // LBLalgorithm
@@ -284,6 +287,7 @@ namespace OperatingSystem
             this.timeTable.UseCompatibleStateImageBehavior = false;
             this.timeTable.View = System.Windows.Forms.View.Details;
             this.timeTable.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.timeTable_ColumnWidthChanging);
+            this.timeTable.SelectedIndexChanged += new System.EventHandler(this.timeTable_SelectedIndexChanged);
             this.timeTable.Resize += new System.EventHandler(this.timeTable_Resize);
             // 
             // column_Process_Name
@@ -490,6 +494,7 @@ namespace OperatingSystem
             this.processor1.Size = new System.Drawing.Size(452, 38);
             this.processor1.TabIndex = 37;
             this.processor1.Visible = false;
+            this.processor1.Paint += new System.Windows.Forms.PaintEventHandler(this.processor1_Paint);
             // 
             // LBLProcessor4
             // 
@@ -624,6 +629,22 @@ namespace OperatingSystem
             this.processorResultTable.RowTemplate.Height = 23;
             this.processorResultTable.Size = new System.Drawing.Size(500, 271);
             this.processorResultTable.TabIndex = 1;
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel1.Location = new System.Drawing.Point(18, 408);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(593, 212);
+            this.panel1.TabIndex = 41;
+            // 
+            // watt_dataGridView
+            // 
+            this.watt_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.watt_dataGridView.Location = new System.Drawing.Point(632, 408);
+            this.watt_dataGridView.Name = "watt_dataGridView";
+            this.watt_dataGridView.RowTemplate.Height = 23;
+            this.watt_dataGridView.Size = new System.Drawing.Size(345, 212);
+            this.watt_dataGridView.TabIndex = 42;
             // 
             // Form1
             // 
@@ -631,6 +652,9 @@ namespace OperatingSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1018, 675);
             this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1050, 632);
+            this.Controls.Add(this.watt_dataGridView);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.processor4);
             this.Controls.Add(this.processor3);
             this.Controls.Add(this.processor2);
@@ -670,6 +694,7 @@ namespace OperatingSystem
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.processResultTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.processorResultTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.watt_dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -716,6 +741,8 @@ namespace OperatingSystem
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView processResultTable;
         private System.Windows.Forms.DataGridView processorResultTable;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView watt_dataGridView;
     }
 }
 
