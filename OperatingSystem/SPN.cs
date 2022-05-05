@@ -44,7 +44,10 @@ namespace OperatingSystem
                 if (processorList[i].runningState())
                 {
                     processorList[i].runningTime += 1;
+
                     Process ps = processorList[i].getLastProcess();  // 실행 중인 프로세스
+                    processCopyList[ps.index].runBt++;  // 현재 프로세스 실제 수행 시간 증가
+
                     if (processorList[i].getType() == "e")
                     {
                         ps.Bt -= 1;  // 1초 실행
@@ -88,7 +91,6 @@ namespace OperatingSystem
                         processorList[i].addProcess(readyQueueSort[0]);
                         readyQueue.RemoveAt(readyQueue.IndexOf(readyQueueSort[0]));
                         readyQueueSort.RemoveAt(0);
-                        // processorList[i].runningTime += 1;
                         processorList[i].setRunning(true);
                     }
 

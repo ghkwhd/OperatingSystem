@@ -10,14 +10,17 @@ namespace OperatingSystem
         static List<Process> readyQueue = new List<Process>();
         static Processor[] processorList = new Processor[4];
 
+        static List<Process> processCopyList = new List<Process>();
+
         static List<Process> indexList = new List<Process>();
 
         static double responseratio;
 
 
-        public HRRN(List<Process> psList, List<Process> readyQ, Processor[] processors)
+        public HRRN(List<Process> psList, List<Process> psCopyList, List<Process> readyQ, Processor[] processors)
         {
             processList = psList;
+            processCopyList = psCopyList;
             readyQueue = readyQ;
             processorList = processors;
         }
@@ -57,15 +60,27 @@ namespace OperatingSystem
                 {
                     processorList[i].runningTime += 1;    //  동작시간 증가
 
+                    Process ps = processorList[i].getLastProcess();  // 실행 중인 프로세스
+                    processCopyList[ps.index].runBt++;  // 현재 프로세스 실제 수행 시간 증가
+
                     // 코어에 따른 bt값 변경
-                    if (processorList[i].getType().Equals("p"))
-                        processorList[i].getLastProcess().Bt -= 2;// p코어라면 2 감소
-                    else
-                        processorList[i].getLastProcess().Bt -= 1; // e코어라면 bt 1 감소
-
-
-                    if (processorList[i].getLastProcess().Bt <= 0) // 프로세스 수행 종료
+                    if (processorList[i].getType() == "e")
                     {
+                        ps.Bt -= 1;  // 1초 실행
+                    }
+
+                    else
+                    {
+                        if (ps.Bt > 0 && ps.Bt < 2)
+                            ps.Bt = 0;
+                        else
+                            ps.Bt -= 2; // 2배 실행
+                    }
+
+
+                    if (ps.Bt == 0) // 프로세스 수행 종료
+                    {
+                        processCopyList[ps.index].Tt = Form1.time - ps.At;
                         processorList[i].setRunning(false); // 프로세서 상태 변화
                         int idx = processList.IndexOf(processorList[i].getLastProcess());
                         processList.RemoveAt(idx);  // 프로세스 리스트에서 제거
@@ -94,7 +109,6 @@ namespace OperatingSystem
                         readyQueue.Remove(indexList[0]);
                         indexList.RemoveAt(0);
                         processorList[i].setRunning(true);
-                        //processorList[i].runningTime += 1;
                     }
                 }
             }

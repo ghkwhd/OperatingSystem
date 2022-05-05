@@ -23,7 +23,6 @@ namespace OperatingSystem
 
         static Timer timer2 = new Timer();  // 추가한 코드
 
-        List<TableLayoutPanel> tableLayouts = new List<TableLayoutPanel>();
         public Form1()
         {
             InitializeComponent();
@@ -194,7 +193,7 @@ namespace OperatingSystem
 
                 if (cmbAlgorithm.SelectedItem.ToString() == "FCFS")
                 {
-                    FCFS fcfs = new FCFS(processList, ReadyQueue, processorArray);
+                    FCFS fcfs = new FCFS(processList, processCopyList, ReadyQueue, processorArray);
                     time = 0;   // 위치 이동
                     timer.Start();  // 위치 이동
                     timer2.Tick += new EventHandler(fcfs.Event);
@@ -203,11 +202,11 @@ namespace OperatingSystem
 
                 else if (cmbAlgorithm.SelectedItem.ToString() == "HRRN")
                 {
-                    HRRN hrrn = new HRRN(processList, ReadyQueue, processorArray);
+                    HRRN hrrn = new HRRN(processList, processCopyList, ReadyQueue, processorArray);
                     time = 0;   // 위치 이동
                     timer.Start();  // 위치 이동
-                    timer2.Tick += new EventHandler(hrrn.Event);    // 추가한 코드
-                    timer2.Start(); // 추가한 코드
+                    timer2.Tick += new EventHandler(hrrn.Event); 
+                    timer2.Start(); 
                 }
 
                 else if (cmbAlgorithm.SelectedItem.ToString() == "SPN")
@@ -215,16 +214,16 @@ namespace OperatingSystem
                     SPN spn = new SPN(processList, processCopyList, ReadyQueue, processorArray);
                     time = 0;   // 위치 이동
                     timer.Start();  // 위치 이동
-                    timer2.Tick += new EventHandler(spn.Event);    // 추가한 코드
-                    timer2.Start(); // 추가한 코드
+                    timer2.Tick += new EventHandler(spn.Event);  
+                    timer2.Start(); 
                 }
                 else if (cmbAlgorithm.SelectedItem.ToString() == "SRTN")
                 {
-                    SRTN srtn = new SRTN(processList, ReadyQueue, processorArray);
+                    SRTN srtn = new SRTN(processList, processCopyList, ReadyQueue, processorArray);
                     time = 0;   // 위치 이동
                     timer.Start();  // 위치 이동
-                    timer2.Tick += new EventHandler(srtn.Event);    // 추가한 코드
-                    timer2.Start(); // 추가한 코드
+                    timer2.Tick += new EventHandler(srtn.Event);  
+                    timer2.Start(); 
                 }
                 else if ((cmbAlgorithm.SelectedItem.ToString() == "RR"))
                 {
@@ -234,7 +233,7 @@ namespace OperatingSystem
                     }
                     else
                     {
-                        RR rr = new RR(processList, ReadyQueue, processorArray, Int32.Parse(timeQuantunm.Text));
+                        RR rr = new RR(processList, processCopyList, ReadyQueue, processorArray, Int32.Parse(timeQuantunm.Text));
                         time = 0;   // 위치 이동
                         timer.Start();  // 위치 이동
                         timer2.Tick += new EventHandler(rr.Event);
@@ -299,9 +298,9 @@ namespace OperatingSystem
                     row["Process Name"] = processCopyList[i].name;
                     row["Arrival Time(AT)"] = processCopyList[i].At;
                     row["Burst Time(BT)"] = processCopyList[i].Bt;
-                    row["Wating Time(WT)"] = processCopyList[i].Tt - processCopyList[i].Bt;
+                    row["Wating Time(WT)"] = processCopyList[i].Tt - processCopyList[i].runBt;
                     row["Turnaround Time(TT)"] = processCopyList[i].Tt;
-                    row["Normalized TT(NTT)"] = processCopyList[i].Tt / processCopyList[i].Bt;
+                    row["Normalized TT(NTT)"] = processCopyList[i].Tt / processCopyList[i].runBt;
 
                     // 생성된 row를 데이터 테이블 dt에 삽입
                     if (isTable) { process_DS.Tables["Process_ResultTable"].Rows.Add(row); } // 이미 테이블이 있다면 교체

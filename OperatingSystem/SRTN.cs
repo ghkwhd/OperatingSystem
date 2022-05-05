@@ -8,16 +8,19 @@ namespace OperatingSystem
     {
         static List<Process> processList = new List<Process>();
         static List<Process> readyQueue = new List<Process>();
+        static List<Process> processCopyList = new List<Process>();
         static Processor[] processorList = new Processor[4];
+
 
         static List<Process> indexList = new List<Process>();
         static int remainBurst = int.MaxValue;  // 남은 수행 시간
         static bool bchanged = false;   // 프로세스 변경해야하는지 여부
 
 
-        public SRTN(List<Process> psList, List<Process> readyQ, Processor[] processors)
+        public SRTN(List<Process> psList, List<Process> psCopyList, List<Process> readyQ, Processor[] processors)
         {
             processList = psList;
+            processCopyList = psCopyList;
             readyQueue = readyQ;
             processorList = processors;
         }
@@ -57,8 +60,10 @@ namespace OperatingSystem
                 if (processorList[i].runningState()) // 프로세서가 동작 중
                 {
                     processorList[i].runningTime += 1;    //  프로세서 동작시간 증가
-                    //processorList[i].getLastProcess().Bt -= 1; // 현재 수행 중인 프로세스 bt 감소
+
                     Process ps = processorList[i].getLastProcess();  // 실행 중인 프로세스
+                    processCopyList[ps.index].runBt++;  // 현재 프로세스 실제 수행 시간 증가
+
                     if (processorList[i].getType() == "e")
                     {
                         ps.Bt -= 1;  // 1초 실행
@@ -74,6 +79,7 @@ namespace OperatingSystem
 
                     if (processorList[i].getLastProcess().Bt == 0) // 현재 수행 중인 프로세스의 bt가 0 인 경우
                     {
+                        processCopyList[ps.index].Tt = Form1.time - ps.At;
                         processorList[i].setRunning(false); // 프로세서 상태 변화
                         int idx = processList.IndexOf(processorList[i].getLastProcess());
                         processList.RemoveAt(idx);  // 프로세스 리스트에서 제거

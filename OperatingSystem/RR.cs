@@ -12,13 +12,15 @@ namespace OperatingSystem
 
         static List<Process> processList = new List<Process>();
         static List<Process> readyQueue = new List<Process>();
+        static List<Process> processCopyList = new List<Process>();
         static Processor[] processorList = new Processor[4];
         static int timeQuantum = 0;
         int[] RRtime = { 0, 0, 0, 0 };  // 프로세스 실행 시간 계산
 
-        public RR(List<Process> psList, List<Process> readyQ, Processor[] processors, int tq)
+        public RR(List<Process> psList, List<Process> psCopyList, List<Process> readyQ, Processor[] processors, int tq)
         {
             processList = psList;
+            processCopyList = psCopyList;
             readyQueue = readyQ;
             processorList = processors;
             timeQuantum = tq;
@@ -41,6 +43,7 @@ namespace OperatingSystem
                     RRtime[i]++;  // 실행시간 증가
                     processorList[i].runningTime += 1;  // 동작시간 증가
                     Process ps = processorList[i].getLastProcess();  // 실행 중인 프로세스
+                    processCopyList[ps.index].runBt++;  // 현재 프로세스 실제 수행 시간 증가
                     if (processorList[i].getType() == "e")
                     {
                         ps.Bt -= 1;  // 1초 실행
@@ -57,6 +60,7 @@ namespace OperatingSystem
 
                     if (ps.Bt == 0)  // 실행이 끝났을 때
                     {
+                        processCopyList[ps.index].Tt = Form1.time - ps.At;
                         processorList[i].setRunning(false);  // 실행 끝 알림
                         int idx = processList.IndexOf(ps);  //프로세스 리스트에서 위치 검색 
                         processList.RemoveAt(idx);  // 프로세스 리스트에서 삭제
