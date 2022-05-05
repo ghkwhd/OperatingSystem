@@ -400,41 +400,5 @@ namespace OperatingSystem
 
             ++time;
         }
-
-        private void timeTable_SelectedIndexChanged(object sender, EventArgs e)
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void processor1_Paint(object sender, PaintEventArgs e)
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        private void cmbPcore_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        private void processResultTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        private void processName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
-            
 }
