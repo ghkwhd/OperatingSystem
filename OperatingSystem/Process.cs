@@ -14,6 +14,7 @@ namespace OperatingSystem
         public int runBt = 0;   // 실제 수행 시간
         public float Tt;
         public int index = 0;  // GUI 색깔 번호 유지 위해서
+        public int deadline;    // deadline
         
         public Process(string psName, int psAt, int psBt, int idx)
         {

@@ -39,7 +39,7 @@ namespace OperatingSystem
             cmbAlgorithm.Items.Add("SPN");
             cmbAlgorithm.Items.Add("SRTN");
             cmbAlgorithm.Items.Add("HRRN");
-            cmbAlgorithm.Items.Add("New Algorithm");
+            cmbAlgorithm.Items.Add("FOF");
 
             cmbProcessor.Items.Add(1);
             cmbProcessor.Items.Add(2);
@@ -239,6 +239,15 @@ namespace OperatingSystem
                         timer2.Tick += new EventHandler(rr.Event);
                         timer2.Start();
                     }
+                }
+
+                else if (cmbAlgorithm.SelectedItem.ToString() == "FOF")
+                {
+                    FOF fof = new FOF(processList, processCopyList, ReadyQueue, processorArray);
+                    time = 0;   // 위치 이동
+                    timer.Start();  // 위치 이동
+                    timer2.Tick += new EventHandler(fof.Event);
+                    timer2.Start();
                 }
             }
         }
