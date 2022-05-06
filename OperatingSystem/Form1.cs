@@ -97,8 +97,11 @@ namespace OperatingSystem
 
                 else
                 {
-                    addListView(processName.Text, arrivalTime.Text, burstTime.Text);
-                    processName.Focus();
+                    if (cmbAlgorithm.SelectedItem.ToString() != "FOF")
+                    {
+                        addListView(processName.Text, arrivalTime.Text, burstTime.Text);
+                        processName.Focus();
+                    }
                 }
             }
         }
@@ -142,6 +145,38 @@ namespace OperatingSystem
             else if (timeTable.Items.Count >= 15)
             {
                 MessageBox.Show("최대 프로세스 개수를 초과했습니다.");
+            }
+
+            else if(cmbAlgorithm.SelectedItem.ToString() == "FOF")
+            {
+                if(DeadLine.Text == "")
+                {
+                    MessageBox.Show("Deadline을 입력하세요!");
+                }
+                else if(int.Parse(DeadLine.Text) < (int.Parse(arrivalTime.Text) + int.Parse(burstTime.Text)))
+                {
+                    MessageBox.Show("허용되지 않은 Deadline 값입니다!");
+                }
+                else
+                {
+                    ListViewItem process = new ListViewItem(new string[] { processName.Text, arrivalTime.Text, burstTime.Text, DeadLine.Text });
+
+                    // 리스트에 추가하는 코드
+                    int idx = processList.Count;
+                    Process ps = new Process(processName.Text, int.Parse(arrivalTime.Text), int.Parse(burstTime.Text), idx);
+                    ps.deadline = int.Parse(DeadLine.Text);
+                    processList.Add(ps);
+
+                    timeTable.Items.Add(process);
+                    process.BackColor = bgColor[timeTable.Items.Count - 1];
+
+                    processName.Text = "";
+                    arrivalTime.Text = "";
+                    burstTime.Text = "";
+                    DeadLine.Text = "";
+                }
+
+                processName.Focus();
             }
 
             else
@@ -243,11 +278,20 @@ namespace OperatingSystem
 
                 else if (cmbAlgorithm.SelectedItem.ToString() == "FOF")
                 {
-                    FOF fof = new FOF(processList, processCopyList, ReadyQueue, processorArray);
-                    time = 0;   // 위치 이동
-                    timer.Start();  // 위치 이동
-                    timer2.Tick += new EventHandler(fof.Event);
-                    timer2.Start();
+                    if (int.Parse(cmbProcessor.Text) <= 1)
+                    {
+                        MessageBox.Show("코어의 수가 부족합니다!");
+                    }
+
+                    else
+                    {
+                        FOF fof = new FOF(processList, processCopyList, ReadyQueue, processorArray);
+                        time = 0;   // 위치 이동
+                        timer.Start();  // 위치 이동
+                        timer2.Tick += new EventHandler(fof.Event);
+                        timer2.Start();
+                    }
+                    
                 }
             }
         }
@@ -408,6 +452,51 @@ namespace OperatingSystem
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void DeadLine_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (cmbAlgorithm.SelectedItem.ToString() == "FOF")
+                {
+                    if (DeadLine.Text == "")
+                    {
+                        MessageBox.Show("Deadline을 입력하세요!");
+                    }
+
+                    else if (int.Parse(DeadLine.Text) < (int.Parse(arrivalTime.Text) + int.Parse(burstTime.Text)))
+                    {
+                        MessageBox.Show("허용되지 않은 Deadline 값입니다!");
+                    }
+
+                    else
+                    {
+                        ListViewItem process = new ListViewItem(new string[] { processName.Text, arrivalTime.Text, burstTime.Text, DeadLine.Text });
+
+                        // 리스트에 추가하는 코드
+                        int idx = processList.Count;
+                        Process ps = new Process(processName.Text, int.Parse(arrivalTime.Text), int.Parse(burstTime.Text), idx);
+                        ps.deadline = int.Parse(DeadLine.Text);
+                        processList.Add(ps);
+
+                        timeTable.Items.Add(process);
+                        process.BackColor = bgColor[timeTable.Items.Count - 1];
+
+                        processName.Text = "";
+                        arrivalTime.Text = "";
+                        burstTime.Text = "";
+                        DeadLine.Text = "";
+
+                        processName.Focus();
+                    }
+                }
+            }
         }
     }
 }
