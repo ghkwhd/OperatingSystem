@@ -322,8 +322,8 @@ namespace OperatingSystem
 
 
                 //소비 전력 구하는 부분
-                int processorNum1 = int.Parse(cmbProcessor.Text);
-                int pCoreNum1 = int.Parse(cmbPcore.Text);
+                int processorNum = int.Parse(cmbProcessor.Text);
+                int pCoreNum = int.Parse(cmbPcore.Text);
 
 
                 DataTable watt_table = new DataTable();
@@ -341,14 +341,14 @@ namespace OperatingSystem
                     row["Processor Name"] = processorArray[i].getName();
                     row["Core Type"] = processorArray[i].getType();
                     
-                    if (i < pCoreNum1)
+                    if (i < processorArray.Length-pCoreNum)
                     {
-                        row["Using Watt"] = ((processorArray[i].runningTime) * 3) + ((time - (processorArray[i].runningTime)) * 0.1);
+                        row["Using Watt"] = ((processorArray[i].runningTime) * 1) + ((time - (processorArray[i].runningTime)) * 0.1);
                        
                     }
                     else
                     {
-                        row["Using Watt"] = ((processorArray[i].runningTime) * 1) + ((time - (processorArray[i].runningTime)) * 0.1);
+                        row["Using Watt"] = ((processorArray[i].runningTime) * 3) + ((time - (processorArray[i].runningTime)) * 0.1);
                     }
                     watt_table.Rows.Add(row);
                 }
