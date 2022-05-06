@@ -30,9 +30,9 @@ namespace OperatingSystem
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -68,6 +68,8 @@ namespace OperatingSystem
             this.LBLproceorNum = new System.Windows.Forms.Label();
             this.cmbAlgorithm = new System.Windows.Forms.ComboBox();
             this.LBLalgorithm = new System.Windows.Forms.Label();
+            this.DeadLine = new System.Windows.Forms.TextBox();
+            this.LBLDeadLine = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.processResultTable)).BeginInit();
@@ -117,31 +119,31 @@ namespace OperatingSystem
             this.processResultTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.processResultTable.BackgroundColor = System.Drawing.SystemColors.Control;
             this.processResultTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.processResultTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.processResultTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.processResultTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.processResultTable.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.processResultTable.DefaultCellStyle = dataGridViewCellStyle2;
             this.processResultTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.processResultTable.GridColor = System.Drawing.SystemColors.Control;
             this.processResultTable.Location = new System.Drawing.Point(3, 4);
             this.processResultTable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.processResultTable.Name = "processResultTable";
             this.processResultTable.RowHeadersWidth = 51;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.processResultTable.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.processResultTable.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.processResultTable.RowTemplate.Height = 23;
             this.processResultTable.Size = new System.Drawing.Size(857, 338);
             this.processResultTable.TabIndex = 0;
@@ -249,7 +251,7 @@ namespace OperatingSystem
             // btnStop
             // 
             this.btnStop.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnStop.Location = new System.Drawing.Point(88, 426);
+            this.btnStop.Location = new System.Drawing.Point(88, 483);
             this.btnStop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(69, 34);
@@ -281,7 +283,7 @@ namespace OperatingSystem
             this.timeTable.Location = new System.Drawing.Point(170, 38);
             this.timeTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.timeTable.Name = "timeTable";
-            this.timeTable.Size = new System.Drawing.Size(442, 410);
+            this.timeTable.Size = new System.Drawing.Size(442, 479);
             this.timeTable.TabIndex = 60;
             this.timeTable.UseCompatibleStateImageBehavior = false;
             this.timeTable.View = System.Windows.Forms.View.Details;
@@ -318,7 +320,7 @@ namespace OperatingSystem
             // btnStart
             // 
             this.btnStart.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnStart.Location = new System.Drawing.Point(14, 426);
+            this.btnStart.Location = new System.Drawing.Point(14, 483);
             this.btnStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(69, 34);
@@ -330,7 +332,7 @@ namespace OperatingSystem
             // btnReset
             // 
             this.btnReset.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnReset.Location = new System.Drawing.Point(88, 384);
+            this.btnReset.Location = new System.Drawing.Point(88, 441);
             this.btnReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(69, 32);
@@ -342,7 +344,7 @@ namespace OperatingSystem
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnAdd.Location = new System.Drawing.Point(14, 384);
+            this.btnAdd.Location = new System.Drawing.Point(14, 441);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(69, 32);
@@ -353,7 +355,7 @@ namespace OperatingSystem
             // 
             // timeQuantunm
             // 
-            this.timeQuantunm.Location = new System.Drawing.Point(14, 348);
+            this.timeQuantunm.Location = new System.Drawing.Point(14, 405);
             this.timeQuantunm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.timeQuantunm.Name = "timeQuantunm";
             this.timeQuantunm.Size = new System.Drawing.Size(143, 25);
@@ -365,7 +367,7 @@ namespace OperatingSystem
             // 
             this.LBLTimequantum.AutoSize = true;
             this.LBLTimequantum.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLTimequantum.Location = new System.Drawing.Point(10, 322);
+            this.LBLTimequantum.Location = new System.Drawing.Point(10, 379);
             this.LBLTimequantum.Name = "LBLTimequantum";
             this.LBLTimequantum.Size = new System.Drawing.Size(147, 20);
             this.LBLTimequantum.TabIndex = 54;
@@ -490,12 +492,34 @@ namespace OperatingSystem
             this.LBLalgorithm.TabIndex = 42;
             this.LBLalgorithm.Text = "Algorithm List";
             // 
+            // DeadLine
+            // 
+            this.DeadLine.Location = new System.Drawing.Point(15, 349);
+            this.DeadLine.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.DeadLine.Name = "DeadLine";
+            this.DeadLine.Size = new System.Drawing.Size(143, 25);
+            this.DeadLine.TabIndex = 71;
+            this.DeadLine.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.DeadLine.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // LBLDeadLine
+            // 
+            this.LBLDeadLine.AutoSize = true;
+            this.LBLDeadLine.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLDeadLine.Location = new System.Drawing.Point(11, 328);
+            this.LBLDeadLine.Name = "LBLDeadLine";
+            this.LBLDeadLine.Size = new System.Drawing.Size(74, 20);
+            this.LBLDeadLine.TabIndex = 70;
+            this.LBLDeadLine.Text = "DeadLine";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1200, 902);
+            this.Controls.Add(this.DeadLine);
+            this.Controls.Add(this.LBLDeadLine);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.LBLProcessor4);
             this.Controls.Add(this.LBLProcessor3);
@@ -574,6 +598,8 @@ namespace OperatingSystem
         private System.Windows.Forms.Label LBLproceorNum;
         private System.Windows.Forms.ComboBox cmbAlgorithm;
         private System.Windows.Forms.Label LBLalgorithm;
+        private System.Windows.Forms.TextBox DeadLine;
+        private System.Windows.Forms.Label LBLDeadLine;
     }
 }
 
