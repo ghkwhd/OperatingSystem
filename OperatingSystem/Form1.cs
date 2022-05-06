@@ -389,7 +389,6 @@ namespace OperatingSystem
 
                 for (int i = 0; i < processorArray.Length; i++)
                 {
-                    Console.WriteLine(processorArray[i].runningTime);
                     DataRow row = watt_table.NewRow();
                     row["Processor Name"] = processorArray[i].getName();
                     row["Core Type"] = processorArray[i].getType();
