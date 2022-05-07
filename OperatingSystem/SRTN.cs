@@ -38,12 +38,6 @@ namespace OperatingSystem
                     remainBurst = readyQueue[i].Bt; // 남은 수행시간의 최소를 저장
                     bchanged = true;    // 다음 수행할 프로세스에 변화가 있다면 true
                 }
-
-                else if (readyQueue[i].Bt == remainBurst)
-                {
-                    indexList.Add(readyQueue[i]);   // 인덱스 리스트에 추가
-                    bchanged = true;    // 다음 수행할 프로세스에 변화가 있다면 true
-                }
             }
         }
         public void Event(object sender, EventArgs e)
@@ -95,9 +89,6 @@ namespace OperatingSystem
                             processorList[i].setRunning(true);  // 프로세서 동작 중
 
                         }
-
-                        else // 레디큐에 대기 중인 프로세스가 없는 경우
-                            processorList[i].setRunning(false);
                     }
 
                     else    // 현재 수행 중인 프로세스의 bt가 0이 아닌 경우
@@ -113,7 +104,6 @@ namespace OperatingSystem
                                 processorList[i].addProcess(indexList[0]);
                                 readyQueue.Remove(indexList[0]);
                                 indexList.RemoveAt(0);
-                                processorList[i].setRunning(true);  // 프로세서 동작 중
                             }
                         }
                     }
@@ -131,9 +121,6 @@ namespace OperatingSystem
                         indexList.RemoveAt(0);
                         processorList[i].setRunning(true);  // 프로세서 동작 중
                     }
-
-                    else
-                        processorList[i].setRunning(false);
                 }
             }
         }
