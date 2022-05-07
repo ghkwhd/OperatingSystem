@@ -51,7 +51,7 @@ namespace OperatingSystem
                 int processIDX = processList.IndexOf(readyQueue[readyIDX]);
 
                 // 2. deadline 지킬 수 있는지
-                if (minDeadline > processList[processIDX].Bt)
+                if (minDeadline >= processList[processIDX].Bt)
                 {
                     // 현재 실행 중인 프로세스의 deadline보다 readyQueue에 있는 프로세스의 deadline이 더 적은 경우
                     if(processorList[i].getLastProcess().deadline > processList[processIDX].deadline)

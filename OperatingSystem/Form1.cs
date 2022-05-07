@@ -153,7 +153,7 @@ namespace OperatingSystem
                 {
                     MessageBox.Show("Deadline을 입력하세요!");
                 }
-                else if(int.Parse(DeadLine.Text) < (int.Parse(arrivalTime.Text) + int.Parse(burstTime.Text)))
+                else if(int.Parse(DeadLine.Text) < int.Parse(burstTime.Text))
                 {
                     MessageBox.Show("허용되지 않은 Deadline 값입니다!");
                 }
@@ -469,7 +469,7 @@ namespace OperatingSystem
                         MessageBox.Show("Deadline을 입력하세요!");
                     }
 
-                    else if (int.Parse(DeadLine.Text) < (int.Parse(arrivalTime.Text) + int.Parse(burstTime.Text)))
+                    else if (int.Parse(DeadLine.Text) < int.Parse(burstTime.Text))
                     {
                         MessageBox.Show("허용되지 않은 Deadline 값입니다!");
                     }
