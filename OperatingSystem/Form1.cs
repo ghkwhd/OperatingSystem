@@ -447,7 +447,6 @@ namespace OperatingSystem
                 DeadQueuePanel.Controls[i].BackColor = bgColor[idx];  // 레디큐에 색깔 삽입
             }
 
-
             for (int i = 0; i < int.Parse(cmbProcessor.Text); i++)
             {
                 if (processorArray[i].runningState())
@@ -455,7 +454,7 @@ namespace OperatingSystem
                     Label ps = new Label();
                     ps.Width = 32;
                     ps.Height = 40;
-                    ps.Location = new System.Drawing.Point(580 + (32 * time), 170 + (70 * i));
+                    ps.Location = new System.Drawing.Point(580 + (32 * time), 170 + (90 * i));
                     ps.Text = processorArray[i].getLastProcess().name;
 
                     Font ft = new Font("맑은 고딕", 10, FontStyle.Bold);
@@ -465,9 +464,15 @@ namespace OperatingSystem
                     ps.BackColor = bgColor[idx];  // 간트차트에 색깔 삽입
                     ps.TextAlign = ContentAlignment.MiddleCenter;
                     this.Controls.Add(ps);
-                }           
+                }
+                Label t = new Label();
+                t.Size = new Size(32, 15);
+                t.Location = new Point(565 + (32 * time - 1), 220 + (90 * i));
+                t.Text = time.ToString();
+                t.TextAlign = ContentAlignment.MiddleCenter;
+                this.Controls.Add(t);
             }
-
+            
             ++time;
         }
 

@@ -30,14 +30,14 @@ namespace OperatingSystem
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.processResultTable = new System.Windows.Forms.DataGridView();
             this.watt_dataGridView = new System.Windows.Forms.DataGridView();
+            this.processResultTable = new System.Windows.Forms.DataGridView();
             this.LBLProcessor4 = new System.Windows.Forms.Label();
             this.LBLProcessor3 = new System.Windows.Forms.Label();
             this.LBLProcessor2 = new System.Windows.Forms.Label();
@@ -75,8 +75,8 @@ namespace OperatingSystem
             this.LBLDeadQueue = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.processResultTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.watt_dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.processResultTable)).BeginInit();
             this.SuspendLayout();
             // 
             // timer
@@ -89,11 +89,11 @@ namespace OperatingSystem
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.groupBox1.Controls.Add(this.tableLayoutPanel2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(0, 538);
+            this.groupBox1.Location = new System.Drawing.Point(0, 633);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(1200, 364);
+            this.groupBox1.Size = new System.Drawing.Size(1262, 290);
             this.groupBox1.TabIndex = 69;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ResultTable";
@@ -103,16 +103,28 @@ namespace OperatingSystem
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.36181F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.63819F));
-            this.tableLayoutPanel2.Controls.Add(this.processResultTable, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.watt_dataGridView, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.processResultTable, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 14);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 26);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1194, 346);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1256, 260);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // watt_dataGridView
+            // 
+            this.watt_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.watt_dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.watt_dataGridView.Location = new System.Drawing.Point(911, 4);
+            this.watt_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.watt_dataGridView.Name = "watt_dataGridView";
+            this.watt_dataGridView.RowHeadersWidth = 51;
+            this.watt_dataGridView.RowTemplate.Height = 23;
+            this.watt_dataGridView.Size = new System.Drawing.Size(342, 252);
+            this.watt_dataGridView.TabIndex = 42;
             // 
             // processResultTable
             // 
@@ -122,53 +134,41 @@ namespace OperatingSystem
             this.processResultTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.processResultTable.BackgroundColor = System.Drawing.SystemColors.Control;
             this.processResultTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.processResultTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.processResultTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.processResultTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.processResultTable.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.processResultTable.DefaultCellStyle = dataGridViewCellStyle14;
             this.processResultTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.processResultTable.GridColor = System.Drawing.SystemColors.Control;
             this.processResultTable.Location = new System.Drawing.Point(3, 4);
             this.processResultTable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.processResultTable.Name = "processResultTable";
             this.processResultTable.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.processResultTable.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.processResultTable.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.processResultTable.RowTemplate.Height = 23;
-            this.processResultTable.Size = new System.Drawing.Size(857, 338);
+            this.processResultTable.Size = new System.Drawing.Size(902, 252);
             this.processResultTable.TabIndex = 0;
             this.processResultTable.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.processResultTable_CellFormatting);
-            // 
-            // watt_dataGridView
-            // 
-            this.watt_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.watt_dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.watt_dataGridView.Location = new System.Drawing.Point(866, 4);
-            this.watt_dataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.watt_dataGridView.Name = "watt_dataGridView";
-            this.watt_dataGridView.RowHeadersWidth = 51;
-            this.watt_dataGridView.RowTemplate.Height = 23;
-            this.watt_dataGridView.Size = new System.Drawing.Size(325, 338);
-            this.watt_dataGridView.TabIndex = 42;
             // 
             // LBLProcessor4
             // 
             this.LBLProcessor4.AutoSize = true;
             this.LBLProcessor4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLProcessor4.Location = new System.Drawing.Point(651, 447);
+            this.LBLProcessor4.Location = new System.Drawing.Point(651, 517);
             this.LBLProcessor4.Name = "LBLProcessor4";
             this.LBLProcessor4.Size = new System.Drawing.Size(86, 20);
             this.LBLProcessor4.TabIndex = 68;
@@ -179,7 +179,7 @@ namespace OperatingSystem
             // 
             this.LBLProcessor3.AutoSize = true;
             this.LBLProcessor3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLProcessor3.Location = new System.Drawing.Point(651, 360);
+            this.LBLProcessor3.Location = new System.Drawing.Point(651, 407);
             this.LBLProcessor3.Name = "LBLProcessor3";
             this.LBLProcessor3.Size = new System.Drawing.Size(86, 20);
             this.LBLProcessor3.TabIndex = 67;
@@ -190,7 +190,7 @@ namespace OperatingSystem
             // 
             this.LBLProcessor2.AutoSize = true;
             this.LBLProcessor2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLProcessor2.Location = new System.Drawing.Point(651, 271);
+            this.LBLProcessor2.Location = new System.Drawing.Point(651, 297);
             this.LBLProcessor2.Name = "LBLProcessor2";
             this.LBLProcessor2.Size = new System.Drawing.Size(86, 20);
             this.LBLProcessor2.TabIndex = 66;
@@ -284,11 +284,10 @@ namespace OperatingSystem
             this.columnDeadLine});
             this.timeTable.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.timeTable.GridLines = true;
-            this.timeTable.HideSelection = false;
             this.timeTable.Location = new System.Drawing.Point(170, 38);
             this.timeTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.timeTable.Name = "timeTable";
-            this.timeTable.Size = new System.Drawing.Size(466, 479);
+            this.timeTable.Size = new System.Drawing.Size(475, 479);
             this.timeTable.TabIndex = 60;
             this.timeTable.UseCompatibleStateImageBehavior = false;
             this.timeTable.View = System.Windows.Forms.View.Details;
@@ -298,25 +297,25 @@ namespace OperatingSystem
             // column_Process_Name
             // 
             this.column_Process_Name.Text = "Process Name";
-            this.column_Process_Name.Width = 120;
+            this.column_Process_Name.Width = 110;
             // 
             // column_Arrival_Time
             // 
             this.column_Arrival_Time.Text = "Arrival Time";
             this.column_Arrival_Time.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.column_Arrival_Time.Width = 107;
+            this.column_Arrival_Time.Width = 110;
             // 
             // column_Burst_Time
             // 
             this.column_Burst_Time.Text = "Burst Time";
             this.column_Burst_Time.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.column_Burst_Time.Width = 107;
+            this.column_Burst_Time.Width = 110;
             // 
             // columnDeadLine
             // 
             this.columnDeadLine.Text = "DeadLine";
             this.columnDeadLine.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnDeadLine.Width = 107;
+            this.columnDeadLine.Width = 110;
             // 
             // LBLTimeTable
             // 
@@ -575,7 +574,7 @@ namespace OperatingSystem
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1200, 902);
+            this.ClientSize = new System.Drawing.Size(1262, 923);
             this.Controls.Add(this.DeadQueuePanel);
             this.Controls.Add(this.LBLDeadQueue);
             this.Controls.Add(this.DeadLine);
@@ -615,8 +614,8 @@ namespace OperatingSystem
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.processResultTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.watt_dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.processResultTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
