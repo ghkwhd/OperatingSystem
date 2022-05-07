@@ -286,6 +286,8 @@ namespace OperatingSystem
 
                     else
                     {
+                        LBLDeadQueue.Visible = true;
+                        DeadQueuePanel.Visible = true;
                         FOF fof = new FOF(processList, processCopyList, ReadyQueue, processorArray, deadQueue);
                         time = 0;   // 위치 이동
                         timer.Start();  // 위치 이동
@@ -301,6 +303,8 @@ namespace OperatingSystem
         {
             timer.Stop();
         }
+
+        
 
         private void timerTick(object sender, EventArgs e)
         {
@@ -354,13 +358,13 @@ namespace OperatingSystem
                     row["Burst Time(BT)"] = processCopyList[i].Bt;
                     row["Wating Time(WT)"] = processCopyList[i].Tt - processCopyList[i].runBt;
                     row["Turnaround Time(TT)"] = processCopyList[i].Tt;
-                    row["Normalized TT(NTT)"] = processCopyList[i].Tt / processCopyList[i].runBt;
+                    row["Normalized TT(NTT)"] = processCopyList[i].Tt / processCopyList[i].runBt;                    
 
                     // 생성된 row를 데이터 테이블 dt에 삽입
                     if (isTable) { process_DS.Tables["Process_ResultTable"].Rows.Add(row); } // 이미 테이블이 있다면 교체
                     else
                     {
-                        dt.Rows.Add(row);
+                        dt.Rows.Add(row);                        
                         process_DS.Tables.Add(dt);
                     }
 
@@ -426,7 +430,7 @@ namespace OperatingSystem
             }
 
 
-            tableLayoutPanel3.Controls.Clear();
+            DeadQueuePanel.Controls.Clear();
             for (int i = 0; i < deadQueue.Count; i++)
             {
                 Label ps = new Label();
@@ -439,8 +443,8 @@ namespace OperatingSystem
                 ps.Font = ft;
                 ps.TextAlign = ContentAlignment.MiddleCenter;
 
-                tableLayoutPanel3.Controls.Add(ps);
-                tableLayoutPanel3.Controls[i].BackColor = bgColor[idx];  // 레디큐에 색깔 삽입
+                DeadQueuePanel.Controls.Add(ps);
+                DeadQueuePanel.Controls[i].BackColor = bgColor[idx];  // 레디큐에 색깔 삽입
             }
 
 
@@ -514,6 +518,14 @@ namespace OperatingSystem
                         processName.Focus();
                     }
                 }
+            }
+        }
+
+        private void processResultTable_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if(e.ColumnIndex == 0)
+            {
+                e.CellStyle.BackColor = bgColor[e.RowIndex];
             }
         }
     }

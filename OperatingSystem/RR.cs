@@ -80,11 +80,12 @@ namespace OperatingSystem
                         }
                     }
 
-                    else if (timeQuantum+1 == RRtime[i])  // 실행시간이 남았을 때
+                    else if (timeQuantum == RRtime[i])  // 실행시간이 남았을 때
                     {
                         processList.Remove(ps);  // 프로세스 리스트에서 삭제
                         ps.At += timeQuantum;  // 프로세스 timeQuantum만큼 AT 증가
                         processList.Add(ps); // 프로세스 리스트에 프로세스 추가
+                        readyQueue.Add(ps);
                         RRtime[i] = 0; // timeQuantum과 비교시간 초기화
 
                         if (readyQueue.Count != 0)  // 레디큐에 프로세스가 존재할 경우
