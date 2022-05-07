@@ -16,12 +16,13 @@ namespace OperatingSystem
 
         static int minDeadline = int.MaxValue;  // 남은 deadline
 
-        public FOF(List<Process> psList, List<Process> psCopyList, List<Process> readyQ, Processor[] processors)
+        public FOF(List<Process> psList, List<Process> psCopyList, List<Process> readyQ, Processor[] processors, List<Process> deadQ)
         {
             processList = psList;
             processCopyList = psCopyList;
             readyQueue = readyQ;
             processorList = processors;
+            deadQueue = deadQ;
         }
 
         public void checkDeadline(int i)    // readyQueue에 프로세스가 있을 때 실행됨

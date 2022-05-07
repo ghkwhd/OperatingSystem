@@ -30,9 +30,9 @@ namespace OperatingSystem
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -70,6 +70,9 @@ namespace OperatingSystem
             this.LBLalgorithm = new System.Windows.Forms.Label();
             this.DeadLine = new System.Windows.Forms.TextBox();
             this.LBLDeadLine = new System.Windows.Forms.Label();
+            this.columnDeadLine = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.LBLDeadQueue = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.processResultTable)).BeginInit();
@@ -119,31 +122,31 @@ namespace OperatingSystem
             this.processResultTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.processResultTable.BackgroundColor = System.Drawing.SystemColors.Control;
             this.processResultTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.processResultTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.processResultTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.processResultTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.processResultTable.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.processResultTable.DefaultCellStyle = dataGridViewCellStyle14;
             this.processResultTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.processResultTable.GridColor = System.Drawing.SystemColors.Control;
             this.processResultTable.Location = new System.Drawing.Point(3, 4);
             this.processResultTable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.processResultTable.Name = "processResultTable";
             this.processResultTable.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.processResultTable.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.processResultTable.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.processResultTable.RowTemplate.Height = 23;
             this.processResultTable.Size = new System.Drawing.Size(857, 338);
             this.processResultTable.TabIndex = 0;
@@ -164,7 +167,7 @@ namespace OperatingSystem
             // 
             this.LBLProcessor4.AutoSize = true;
             this.LBLProcessor4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLProcessor4.Location = new System.Drawing.Point(618, 361);
+            this.LBLProcessor4.Location = new System.Drawing.Point(651, 447);
             this.LBLProcessor4.Name = "LBLProcessor4";
             this.LBLProcessor4.Size = new System.Drawing.Size(86, 20);
             this.LBLProcessor4.TabIndex = 68;
@@ -175,7 +178,7 @@ namespace OperatingSystem
             // 
             this.LBLProcessor3.AutoSize = true;
             this.LBLProcessor3.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLProcessor3.Location = new System.Drawing.Point(618, 274);
+            this.LBLProcessor3.Location = new System.Drawing.Point(651, 360);
             this.LBLProcessor3.Name = "LBLProcessor3";
             this.LBLProcessor3.Size = new System.Drawing.Size(86, 20);
             this.LBLProcessor3.TabIndex = 67;
@@ -186,7 +189,7 @@ namespace OperatingSystem
             // 
             this.LBLProcessor2.AutoSize = true;
             this.LBLProcessor2.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLProcessor2.Location = new System.Drawing.Point(618, 185);
+            this.LBLProcessor2.Location = new System.Drawing.Point(651, 271);
             this.LBLProcessor2.Name = "LBLProcessor2";
             this.LBLProcessor2.Size = new System.Drawing.Size(86, 20);
             this.LBLProcessor2.TabIndex = 66;
@@ -197,7 +200,7 @@ namespace OperatingSystem
             // 
             this.LBLProcessor1.AutoSize = true;
             this.LBLProcessor1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLProcessor1.Location = new System.Drawing.Point(618, 104);
+            this.LBLProcessor1.Location = new System.Drawing.Point(651, 187);
             this.LBLProcessor1.Name = "LBLProcessor1";
             this.LBLProcessor1.Size = new System.Drawing.Size(86, 20);
             this.LBLProcessor1.TabIndex = 65;
@@ -230,7 +233,7 @@ namespace OperatingSystem
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.tableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(622, 38);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(655, 38);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -264,7 +267,7 @@ namespace OperatingSystem
             // 
             this.LBLQueue.AutoSize = true;
             this.LBLQueue.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.LBLQueue.Location = new System.Drawing.Point(618, 5);
+            this.LBLQueue.Location = new System.Drawing.Point(651, 5);
             this.LBLQueue.Name = "LBLQueue";
             this.LBLQueue.Size = new System.Drawing.Size(103, 20);
             this.LBLQueue.TabIndex = 61;
@@ -276,14 +279,15 @@ namespace OperatingSystem
             this.timeTable.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.column_Process_Name,
             this.column_Arrival_Time,
-            this.column_Burst_Time});
+            this.column_Burst_Time,
+            this.columnDeadLine});
             this.timeTable.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.timeTable.GridLines = true;
             this.timeTable.HideSelection = false;
             this.timeTable.Location = new System.Drawing.Point(170, 38);
             this.timeTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.timeTable.Name = "timeTable";
-            this.timeTable.Size = new System.Drawing.Size(442, 479);
+            this.timeTable.Size = new System.Drawing.Size(466, 479);
             this.timeTable.TabIndex = 60;
             this.timeTable.UseCompatibleStateImageBehavior = false;
             this.timeTable.View = System.Windows.Forms.View.Details;
@@ -293,7 +297,7 @@ namespace OperatingSystem
             // column_Process_Name
             // 
             this.column_Process_Name.Text = "Process Name";
-            this.column_Process_Name.Width = 155;
+            this.column_Process_Name.Width = 140;
             // 
             // column_Arrival_Time
             // 
@@ -305,7 +309,7 @@ namespace OperatingSystem
             // 
             this.column_Burst_Time.Text = "Burst Time";
             this.column_Burst_Time.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.column_Burst_Time.Width = 173;
+            this.column_Burst_Time.Width = 107;
             // 
             // LBLTimeTable
             // 
@@ -513,12 +517,63 @@ namespace OperatingSystem
             this.LBLDeadLine.TabIndex = 70;
             this.LBLDeadLine.Text = "DeadLine";
             // 
+            // columnDeadLine
+            // 
+            this.columnDeadLine.Text = "DeadLine";
+            this.columnDeadLine.Width = 107;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel3.ColumnCount = 15;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel3.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(655, 127);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(517, 49);
+            this.tableLayoutPanel3.TabIndex = 72;
+            // 
+            // LBLDeadQueue
+            // 
+            this.LBLDeadQueue.AutoSize = true;
+            this.LBLDeadQueue.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LBLDeadQueue.Location = new System.Drawing.Point(651, 94);
+            this.LBLDeadQueue.Name = "LBLDeadQueue";
+            this.LBLDeadQueue.Size = new System.Drawing.Size(96, 20);
+            this.LBLDeadQueue.TabIndex = 71;
+            this.LBLDeadQueue.Text = "Dead Queue";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1200, 902);
+            this.Controls.Add(this.tableLayoutPanel3);
+            this.Controls.Add(this.LBLDeadQueue);
             this.Controls.Add(this.DeadLine);
             this.Controls.Add(this.LBLDeadLine);
             this.Controls.Add(this.groupBox1);
@@ -601,6 +656,9 @@ namespace OperatingSystem
         private System.Windows.Forms.Label LBLalgorithm;
         private System.Windows.Forms.TextBox DeadLine;
         private System.Windows.Forms.Label LBLDeadLine;
+        private System.Windows.Forms.ColumnHeader columnDeadLine;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label LBLDeadQueue;
     }
 }
 

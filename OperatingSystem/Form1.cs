@@ -20,6 +20,7 @@ namespace OperatingSystem
         static List<Process> processCopyList = new List<Process>();
         static Processor[] processorArray = new Processor[4];
         static List<Process> ReadyQueue = new List<Process>();
+        static List<Process> deadQueue = new List<Process>();
 
         static Timer timer2 = new Timer();  // 추가한 코드
 
@@ -285,7 +286,7 @@ namespace OperatingSystem
 
                     else
                     {
-                        FOF fof = new FOF(processList, processCopyList, ReadyQueue, processorArray);
+                        FOF fof = new FOF(processList, processCopyList, ReadyQueue, processorArray, deadQueue);
                         time = 0;   // 위치 이동
                         timer.Start();  // 위치 이동
                         timer2.Tick += new EventHandler(fof.Event);
@@ -425,6 +426,24 @@ namespace OperatingSystem
             }
 
 
+            tableLayoutPanel3.Controls.Clear();
+            for (int i = 0; i < deadQueue.Count; i++)
+            {
+                Label ps = new Label();
+                ps.Width = 34;
+                ps.Height = 49;
+                ps.Text = deadQueue[i].name;
+                int idx = deadQueue[i].index;
+
+                Font ft = new Font("맑은 고딕", 10, FontStyle.Bold);
+                ps.Font = ft;
+                ps.TextAlign = ContentAlignment.MiddleCenter;
+
+                tableLayoutPanel3.Controls.Add(ps);
+                tableLayoutPanel3.Controls[i].BackColor = bgColor[idx];  // 레디큐에 색깔 삽입
+            }
+
+
             for (int i = 0; i < int.Parse(cmbProcessor.Text); i++)
             {
                 if (processorArray[i].runningState())
@@ -432,7 +451,7 @@ namespace OperatingSystem
                     Label ps = new Label();
                     ps.Width = 32;
                     ps.Height = 40;
-                    ps.Location = new System.Drawing.Point(550 + (32 * time), 100 + (70 * i));
+                    ps.Location = new System.Drawing.Point(580 + (32 * time), 170 + (70 * i));
                     ps.Text = processorArray[i].getLastProcess().name;
 
                     Font ft = new Font("맑은 고딕", 10, FontStyle.Bold);
