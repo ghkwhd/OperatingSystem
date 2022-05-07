@@ -42,9 +42,6 @@ namespace OperatingSystem
                     indexList.Clear(); // indexList 초기화
                     indexList.Add(readyQueue[i]); // indexList에 추가
                 }
-
-                //else if (temp == responseratio) // 현재 response ratio 최댓값과 같은 경우
-                //    indexList.Add(readyQueue[i]); // indexList에 추가
             }
         }
         // 4. 실행 함수 Event
