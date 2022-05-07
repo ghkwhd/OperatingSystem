@@ -467,7 +467,7 @@ namespace OperatingSystem
                 }
                 Label t = new Label();
                 t.Size = new Size(32, 15);
-                t.Location = new Point(565 + (32 * time - 1), 220 + (90 * i));
+                t.Location = new Point(580 + (32 * time - 1), 220 + (90 * i));
                 t.Text = time.ToString();
                 t.TextAlign = ContentAlignment.MiddleCenter;
                 this.Controls.Add(t);
