@@ -68,14 +68,14 @@ namespace OperatingSystem
                             }
                         }
 
-                        RRtime[i] = 0;  // timeQuantum과 비교시간 초기화
+                        RRtime[i] = 0;  // timeQuantum과 비교할 실행 시간 초기화
                         processCopyList[ps.index].Tt = Form1.time - processCopyList[ps.index].At;
                         processorList[i].setRunning(false);  // 실행 끝 알림
 
-                        if (readyQueue.Count != 0)  // 레디큐에 프로세스가 존재할 경우
+                        if (readyQueue.Count != 0)  // Ready Queue에 프로세스가 존재할 경우
                         {
                             processorList[i].addProcess(readyQueue[0]);  // 레디큐 맨 앞의 프로세스 추가
-                            readyQueue.RemoveAt(0);  // 레디큐의 첫 번째 요소 삭제
+                            readyQueue.RemoveAt(0);  // Ready Queue의 첫 번째 요소 삭제
                             processorList[i].setRunning(true);  // 프로세서 동작 설정
                         }
                     }
@@ -83,33 +83,26 @@ namespace OperatingSystem
                     else if (timeQuantum == RRtime[i])  // 실행시간이 남았을 때
                     {
                         processList.Remove(ps);  // 프로세스 리스트에서 삭제
-                        ps.At += timeQuantum;  // 프로세스 timeQuantum만큼 AT 증가
+                        ps.At += timeQuantum;  // 프로세스 time quantum만큼 AT 증가
                         processList.Add(ps); // 프로세스 리스트에 프로세스 추가
                         readyQueue.Add(ps);
-                        RRtime[i] = 0; // timeQuantum과 비교시간 초기화
+                        RRtime[i] = 0; // timeQuantum과 비교할 실행 시간 초기화
 
-                        if (readyQueue.Count != 0)  // 레디큐에 프로세스가 존재할 경우
+                        if (readyQueue.Count != 0)  // Ready Queue에 프로세스가 존재할 경우
                         {
-                            processorList[i].addProcess(readyQueue[0]);  // FCFS 특성으로 인해 레디큐 맨 앞의 프로세스 추가
-                            readyQueue.RemoveAt(0);  // 레디큐에서 삭제
+                            processorList[i].addProcess(readyQueue[0]);  // Ready Queue 맨 앞의 프로세스 추가
+                            readyQueue.RemoveAt(0);  // Ready Queue에서 삭제
                             processorList[i].setRunning(true);  // 프로세서 동작 설정
                         }
-
-                        else  // 레디큐에 프로세스가 없으면
-                        {
-                            processorList[i].addProcess(ps);  // 프로세서 리스트에 프로세스 추가
-                            processorList[i].setRunning(true);  // 대기 상태 설정
-                        }
                     }
-
                 }
 
                 else  // 프로세서가 비어있는 경우
                 {
-                    if (readyQueue.Count != 0) // 레디큐에 프로세스가 존재할 경우
+                    if (readyQueue.Count != 0) // Ready Queue에 프로세스가 존재할 경우
                     {
-                        processorList[i].addProcess(readyQueue[0]);  // 레디큐 맨 앞의 프로세스 추가 
-                        readyQueue.RemoveAt(0);   // 레디큐의 첫 번째 삭제
+                        processorList[i].addProcess(readyQueue[0]);  // Ready Queue 맨 앞의 프로세스 추가 
+                        readyQueue.RemoveAt(0);   // Ready Queue의 첫 번째 삭제
                         processorList[i].setRunning(true);  // 프로세서 동작 설정
                     }
                 }

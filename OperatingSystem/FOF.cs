@@ -50,7 +50,7 @@ namespace OperatingSystem
             else
             {
                 int processIDX = processList.IndexOf(readyQueue[readyIDX]);
-
+                
                 // 2. deadline 지킬 수 있는지
                 if (minDeadline >= processList[processIDX].Bt)
                 {
@@ -85,9 +85,8 @@ namespace OperatingSystem
 
                 // 코어에 따른 bt값 변경
                 if (processorList[i].getType() == "e")
-                {
                     ps.Bt -= 1;  // 1초 실행
-                }
+
 
                 else
                 {
@@ -152,11 +151,6 @@ namespace OperatingSystem
             // deadQueue에 프로세서가 있는 경우
             else
             {
-                for (int i = 0; i < processorList.Length - 1; i++)
-                {
-                    allocation(i);
-                }
-
                 // deadQueue를 처리하는 프로세서의 동작
                 int last = processorList.Length - 1;
 
@@ -229,6 +223,11 @@ namespace OperatingSystem
                 {
                     processorList[last].addProcess(deadQueue[0]);
                     processorList[last].setRunning(true);
+                }
+
+                for (int i = 0; i < processorList.Length - 1; i++)
+                {
+                    allocation(i);
                 }
             }
 

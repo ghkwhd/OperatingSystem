@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Timers;
+
 
 namespace OperatingSystem
 {
     class FCFS
     {
-
         static List<Process> processList = new List<Process>();
         static List<Process> readyQueue = new List<Process>();
         static List<Process> processCopyList = new List<Process>();
         static Processor[] processorList = new Processor[4];
-
 
         public FCFS(List<Process> psList, List<Process> psCopyList, List<Process> readyQ, Processor[] processors)
         {
@@ -53,8 +51,6 @@ namespace OperatingSystem
                             ps.Bt -= 2; // 2배 실행
                     }
                 
-                    
-
                     if (ps.Bt == 0)  // 실행이 끝났을 때
                     {
                         processCopyList[ps.index].Tt = Form1.time - ps.At;
